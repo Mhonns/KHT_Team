@@ -110,10 +110,13 @@
     });
 
     var singleMarker = L.marker([18.7370, 97.8722], { icon: myIcon, draggable: false});
-    var popup = singleMarker.bindPopup('This is Maehongson ' + singleMarker.getLatLng()).openPopup()
-    popup.addTo(map)
+    var popup1 = singleMarker.bindPopup('This is Maehongson ' + singleMarker.getLatLng().toString()).openPopup()
+    popup1.addTo(map)
 
-    var secondMarker = L.marker([19.7370, 96.8722], { icon: myIcon, draggable: false});
+    var Ban_Mae_Kong_Pae_Marker = L.marker([18.565066, 98.116619], { icon: myIcon, draggable: false});
+    var popup2 = Ban_Mae_Kong_Pae_Marker.bindPopup('This is Ban Mae Kong Pae ' + Ban_Mae_Kong_Pae_Marker.getLatLng().toString()).openPopup()
+    popup2.addTo(map)
+
 
     console.log(singleMarker.toGeoJSON())
 
@@ -121,12 +124,10 @@
     /* ==========================================
                         GEOJSON
     =============================================*/
-    var poinData = L.geoJSON(pointJson).addTo(map)
-    var lineData = L.geoJSON(lineJson).addTo(map)
+    // var poinData = L.geoJSON(pointJson).addTo(map)
+    // var lineData = L.geoJSON(lineJson).addTo(map)
     var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     var waterline = L.geoJSON(waterlinedata).addTo(map)
-    // var road = L.geoJSON(roaddata).addTo(map)
-
     var road = L.geoJSON(roaddata, {
         onEachFeature: function(feature, layer) {
         //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
@@ -137,16 +138,24 @@
         }
     }).addTo(map)
 
-    var polygonData = L.geoJSON(polygonJson, {
-        onEachFeature: function(feature, layer) {
-            layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
-        },
-        /*style: {
-            fillColor: 'red',
-            fillOpacity: 1,
-            color: '#c0c0c0',
-        }*/
-    }).addTo(map)
+    // var polygonData = L.geoJSON(polygonJson, {
+    //     onEachFeature: function(feature, layer) {
+    //         layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
+    //     },
+    //     /*style: {
+    //         fillColor: 'red',
+    //         fillOpacity: 1,
+    //         color: '#c0c0c0',
+    //     }*/
+    // }).addTo(map)
+
+
+    // Create a layer group for markers
+    var markersLayerGroup = L.layerGroup([singleMarker, Ban_Mae_Kong_Pae_Marker]);
+
+    // Create a layer group for GeoJSON data
+    var geoJSONLayerGroup = L.layerGroup([hotdogcat, waterline, road]);
+
 
 
     
@@ -162,14 +171,8 @@
     };
 
     var overlayMaps = {
-        "First Marker": singleMarker,
-        'Second Marker': secondMarker,
-        'Point Data': poinData,
-        'Line Data': lineData,
-        'Polygon Data': polygonData,
-        'Maehongson' : hotdogcat,
-        'Waterline': waterline,
-        'Road': road
+        "Markers": markersLayerGroup,
+        'GeoJSON Data': geoJSONLayerGroup,
 
         // 'nexrad': nexrad
     };

@@ -1,0 +1,39 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.circle-container{
+    display: flex;
+    justify-content: space-around;
+}
+.circle{
+
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    background-color: blanchedalmond;
+    margin: auto;
+    padding: auto;
+    text-align: center; /* Center the text inside the circle */
+    line-height: 350px; /* Vertically center the text */   
+    transition: transform 0.3s ease-in-out;
+}
+.circle:hover {
+    transform: scale(1.1); /* Apply the scale transformation on hover */
+}
+h2{
+    /*make it center*/
+    position: relative;
+    top: 10%;
+}
+h3{
+    /*make it center*/
+    position: relative;
+    top: 20%;
+}
+
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+}

@@ -8,23 +8,63 @@ body{
 }
 .circle{
 
-    height: 350px;
+    height: 250px;
     width: 350px;
-    border-radius: 50%;
+    border-radius: 0%;
+    background-color: blanchedalmond;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 50%;
+    text-align: center; /* Center the text inside the circle */
+    line-height: 350px; /* Vertically center the text */   
+    transition: transform 0.3s ease-in-out;
+}
+
+.circle3{
+
+    height: 250px;
+    width: 350px;
+    border-radius: 0%;
+    background-color: blanchedalmond;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 50%;
+    text-align: center; /* Center the text inside the circle */
+    line-height: 350px; /* Vertically center the text */   
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.circle2{
+
+    height: 350px;
+    width: 1015px;
+    border-radius: 0%;
     background-color: blanchedalmond;
     margin: auto;
     padding: auto;
     text-align: center; /* Center the text inside the circle */
     line-height: 350px; /* Vertically center the text */   
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 .circle:hover {
     transform: scale(1.1); /* Apply the scale transformation on hover */
 }
+.circle2:hover {
+    transform: scale(1.1); /* Apply the scale transformation on hover */
+}
+.circle3:hover {
+    transform: scale(1.1); /* Apply the scale transformation on hover */
+}
+
 h2{
     /*make it center*/
     position: relative;
-    top: 10%;
+    top: 20%;
 }
 h3{
     /*make it center*/

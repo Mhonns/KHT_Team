@@ -80,6 +80,7 @@
 <script src = "./data/hotdogcat.js"></script>
 <script src = "./data/waterline.js"></script>
 <script src = "./data/"></script>
+<script src = "./data/District_MAE_HONG_SON.js"></script>
 
 
 <script>
@@ -162,6 +163,7 @@
     =============================================*/
     // var poinData = L.geoJSON(pointJson).addTo(map)
     // var lineData = L.geoJSON(lineJson).addTo(map)
+    var district = L.geoJSON(district).addTo(map)
     var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     var waterline = L.geoJSON(waterlinedata).addTo(map)
     var water = L.geoJSON(waterdata, {

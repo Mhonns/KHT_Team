@@ -16,12 +16,12 @@
         }
 
         #map {
-            width: 70%;
+            width: 75%;
             height: 100vh;
         }
 
         #widget {
-            width: 30%;
+            width: 25%;
             height: 100vh;
             position: absolute;
             right: 0;
@@ -43,7 +43,7 @@
         }
 
         #toggle-button {
-            position: absolute;
+            position: fixed;
             right: 30%;
             top: 10px;
         }
@@ -56,11 +56,14 @@
     </div>
     <div id="widget">
         <!-- Content of the widget goes here -->
-        <h1>The village name</h1>
-        <h2>village detail</h2>
-        <h3>detail</h3>
+        <div style="padding-left: 5%;">
+            <h1>The village name</h1>
+            <h2>village detail</h2>
+            <h3>detail</h3>
+        </div>
     </div>
     <button id="toggle-button">Toggle Widget</button>
+    
 
     <script>
         document.getElementById('toggle-button').addEventListener('click', function() {

@@ -31,39 +31,39 @@
 </head>
 
 <body>
-    <div class="page-container">
-        <nav class="nav">
-          <div class="nav__border"></div>
-          <a href="#" class="nav__link">
-            <div class="nav__icon-container">
-              <i class="material-icons">dashboard</i>
-            </div>
-            <span class="nav__label">Dashboard</span>
-          </a>
-          <a href="#" class="nav__link">
-            <div class="nav__icon-container">
-              <i class="material-icons">alarm</i>
-            </div>
-            <span class="nav__label">Alerts</span>
-          </a>
-          <a href="#" class="nav__link">
-            <div class="nav__icon-container">
-              <i class="material-icons">extension</i>
-            </div>
-            <span class="nav__label">Plugins</span>
-          </a>
-          <a href="#" class="nav__link">
-            <div class="nav__icon-container">
-              <i class="material-icons">power_settings_new</i>
-            </div>
-            <span class="nav__label">Log Out</span>
-          </a>
-        </nav>
-        <main class="main">
-        </main>
-      </div>
     <div id="map">
-    <div class="leaflet-control coordinate"></div>
+        <div class="page-container">
+            <nav class="nav">
+              <div class="nav__border"></div>
+              <a href="#" class="nav__link">
+                <div class="nav__icon-container">
+                  <i class="material-icons">dashboard</i>
+                </div>
+                <span class="nav__label">Dashboard</span>
+              </a>
+              <a href="#" class="nav__link">
+                <div class="nav__icon-container">
+                  <i class="material-icons">alarm</i>
+                </div>
+                <span class="nav__label">Alerts</span>
+              </a>
+              <a href="#" class="nav__link">
+                <div class="nav__icon-container">
+                  <i class="material-icons">extension</i>
+                </div>
+                <span class="nav__label">Plugins</span>
+              </a>
+              <a href="#" class="nav__link">
+                <div class="nav__icon-container">
+                  <i class="material-icons">power_settings_new</i>
+                </div>
+                <span class="nav__label">Log Out</span>
+              </a>
+            </nav>
+            <main class="main">
+            </main>
+          </div>
+        <div class="leaflet-control coordinate"></div>
     </div>
 </body>
 
@@ -78,7 +78,7 @@
 <script src = "./data/waterline.js"></script>
 <script src = "./data/THA_roads.js"></script>
 <script src = "./data/District_MAE_HONG_SON.js"></script>
-
+<script src = "./data/village_point.js"></script>
 
 <script>
     // Navigation
@@ -175,6 +175,7 @@
     // var poinData = L.geoJSON(pointJson).addTo(map)
     // var lineData = L.geoJSON(lineJson).addTo(map)
     var district = L.geoJSON(district).addTo(map)
+    var village = L.geoJSON(village).addTo(map)
     // var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     // var waterline = L.geoJSON(waterlinedata).addTo(map)
     var road = L.geoJSON(roaddata, {
@@ -203,7 +204,7 @@
     var markersLayerGroup = L.layerGroup([singleMarker, Ban_Mae_Kong_Pae_Marker]);
 
     // Create a layer group for GeoJSON data
-    var geoJSONLayerGroup = L.layerGroup([district]);
+    var geoJSONLayerGroup = L.layerGroup([district, village]);
 
 
 

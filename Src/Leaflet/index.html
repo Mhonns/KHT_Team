@@ -79,6 +79,7 @@
 <script src = "./data/THA_roads.js"></script>
 <script src = "./data/District_MAE_HONG_SON.js"></script>
 <script src = "./data/village_point.js"></script>
+<script src = "./data/subdistrict_area.js"></script>
 
 <script>
     // Navigation
@@ -176,17 +177,23 @@
     // var lineData = L.geoJSON(lineJson).addTo(map)
     var district = L.geoJSON(district).addTo(map)
     var village = L.geoJSON(village).addTo(map)
+    var subdistrict = L.geoJSON(subdistrict, {
+      style: {
+        color: 'red',
+        opacity: 0.125,
+      }
+    }).addTo(map)
     // var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     // var waterline = L.geoJSON(waterlinedata).addTo(map)
-    var road = L.geoJSON(roaddata, {
-        onEachFeature: function(feature, layer) {
-        //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
-        },
-        style: {
-            color: 'red',
-            opacity: 0.5,
-        }
-    }).addTo(map)
+    // var road = L.geoJSON(roaddata, {
+    //     onEachFeature: function(feature, layer) {
+    //     //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
+    //     },
+    //     style: {
+    //         color: 'red',
+    //         opacity: 0.5,
+    //     }
+    // }).addTo(map)
 
     // var polygonData = L.geoJSON(polygonJson, {
     //     onEachFeature: function(feature, layer) {
@@ -201,10 +208,10 @@
 
 
     // Create a layer group for markers
-    var markersLayerGroup = L.layerGroup([singleMarker, Ban_Mae_Kong_Pae_Marker]);
+    var markersLayerGroup = L.layerGroup([singleMarker, Ban_Mae_Kong_Pae_Marker,  village]);
 
     // Create a layer group for GeoJSON data
-    var geoJSONLayerGroup = L.layerGroup([district, village]);
+    var geoJSONLayerGroup = L.layerGroup([subdistrict]);
 
 
 

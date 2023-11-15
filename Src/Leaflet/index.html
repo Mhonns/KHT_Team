@@ -9,7 +9,6 @@
     <!-- leaflet css -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="dog.css">
 
     <style>
         body {
@@ -31,40 +30,23 @@
 </head>
 
 <body>
-    <div id="map">
-        <div class="page-container">
-            <nav class="nav">
-              <div class="nav__border"></div>
-              <a href="#" class="nav__link">
-                <div class="nav__icon-container">
-                  <i class="material-icons">dashboard</i>
-                </div>
-                <span class="nav__label">Dashboard</span>
-              </a>
-              <a href="#" class="nav__link">
-                <div class="nav__icon-container">
-                  <i class="material-icons">alarm</i>
-                </div>
-                <span class="nav__label">Alerts</span>
-              </a>
-              <a href="#" class="nav__link">
-                <div class="nav__icon-container">
-                  <i class="material-icons">extension</i>
-                </div>
-                <span class="nav__label">Plugins</span>
-              </a>
-              <a href="#" class="nav__link">
-                <div class="nav__icon-container">
-                  <i class="material-icons">power_settings_new</i>
-                </div>
-                <span class="nav__label">Log Out</span>
-              </a>
-            </nav>
-            <main class="main">
-            </main>
-          </div>
-        <div class="leaflet-control coordinate"></div>
-    </div>
+  <div id="map">
+      <div class="leaflet-control coordinate"></div>
+  </div>
+  <div id="widget">
+      <!-- Content of the widget goes here -->
+  </div>
+  <button id="toggle-button">Toggle Widget</button>
+  <script>
+      document.getElementById('toggle-button').addEventListener('click', function() {
+      var widget = document.getElementById('widget');
+      if (widget.style.display !== 'none') {
+          widget.style.display = 'none';
+      } else {
+          widget.style.display = 'block';
+      }
+  });
+  </script>
 </body>
 
 </html>
@@ -73,28 +55,30 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src = "./data/point.js"></script>
 <script src = "./data/line.js"></script>
-<script src = "./data/polygon.js"></script>
+<!-- <script src = "./data/polygon.js"></script> -->
 <script src = "./data/hotdogcat.js"></script>
 <script src = "./data/waterline.js"></script>
 <script src = "./data/THA_roads.js"></script>
 <script src = "./data/District_MAE_HONG_SON.js"></script>
 <script src = "./data/village_point.js"></script>
+<script src = "./data/subdistrict_area.js"></script>
+<script src = "./data/Village_data.js"></script>
 
 <script>
     // Navigation
-    {
-      const collapsedClass = "nav--collapsed";
-      const lsKey = "navCollapsed";
-      const nav = document.querySelector(".nav");
-      const navBorder = nav.querySelector(".nav__border");
-      if (localStorage.getItem(lsKey) === "true") {
-        nav.classList.add(collapsedClass);
-      }
-      navBorder.addEventListener("click", () => {
-        nav.classList.toggle(collapsedClass);
-        localStorage.setItem(lsKey, nav.classList.contains(collapsedClass));
-      });
-    }
+    // {
+    //   const collapsedClass = "nav--collapsed";
+    //   const lsKey = "navCollapsed";
+    //   const nav = document.querySelector(".nav");
+    //   const navBorder = nav.querySelector(".nav__border");
+    //   if (localStorage.getItem(lsKey) === "true") {
+    //     nav.classList.add(collapsedClass);
+    //   }
+    //   navBorder.addEventListener("click", () => {
+    //     nav.classList.toggle(collapsedClass);
+    //     localStorage.setItem(lsKey, nav.classList.contains(collapsedClass));
+    //   });
+    // }
     // Map initialization
     var map = L.map('map').setView([18.7370, 97.8722], 9);
     
@@ -157,6 +141,8 @@
     iconSize: [50, 50],
     });
 
+    
+    
     var singleMarker = L.marker([18.7370, 97.8722], { icon: myIcon, draggable: false});
     var popup1 = singleMarker.bindPopup('This is Maehongson ' + singleMarker.getLatLng().toString()).openPopup()
     popup1.addTo(map)
@@ -176,17 +162,28 @@
     // var lineData = L.geoJSON(lineJson).addTo(map)
     var district = L.geoJSON(district).addTo(map)
     var village = L.geoJSON(village).addTo(map)
+    var VillageData = L.geoJSON(VillageData, {
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties["Village Name"]);
+    }
+}).addTo(map);
+    var subdistrict = L.geoJSON(subdistrict, {
+      style: {
+        color: 'red',
+        opacity: 0.125,
+      }
+    }).addTo(map)
     // var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     // var waterline = L.geoJSON(waterlinedata).addTo(map)
-    var road = L.geoJSON(roaddata, {
-        onEachFeature: function(feature, layer) {
-        //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
-        },
-        style: {
-            color: 'red',
-            opacity: 0.5,
-        }
-    }).addTo(map)
+    // var road = L.geoJSON(roaddata, {
+    //     onEachFeature: function(feature, layer) {
+    //     //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
+    //     },
+    //     style: {
+    //         color: 'red',
+    //         opacity: 0.5,
+    //     }
+    // }).addTo(map)
 
     // var polygonData = L.geoJSON(polygonJson, {
     //     onEachFeature: function(feature, layer) {
@@ -201,10 +198,10 @@
 
 
     // Create a layer group for markers
-    var markersLayerGroup = L.layerGroup([singleMarker, Ban_Mae_Kong_Pae_Marker]);
+    var markersLayerGroup = L.layerGroup([singleMarker, Ban_Mae_Kong_Pae_Marker,  village]);
 
     // Create a layer group for GeoJSON data
-    var geoJSONLayerGroup = L.layerGroup([district, village]);
+    var geoJSONLayerGroup = L.layerGroup([subdistrict, VillageData]);
 
 
 

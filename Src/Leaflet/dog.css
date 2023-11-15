@@ -15,18 +15,18 @@ body {
   display: flex;
 }
 
-/* .main {
+.main {
   height: inherit;
   padding: 0;
-  padding-left: var(--nav-border-width);
+  padding-left: 5%;
   overflow-y: auto;
-} */
+}
 
 .nav {
   width: 22%;
   height: inherit;
   position: relative;
-  /* background-color: #eeeeee; */
+  background: none; /* Remove background color */
   transition: width 0.2s;
   flex-shrink: 0;
 }
@@ -66,7 +66,7 @@ body {
 .nav__border {
   position: absolute;
   left: 100%;
-  top: 50;
+  top: 0; /* Adjusted from top: 50 */
   width: var(--nav-border-width);
   height: inherit;
   background-color: #dddddd;
@@ -76,18 +76,18 @@ body {
 
 /* Add these styles to your existing CSS */
 .nav__label h1 {
-  font-size: 24px; /* Adjust the font size as needed */
-  margin-left: 5%; /* Remove default margin */
+  font-size: 24px;
+  margin-left: 0%;
 }
 
 .nav__label h2 {
-  font-size: 18px; /* Adjust the font size as needed */
-  margin-left: 10%; /* Remove default margin */
+  font-size: 18px;
+  margin-left: 0%;
 }
 
-.nav_label h3{
-  font-size: 20px; /* Adjust the font size as needed */
-  margin-left: 30%; /* Remove default margin */
+.nav__label h3 {
+  font-size: 20px;
+  margin-left: 1%;
 }
 
 .nav__border:hover {

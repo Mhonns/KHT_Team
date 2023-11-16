@@ -47,7 +47,9 @@
               </div>
             </a>
             <a href="#" class="nav-link">
-              <h1>The village name</h1>
+              <h1>
+                <p id="village-name"></p>
+              </h1>
             </a>
             <a href="#" class="nav-link">
               <h2>Village detail</h2>
@@ -95,6 +97,17 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZEENe/1pzoEVhF5K59JQ5N"
     crossorigin="anonymous"></script>
+  <script>
+    // Add an event listener for the storage event
+    window.addEventListener('storage', function (e) {
+    // Check if the changed key is 'village-name'
+    if (e.key === 'village-name') {
+        // Update the content in the widget
+        const villageName = sessionStorage.getItem('village-name');
+        document.getElementById("village-name").innerHTML = villageName;
+    }
+});
+  </script>
 </body>
 
 </html>

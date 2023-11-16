@@ -30,6 +30,13 @@ file_path = 'access_token.txt'
 with open(file_path, 'r') as file:
     authen_code = file.read().strip()
 
+# overwrite file
+with open(file_path, 'w') as file:
+    pass
+
+# all out put files location
+output_files = ['Villages.json', 'Projects_cases.json', '']
+
 def get_access_token(code):
     token_url = "https://accounts.zoho.com/oauth/v2/token" # https://accounts.zoho.eu
     data = {

@@ -23,12 +23,26 @@ body {
 }
 
 .nav {
-  width: 22%;
-  height: inherit;
-  position: relative;
-  background: none; /* Remove background color */
-  transition: width 0.2s;
-  flex-shrink: 0;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  transition: width 0.3s;
+}
+
+.main {
+  margin-left: 250px;
+  transition: margin-left 0.3s;
+}
+
+.nav--collapsed {
+  width: 0;
+}
+
+.main--expanded {
+  margin-left: 0;
 }
 
 .nav--collapsed {

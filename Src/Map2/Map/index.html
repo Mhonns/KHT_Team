@@ -194,7 +194,7 @@
     onEachFeature: function (feature, layer) {
         layer.bindPopup(feature.properties["Village Name"]);
 
-        layer.on('click', function () {
+        layer.on('click', function (e) {
             // Reset the style of the previously clicked layer
             resetClickedLayer();
 
@@ -206,6 +206,10 @@
             
             // Store the currently clicked layer
             clickedLayer = layer;
+
+            const villageName = feature.properties["Village Name"];
+
+            sessionStorage.setItem('village-name', villageName);
         });
     }
 }).addTo(map);

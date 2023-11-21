@@ -53,13 +53,13 @@
 <script src = "./data/District_MAE_HONG_SON.js"></script>
 <script src = "./data/village_point.js"></script>
 <script src = "./data/subdistrict_area.js"></script>
-<script src = "./data/Village_data.js"></script>
+<script src = "./data/Village_Details.js"></script>
 <script src = "./data/School.js"></script>
 <script src = "./data/amenity_hospital.js"></script>
 
 <script>
 
-    var map = L.map('map').setView([18.7370, 97.8722], 9);
+    var map = L.map('map').setView([18.7370, 97.8722], 9.45);
     
     
 
@@ -210,6 +210,12 @@
             const villageName = feature.properties["Village Name"];
 
             sessionStorage.setItem('village-name', villageName);
+
+            const villagedetail = feature.properties["Road Conditions"];
+
+            sessionStorage.setItem('village-detail', villagedetail);
+
+            
         });
     }
 }).addTo(map);

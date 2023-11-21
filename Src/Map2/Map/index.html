@@ -276,7 +276,29 @@ function resetClickedLayer() {
     var GeographicLayer = L.layerGroup([road])
 
 
+// Define a new control
+var RecenterControl = L.Control.extend({
+    options: {
+        position: 'topleft' // Position of the control
+    },
 
+    onAdd: function (map) {
+        // Create a button, set the text and type to 'button'
+        var button = L.DomUtil.create('button');
+        button.innerHTML = 'Recenter';
+        button.type = 'button';
+
+        // Attach the onclick event to the button
+        button.onclick = function () {
+            map.setView([18.7370, 97.8722], 9.45); // Recenter the map
+        }
+
+        return button;
+    }
+});
+
+// Add the control to the map
+new RecenterControl().addTo(map);
     
     /* ==========================================
                     LAYER CONTROL

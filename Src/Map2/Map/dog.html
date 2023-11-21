@@ -75,6 +75,11 @@
               </h3>
             </a>
             <a href="#" class="nav-link">
+              <h3>
+                <p id="project-name"></p>
+              </h3>
+            </a>
+            <a href="#" class="nav-link">
               <h3> </h3>
             </a>
             <a href="#" class="nav-link">
@@ -135,6 +140,10 @@
     if (e.key === 'distance-mathayom') {
       const distanceMathayom = sessionStorage.getItem('distance-mathayom');
       document.getElementById("distance-mathayom").innerHTML = "Distance to Mathayom: " + distanceMathayom + " km";
+    }
+    if (e.key === 'project-name') {
+      const projectName = sessionStorage.getItem('project-name');
+      document.getElementById("project-name").innerHTML = "Project Name: " + projectName;
     }
 });
   </script>

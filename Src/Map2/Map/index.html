@@ -181,51 +181,62 @@
   }
 }).addTo(map);
     var VillageData = L.geoJSON(VillageData, {
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, {
-            radius: 8,
-            fillColor: 'blue',
-            color: 'white',
-            weight: 2,
-            opacity: 1,
-            fillOpacity: 0.7
-        });
-    },
-    onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties["Village Name"]);
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 8,
+                fillColor: 'blue',
+                color: 'white',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.7
+            });
+        },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties["Village Name"]);
 
-        layer.on('click', function (e) {
-            // Reset the style of the previously clicked layer
-            resetClickedLayer();
+            layer.on('click', function (e) {
+                // Reset the style of the previously clicked layer
+                resetClickedLayer();
 
-            // Change the marker color to red
-            layer.setStyle({ fillColor: 'red', color: 'white' });
+                // Change the marker color to red
+                layer.setStyle({ fillColor: 'red', color: 'white' });
 
-            // Bring the clicked layer to the front
-            layer.bringToFront();
-            
-            // Store the currently clicked layer
-            clickedLayer = layer;
+                // Bring the clicked layer to the front
+                layer.bringToFront();
+                
+                // Store the currently clicked layer
+                clickedLayer = layer;
 
-            const villageName = feature.properties["Village Name"];
+                const villageName = feature.properties["Village Name"];
+                sessionStorage.setItem('village-name', villageName);
 
-            sessionStorage.setItem('village-name', villageName);
+                const roadQuality = feature.properties["Road Conditions"];
+                sessionStorage.setItem('road-quality', roadQuality);
 
-            const roadQuality = feature.properties["Road Conditions"];
+                const distancePratom = feature.properties["Distance to Pratom (km)"];
+                sessionStorage.setItem('distance-pratom', distancePratom);
 
-            sessionStorage.setItem('road-quality', roadQuality);
+                const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
+                sessionStorage.setItem('distance-mathayom', distanceMathayom);
 
-            const distancePratom = feature.properties["Distance to Pratom (km)"];
+                const coordinates = e.latlng;
+                sessionStorage.setItem('coordinates', JSON.stringify(coordinates));
 
-            sessionStorage.setItem('distance-pratom', distancePratom);
+                // Fetch the distance data
+                fetch(`http://103.153.118.77:2546/?operation=get-distance&coordinates=${JSON.stringify(coordinates)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response data
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        // Handle the error
+                        console.error('Error:', error);
+                    });
+            });
+        }
+    }).addTo(map);
 
-            const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
-
-            sessionStorage.setItem('distance-mathayom', distanceMathayom);
-            
-        });
-    }
-}).addTo(map);
 // Variable to store the currently clicked layer
 var clickedLayer;
 

@@ -26,7 +26,7 @@ var VillageData = {
     "Distance to Health Centre (km)":11,
     "Distance to Mathayom (km)":4,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -110,7 +110,7 @@ var VillageData = {
     "Distance to Health Centre (km)":9,
     "Distance to Mathayom (km)":40,
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -138,7 +138,7 @@ var VillageData = {
     "Distance to Health Centre (km)":25,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Ulcer, influenza",
-    "Hosted KHT Projects":"School Buses;WASH"
+    "Hosted KHT Projects":"School Buses, WASH"
     }
   },
   {
@@ -166,7 +166,7 @@ var VillageData = {
     "Distance to Health Centre (km)":12,
     "Distance to Mathayom (km)":14,
     "Common Diseases":"-",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -194,7 +194,7 @@ var VillageData = {
     "Distance to Health Centre (km)":3,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Stomach ache, Headache",
-    "Hosted KHT Projects":"Irrigation;School Buses;WASH"
+    "Hosted KHT Projects":"Irrigation, School Buses, WASH"
     }
   },
   {
@@ -222,7 +222,7 @@ var VillageData = {
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -250,7 +250,7 @@ var VillageData = {
     "Distance to Health Centre (km)":14,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses,Further Education Scholarships, WASH"
     }
   },
   {
@@ -278,7 +278,7 @@ var VillageData = {
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":7,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"School Buses;Irrigation;Further Education Scholarships"
+    "Hosted KHT Projects":"School Buses, Irrigation, Further Education Scholarships"
     }
   },
   {
@@ -306,7 +306,7 @@ var VillageData = {
     "Distance to Health Centre (km)":6,
     "Distance to Mathayom (km)":6,
     "Common Diseases":"-",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -334,7 +334,7 @@ var VillageData = {
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":12,
     "Common Diseases":"Flu, Ulcer and headache",
-    "Hosted KHT Projects":"School Buses;School Meals;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, School Meals, Further Education Scholarships, WASH"
     }
   },
   {
@@ -362,7 +362,7 @@ var VillageData = {
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, blood pressure, diarrhea",
-    "Hosted KHT Projects":"School Meals;WASH"
+    "Hosted KHT Projects":"School Meals, WASH"
     }
   },
   {
@@ -390,7 +390,7 @@ var VillageData = {
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":0,
     "Common Diseases":"Dengue fever",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -418,7 +418,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"School Meals;WASH"
+    "Hosted KHT Projects":"School Meals, WASH"
     }
   },
   {
@@ -446,7 +446,7 @@ var VillageData = {
     "Distance to Health Centre (km)":6,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Irrigation;School Buses;School Meals;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, School Buses, School Meals, Further Education Scholarships, WASH"
     }
   },
   {
@@ -474,7 +474,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"ulcer, high blood pressure, flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -502,7 +502,7 @@ var VillageData = {
     "Distance to Health Centre (km)":11,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -530,7 +530,7 @@ var VillageData = {
     "Distance to Health Centre (km)":27,
     "Distance to Mathayom (km)":28,
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -558,7 +558,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -586,7 +586,7 @@ var VillageData = {
     "Distance to Health Centre (km)":6,
     "Distance to Mathayom (km)":65,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -614,7 +614,7 @@ var VillageData = {
     "Distance to Health Centre (km)":1,
     "Distance to Mathayom (km)":1,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -642,7 +642,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":34,
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"School Meals;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Meals, Further Education Scholarships, WASH"
     }
   },
   {
@@ -698,7 +698,7 @@ var VillageData = {
     "Distance to Health Centre (km)":4,
     "Distance to Mathayom (km)":12,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -726,7 +726,7 @@ var VillageData = {
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":25,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -782,7 +782,7 @@ var VillageData = {
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":0,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -810,7 +810,7 @@ var VillageData = {
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":10,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -838,7 +838,7 @@ var VillageData = {
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":25,
     "Common Diseases":"Stomach, Flu, Skin infection",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -866,7 +866,7 @@ var VillageData = {
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":0,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -894,7 +894,7 @@ var VillageData = {
     "Distance to Health Centre (km)":3,
     "Distance to Mathayom (km)":35,
     "Common Diseases":"15 others affected by illnesses",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -922,7 +922,7 @@ var VillageData = {
     "Distance to Health Centre (km)":3,
     "Distance to Mathayom (km)":23,
     "Common Diseases":"Dengue Fever: 2",
-    "Hosted KHT Projects":"School Buses;Irrigation;WASH"
+    "Hosted KHT Projects":"School Buses, Irrigation, WASH"
     }
   },
   {
@@ -978,7 +978,7 @@ var VillageData = {
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":15,
     "Common Diseases":"Hepatitis/ Parasites",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1006,7 +1006,7 @@ var VillageData = {
     "Distance to Health Centre (km)":20,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1034,7 +1034,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Diarrhea",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1090,7 +1090,7 @@ var VillageData = {
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer and cancer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1174,7 +1174,7 @@ var VillageData = {
     "Distance to Health Centre (km)":13,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1202,7 +1202,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, Prostate, Stones (stone in bladder because of unclean water)",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1230,7 +1230,7 @@ var VillageData = {
     "Distance to Health Centre (km)":18,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Stomach problem, Skin infection",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1258,7 +1258,7 @@ var VillageData = {
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":10,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -1286,7 +1286,7 @@ var VillageData = {
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1314,7 +1314,7 @@ var VillageData = {
     "Distance to Health Centre (km)":14,
     "Distance to Mathayom (km)":36,
     "Common Diseases":"Cholera",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -1426,7 +1426,7 @@ var VillageData = {
     "Distance to Health Centre (km)":13,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, Stomach",
-    "Hosted KHT Projects":"School Buses;WASH"
+    "Hosted KHT Projects":"School Buses, WASH"
     }
   },
   {
@@ -1482,7 +1482,7 @@ var VillageData = {
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1762,7 +1762,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":30,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1874,7 +1874,7 @@ var VillageData = {
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer and skin infection",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -2238,7 +2238,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":40,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -2574,7 +2574,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"ulcer, high blood pressure, flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -2602,7 +2602,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -2686,7 +2686,7 @@ var VillageData = {
     "Distance to Health Centre (km)":22,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"diarrhea",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -2770,7 +2770,7 @@ var VillageData = {
     "Distance to Health Centre (km)":18,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -2826,7 +2826,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":12,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -2966,7 +2966,7 @@ var VillageData = {
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -2994,7 +2994,7 @@ var VillageData = {
     "Distance to Health Centre (km)":4,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3022,7 +3022,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3162,7 +3162,7 @@ var VillageData = {
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, blood pressure",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3190,7 +3190,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":90,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3218,7 +3218,7 @@ var VillageData = {
     "Distance to Health Centre (km)":12,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3246,7 +3246,7 @@ var VillageData = {
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"Stomach, Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3498,7 +3498,7 @@ var VillageData = {
     "Distance to Health Centre (km)":15,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3526,7 +3526,7 @@ var VillageData = {
     "Distance to Health Centre (km)":20,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3582,7 +3582,7 @@ var VillageData = {
     "Distance to Health Centre (km)":3,
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3638,7 +3638,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":4,
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3750,7 +3750,7 @@ var VillageData = {
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":4,
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3862,7 +3862,7 @@ var VillageData = {
     "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":"-",
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3974,7 +3974,7 @@ var VillageData = {
     "Distance to Health Centre (km)":6,
     "Distance to Mathayom (km)":20,
     "Common Diseases":"-",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -4002,7 +4002,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":7,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {

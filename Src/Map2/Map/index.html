@@ -222,6 +222,10 @@
             const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
 
             sessionStorage.setItem('distance-mathayom', distanceMathayom);
+
+            const projectName = feature.properties["Hosted KHT Projects"]
+
+            sessionStorage.setItem('project-name', projectName);
             
         });
     }

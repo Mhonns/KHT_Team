@@ -211,10 +211,17 @@
 
             sessionStorage.setItem('village-name', villageName);
 
-            const villagedetail = feature.properties["Road Conditions"];
+            const roadQuality = feature.properties["Road Conditions"];
 
-            sessionStorage.setItem('village-detail', villagedetail);
+            sessionStorage.setItem('road-quality', roadQuality);
 
+            const distancePratom = feature.properties["Distance to Pratom (km)"];
+
+            sessionStorage.setItem('distance-pratom', distancePratom);
+
+            const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
+
+            sessionStorage.setItem('distance-mathayom', distanceMathayom);
             
         });
     }

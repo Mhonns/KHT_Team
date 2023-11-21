@@ -61,17 +61,18 @@
             </a>
             <a href="#" class="nav-link">
               <h2>
-                <p id="village-detail"></p>
+                <p id="road-quality"></p>
               </h2>
             </a>
             <a href="#" class="nav-link">
-              <h3>District/Subdistrict</h3>
+              <h3>
+                <p id="distance-pratom"></p>
+              </h3>
             </a>
             <a href="#" class="nav-link">
-              <h3>Distance to pratom</h3>
-            </a>
-            <a href="#" class="nav-link">
-              <h3>Distance to Mathayom</h3>
+              <h3>
+                <p id="distance-mathayom"></p>
+              </h3>
             </a>
             <a href="#" class="nav-link">
               <h3> </h3>
@@ -110,7 +111,9 @@
   <script>
     window.onload = function() {
     document.getElementById('village-name').innerHTML = 'Village Name';
-    document.getElementById('village-detail').innerHTML = 'Village Detail';
+    document.getElementById('road-quality').innerHTML = 'Road Quality';
+    document.getElementById('distance-pratom').innerHTML = 'Distance to Pratom';
+    document.getElementById('distance-mathayom').innerHTML = 'Distance to Mathayom';
 }
     // Add an event listener for the storage event
     window.addEventListener('storage', function (e) {
@@ -120,10 +123,18 @@
         const villageName = sessionStorage.getItem('village-name');
         document.getElementById("village-name").innerHTML = villageName;
     }
-    if (e.key === 'village-detail') {
+    if (e.key === 'road-quality') {
         // Update the content in the widget
-        const villageName = sessionStorage.getItem('village-detail');
-        document.getElementById("village-detail").innerHTML = villageName;
+        const roadQuality = sessionStorage.getItem('road-quality');
+        document.getElementById("road-quality").innerHTML = "Road quality: " + roadQuality;
+    }
+    if (e.key === 'distance-pratom') {
+      const distancePratom = sessionStorage.getItem('distance-pratom');
+      document.getElementById("distance-pratom").innerHTML = "Distance to Pratom: " + distancePratom + " km";
+    }
+    if (e.key === 'distance-mathayom') {
+      const distanceMathayom = sessionStorage.getItem('distance-mathayom');
+      document.getElementById("distance-mathayom").innerHTML = "Distance to Mathayom: " + distanceMathayom + " km";
     }
 });
   </script>

@@ -38,7 +38,7 @@
 
 </head>
 
-<script src="Village_Details.js"></script>
+
 
 <body>
 
@@ -91,6 +91,43 @@
                 
                 So far, our health projects have provided 55,643 Karen people with improved WASH conditions through installing over 200 water systems and building or repairing 3,150 latrines!</h6></Details></h3>
             </a>
+            <div style="width: 300px; height: 300px;">
+              <!-- Create a canvas element where the chart will be rendered -->
+              <canvas id="myChart"></canvas>
+          </div>
+          
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          
+          <script>
+            
+            const adultfemale = sessionStorage.getItem('adult-female');
+            const adultmale = sessionStorage.getItem('adult-male');
+          
+            // Define your data
+            var labels = ['Red', 'Blue'];
+            var data = [ adultfemale, adultmale
+            ];
+            
+            // Get the canvas element
+            var ctx = document.getElementById('myChart').getContext('2d');
+            
+            // Create the pie chart
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            });
+          </script>
+            <script src="Village_Details.js"></script>
           </div>
         </nav>
       </div>
@@ -116,6 +153,7 @@
     document.getElementById('road-quality').innerHTML = 'Road Quality';
     document.getElementById('distance-pratom').innerHTML = 'Distance to Pratom';
     document.getElementById('distance-mathayom').innerHTML = 'Distance to Mathayom';
+    document.getElementById('project-name').innerHTML = 'Project Name';
 }
     // Add an event listener for the storage event
     window.addEventListener('storage', function (e) {

@@ -15,7 +15,7 @@ var VillageData = {
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":250,
     "% Population Without Enough Rice":60,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":58,
     "Adult Males":130,
     "Adult Females":120,
@@ -26,7 +26,7 @@ var VillageData = {
     "Distance to Health Centre (km)":11,
     "Distance to Mathayom (km)":4,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -96,7 +96,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Pong Lao",
     "Households":46,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":231,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":80,
@@ -110,7 +110,7 @@ var VillageData = {
     "Distance to Health Centre (km)":9,
     "Distance to Mathayom (km)":40,
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -124,7 +124,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Sapei Nua",
     "Households":70,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":300,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":99,
@@ -133,12 +133,12 @@ var VillageData = {
     "Adult Females":100,
     "Distance to Hospital (km)":25,
     "Nearest Health Centre":"Khun Yuam",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":38,
     "Distance to Health Centre (km)":25,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Ulcer, influenza",
-    "Hosted KHT Projects":"School Buses;WASH"
+    "Hosted KHT Projects":"School Buses, WASH"
     }
   },
   {
@@ -152,7 +152,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Sapei Tai",
     "Households":88,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":395,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":114,
@@ -161,12 +161,12 @@ var VillageData = {
     "Adult Females":135,
     "Distance to Hospital (km)":14,
     "Nearest Health Centre":"Ban Mae Su Rin",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":10,
     "Distance to Health Centre (km)":12,
     "Distance to Mathayom (km)":14,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -180,21 +180,21 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Oompai Tai",
     "Households":88,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":397,
     "% Population Without Enough Rice":20,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":54,
-    "Adult Males":null,
-    "Adult Females":null,
+    "Adult Males":"-",
+    "Adult Females":"-",
     "Distance to Hospital (km)":54,
     "Nearest Health Centre":"Ban Mae To",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
     "Distance to Health Centre (km)":3,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Stomach ache, Headache",
-    "Hosted KHT Projects":"Irrigation;School Buses;WASH"
+    "Hosted KHT Projects":"Irrigation, School Buses, WASH"
     }
   },
   {
@@ -218,11 +218,11 @@ var VillageData = {
     "Distance to Hospital (km)":30,
     "Nearest Health Centre":"Huay Pong",
     "Distance to Pratom (km)":11,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":8,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -236,7 +236,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Kham Suk",
     "Households":11,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":84,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":37,
@@ -245,12 +245,12 @@ var VillageData = {
     "Adult Females":24,
     "Distance to Hospital (km)":14,
     "Nearest Health Centre":"Khun Yuam",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":14,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"School Buses,Further Education Scholarships, WASH"
     }
   },
   {
@@ -267,18 +267,18 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":305,
     "% Population Without Enough Rice":60,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":7,
     "Adult Males":153,
     "Adult Females":152,
     "Distance to Hospital (km)":7,
     "Nearest Health Centre":"Ban Pang Tong",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":7,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"School Buses;Irrigation;Further Education Scholarships"
+    "Hosted KHT Projects":"School Buses, Irrigation, Further Education Scholarships"
     }
   },
   {
@@ -292,21 +292,21 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Ku Pa",
     "Households":33,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":126,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":49,
     "Distance to Town (km)":26,
-    "Adult Males":null,
-    "Adult Females":null,
+    "Adult Males":"-",
+    "Adult Females":"-",
     "Distance to Hospital (km)":26,
     "Nearest Health Centre":"Ban Mae La Luang",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":6,
     "Distance to Mathayom (km)":6,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"School Buses;Further Education Scholarships;WASH"
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"School Buses, Further Education Scholarships, WASH"
     }
   },
   {
@@ -320,7 +320,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Kai Pa",
     "Households":113,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":539,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":160,
@@ -329,12 +329,12 @@ var VillageData = {
     "Adult Females":188,
     "Distance to Hospital (km)":22,
     "Nearest Health Centre":"Ban Mae Su",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":12,
     "Common Diseases":"Flu, Ulcer and headache",
-    "Hosted KHT Projects":"School Buses;School Meals;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Buses, School Meals, Further Education Scholarships, WASH"
     }
   },
   {
@@ -348,7 +348,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay San",
     "Households":21,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":109,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":44,
@@ -357,12 +357,12 @@ var VillageData = {
     "Adult Females":32,
     "Distance to Hospital (km)":40,
     "Nearest Health Centre":"Ban Mae Ki",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":19,
     "Distance to Health Centre (km)":5,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, blood pressure, diarrhea",
-    "Hosted KHT Projects":"School Meals;WASH"
+    "Hosted KHT Projects":"School Meals, WASH"
     }
   },
   {
@@ -379,18 +379,18 @@ var VillageData = {
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":418,
     "% Population Without Enough Rice":40,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":50,
     "Adult Males":217,
     "Adult Females":201,
     "Distance to Hospital (km)":50,
     "Nearest Health Centre":"Ban Kok Luang",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":0,
     "Common Diseases":"Dengue fever",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -404,7 +404,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae La Pa Wai",
     "Households":22,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":131,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":60,
@@ -413,12 +413,12 @@ var VillageData = {
     "Adult Females":64,
     "Distance to Hospital (km)":80,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"School Meals;WASH"
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"School Meals, WASH"
     }
   },
   {
@@ -432,21 +432,21 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Tho Tai",
     "Households":105,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":312,
     "% Population Without Enough Rice":10,
-    "Children (Aged 0 - 18)":null,
-    "Distance to Town (km)":null,
-    "Adult Males":null,
-    "Adult Females":null,
+    "Children (Aged 0 - 18)":"-",
+    "Distance to Town (km)":"-",
+    "Adult Males":"-",
+    "Adult Females":"-",
     "Distance to Hospital (km)":45,
     "Nearest Health Centre":"Ban Mae To",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":6,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Irrigation;School Buses;School Meals;Further Education Scholarships;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Irrigation, School Buses, School Meals, Further Education Scholarships, WASH"
     }
   },
   {
@@ -460,7 +460,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pa Pong",
     "Households":90,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":371,
     "% Population Without Enough Rice":35,
     "Children (Aged 0 - 18)":119,
@@ -469,12 +469,12 @@ var VillageData = {
     "Adult Females":121,
     "Distance to Hospital (km)":35,
     "Nearest Health Centre":"Ban Huay Kung",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":6,
     "Distance to Health Centre (km)":7,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"ulcer, high blood pressure, flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -488,7 +488,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Na ngeiw",
     "Households":30,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":147,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":60,
@@ -497,12 +497,12 @@ var VillageData = {
     "Adult Females":50,
     "Distance to Hospital (km)":11,
     "Nearest Health Centre":"Khun Yuam",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":11,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -529,8 +529,8 @@ var VillageData = {
     "Annual Typhoid Cases":3,
     "Distance to Health Centre (km)":27,
     "Distance to Mathayom (km)":28,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -544,7 +544,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Ma Hing Luang",
     "Households":72,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":473,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":202,
@@ -553,12 +553,12 @@ var VillageData = {
     "Adult Females":136,
     "Distance to Hospital (km)":43,
     "Nearest Health Centre":"Ban Mae La Ka",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":18,
     "Distance to Health Centre (km)":7,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -575,18 +575,18 @@ var VillageData = {
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":198,
     "% Population Without Enough Rice":60,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":56,
     "Adult Males":96,
     "Adult Females":102,
     "Distance to Hospital (km)":56,
     "Nearest Health Centre":"Ban Khun Mae La Noi",
     "Distance to Pratom (km)":6,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":6,
     "Distance to Mathayom (km)":65,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -603,18 +603,18 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":350,
     "% Population Without Enough Rice":60,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":1,
     "Adult Males":170,
     "Adult Females":180,
     "Distance to Hospital (km)":1,
     "Nearest Health Centre":"Mae La Noi",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":1,
     "Distance to Mathayom (km)":1,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -628,7 +628,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Khi",
     "Households":81,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":396,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":84,
@@ -637,12 +637,12 @@ var VillageData = {
     "Adult Females":146,
     "Distance to Hospital (km)":34,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":3,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":34,
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"School Meals;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"School Meals, Further Education Scholarships, WASH"
     }
   },
   {
@@ -687,18 +687,18 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":87,
     "% Population Without Enough Rice":50,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":12,
     "Adult Males":47,
     "Adult Females":40,
     "Distance to Hospital (km)":12,
     "Nearest Health Centre":"Ban Pang Tong",
     "Distance to Pratom (km)":1,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":4,
     "Distance to Mathayom (km)":12,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -715,18 +715,18 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":565,
     "% Population Without Enough Rice":45,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":25,
     "Adult Males":275,
     "Adult Females":290,
     "Distance to Hospital (km)":25,
     "Nearest Health Centre":"Ban Huay Ton Noon",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":25,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -743,14 +743,14 @@ var VillageData = {
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":105,
     "% Population Without Enough Rice":50,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":70,
     "Adult Males":51,
     "Adult Females":54,
     "Distance to Hospital (km)":70,
     "Nearest Health Centre":"Ban Po Saw",
     "Distance to Pratom (km)":3,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":10,
     "Common Diseases":"Fllu",
@@ -771,18 +771,18 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":537,
     "% Population Without Enough Rice":50,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":60,
     "Adult Males":254,
     "Adult Females":283,
     "Distance to Hospital (km)":60,
     "Nearest Health Centre":"Ban Po Saw",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":0,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -799,18 +799,18 @@ var VillageData = {
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":299,
     "% Population Without Enough Rice":50,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":73,
     "Adult Males":137,
     "Adult Females":162,
     "Distance to Hospital (km)":73,
     "Nearest Health Centre":"Ban Po Saw",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":10,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -827,7 +827,7 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":486,
     "% Population Without Enough Rice":45,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":25,
     "Adult Males":242,
     "Adult Females":244,
@@ -838,7 +838,7 @@ var VillageData = {
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":25,
     "Common Diseases":"Stomach, Flu, Skin infection",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -855,18 +855,18 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":408,
     "% Population Without Enough Rice":55,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":25,
-    "Adult Males":null,
-    "Adult Females":null,
+    "Adult Males":"-",
+    "Adult Females":"-",
     "Distance to Hospital (km)":25,
     "Nearest Health Centre":"Ban Muang Pon",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":0,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -883,18 +883,18 @@ var VillageData = {
     "Road Conditions":"Good (paved roads, few potholes)",
     "Total Population":335,
     "% Population Without Enough Rice":55,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":35,
     "Adult Males":178,
     "Adult Females":157,
     "Distance to Hospital (km)":35,
     "Nearest Health Centre":"Ban Huay Pong",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":3,
     "Distance to Mathayom (km)":35,
     "Common Diseases":"15 others affected by illnesses",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -911,18 +911,18 @@ var VillageData = {
     "Road Conditions":"Good (paved roads, few potholes)",
     "Total Population":420,
     "% Population Without Enough Rice":40,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":23,
     "Adult Males":201,
     "Adult Females":219,
     "Distance to Hospital (km)":23,
     "Nearest Health Centre":"Ban Mae Suk",
     "Distance to Pratom (km)":3,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":3,
     "Distance to Mathayom (km)":23,
     "Common Diseases":"Dengue Fever: 2",
-    "Hosted KHT Projects":"School Buses;Irrigation;WASH"
+    "Hosted KHT Projects":"School Buses, Irrigation, WASH"
     }
   },
   {
@@ -978,7 +978,7 @@ var VillageData = {
     "Distance to Health Centre (km)":0,
     "Distance to Mathayom (km)":15,
     "Common Diseases":"Hepatitis/ Parasites",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -992,7 +992,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Khun Mae Ruam",
     "Households":125,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":703,
     "% Population Without Enough Rice":35,
     "Children (Aged 0 - 18)":166,
@@ -1001,12 +1001,12 @@ var VillageData = {
     "Adult Females":260,
     "Distance to Hospital (km)":32,
     "Nearest Health Centre":"Ban Mae La Up",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":20,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1020,7 +1020,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pang Tong",
     "Households":233,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":863,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":22,
@@ -1029,12 +1029,12 @@ var VillageData = {
     "Adult Females":422,
     "Distance to Hospital (km)":13,
     "Nearest Health Centre":"Ban Pang Tong",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":3,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Diarrhea",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1048,7 +1048,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Aae Auh",
     "Households":57,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":297,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":80,
@@ -1076,7 +1076,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Doi Liam",
     "Households":36,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":173,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":65,
@@ -1085,12 +1085,12 @@ var VillageData = {
     "Adult Females":55,
     "Distance to Hospital (km)":35,
     "Nearest Health Centre":"Ban Mae Ho",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":10,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer and cancer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1104,7 +1104,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Eh Loo",
     "Households":42,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":207,
     "% Population Without Enough Rice":60,
     "Children (Aged 0 - 18)":45,
@@ -1160,7 +1160,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Hua Ha",
     "Households":19,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":110,
     "% Population Without Enough Rice":90,
     "Children (Aged 0 - 18)":47,
@@ -1169,12 +1169,12 @@ var VillageData = {
     "Adult Females":31,
     "Distance to Hospital (km)":70,
     "Nearest Health Centre":"Ban Paw New Khee",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":6,
     "Distance to Health Centre (km)":13,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1188,7 +1188,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Hua La",
     "Households":95,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":449,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":151,
@@ -1197,12 +1197,12 @@ var VillageData = {
     "Adult Females":147,
     "Distance to Hospital (km)":26,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":3,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, Prostate, Stones (stone in bladder because of unclean water)",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1216,7 +1216,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Hua Mae Surin",
     "Households":21,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":220,
     "% Population Without Enough Rice":20,
     "Children (Aged 0 - 18)":57,
@@ -1225,12 +1225,12 @@ var VillageData = {
     "Adult Females":82,
     "Distance to Hospital (km)":33,
     "Nearest Health Centre":"Ban Pang Tong",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":18,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Stomach problem, Skin infection",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1247,18 +1247,18 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":349,
     "% Population Without Enough Rice":50,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":70,
     "Adult Males":178,
     "Adult Females":171,
     "Distance to Hospital (km)":70,
     "Nearest Health Centre":"Ban Mae Tho",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":10,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -1272,7 +1272,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Hua Taad",
     "Households":53,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":233,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":88,
@@ -1281,12 +1281,12 @@ var VillageData = {
     "Adult Females":72,
     "Distance to Hospital (km)":23,
     "Nearest Health Centre":"Ban Mae Pang",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":6,
     "Distance to Health Centre (km)":10,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1314,7 +1314,7 @@ var VillageData = {
     "Distance to Health Centre (km)":14,
     "Distance to Mathayom (km)":36,
     "Common Diseases":"Cholera",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -1330,7 +1330,7 @@ var VillageData = {
     "Households":25,
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":87,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":34,
     "Distance to Town (km)":50,
     "Adult Males":27,
@@ -1341,7 +1341,7 @@ var VillageData = {
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":25,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -1356,7 +1356,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Hom",
     "Households":89,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":316,
     "% Population Without Enough Rice":45,
     "Children (Aged 0 - 18)":80,
@@ -1384,7 +1384,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Keaw",
     "Households":45,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":189,
     "% Population Without Enough Rice":80,
     "Children (Aged 0 - 18)":68,
@@ -1393,10 +1393,10 @@ var VillageData = {
     "Adult Females":66,
     "Distance to Hospital (km)":20,
     "Nearest Health Centre":"Ban Pa Pong",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":8,
     "Distance to Health Centre (km)":5,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and skin infection",
     "Hosted KHT Projects":"WASH"
     }
@@ -1412,7 +1412,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Kong Paw",
     "Households":52,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":519,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":166,
@@ -1421,12 +1421,12 @@ var VillageData = {
     "Adult Females":175,
     "Distance to Hospital (km)":34,
     "Nearest Health Centre":"Ban Mae Su",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":13,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, Stomach",
-    "Hosted KHT Projects":"School Buses;WASH"
+    "Hosted KHT Projects":"School Buses, WASH"
     }
   },
   {
@@ -1440,7 +1440,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Ma Nam",
     "Households":65,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":344,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":125,
@@ -1468,7 +1468,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Maak Lang",
     "Households":45,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":251,
     "% Population Without Enough Rice":60,
     "Children (Aged 0 - 18)":102,
@@ -1480,9 +1480,9 @@ var VillageData = {
     "Distance to Pratom (km)":3,
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":5,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1496,7 +1496,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Mai Sand",
     "Households":74,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":282,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":78,
@@ -1505,7 +1505,7 @@ var VillageData = {
     "Adult Females":107,
     "Distance to Hospital (km)":40,
     "Nearest Health Centre":"Ban Mae Tho",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":8,
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":8,
@@ -1526,7 +1526,7 @@ var VillageData = {
     "Households":35,
     "Road Conditions":"Very Poor (not paved, inaccesible in wet season)",
     "Total Population":116,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":71,
     "Distance to Town (km)":50,
     "Adult Males":43,
@@ -1537,7 +1537,7 @@ var VillageData = {
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":30,
     "Distance to Mathayom (km)":30,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -1554,19 +1554,19 @@ var VillageData = {
     "Households":198,
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":620,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":212,
     "Distance to Town (km)":12,
     "Adult Males":202,
     "Adult Females":206,
     "Distance to Hospital (km)":12,
     "Nearest Health Centre":"Ban Mae Tia",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":4,
     "Distance to Health Centre (km)":24,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"1 Dengue Fever",
-    "Hosted KHT Projects":""
+    "Hosted KHT Projects":"-"
     }
   },
   {
@@ -1608,7 +1608,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Na (Mae Sariang)",
     "Households":21,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":109,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":32,
@@ -1619,7 +1619,7 @@ var VillageData = {
     "Nearest Health Centre":"Ban Mae Lid Pa Kae",
     "Distance to Pratom (km)":2,
     "Annual Typhoid Cases":6,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":26,
     "Common Diseases":"Flu, Ulcer and skin infection",
     "Hosted KHT Projects":"WASH"
@@ -1636,7 +1636,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Phak Kood",
     "Households":102,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":561,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":257,
@@ -1645,7 +1645,7 @@ var VillageData = {
     "Adult Females":151,
     "Distance to Hospital (km)":50,
     "Nearest Health Centre":"Ban Pang Ung",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":14,
     "Distance to Health Centre (km)":20,
     "Distance to Mathayom (km)":50,
@@ -1664,7 +1664,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Phan",
     "Households":34,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":184,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":73,
@@ -1673,10 +1673,10 @@ var VillageData = {
     "Adult Females":55,
     "Distance to Hospital (km)":35,
     "Nearest Health Centre":"Ban Mae Surin",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":10,
     "Distance to Health Centre (km)":28,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
     "Hosted KHT Projects":"WASH"
     }
@@ -1701,7 +1701,7 @@ var VillageData = {
     "Adult Females":150,
     "Distance to Hospital (km)":38,
     "Nearest Health Centre":"Ban Mae Ho",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":18,
     "Distance to Mathayom (km)":38,
@@ -1733,7 +1733,7 @@ var VillageData = {
     "Annual Typhoid Cases":10,
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":20,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -1748,7 +1748,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Huay Tong Jing",
     "Households":38,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":182,
     "% Population Without Enough Rice":45,
     "Children (Aged 0 - 18)":64,
@@ -1762,7 +1762,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":30,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -1776,7 +1776,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Kew Pak Ped",
     "Households":28,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":214,
     "% Population Without Enough Rice":60,
     "Children (Aged 0 - 18)":116,
@@ -1804,7 +1804,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Kha Noon",
     "Households":17,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":105,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":22,
@@ -1832,7 +1832,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Khun Mae Hu",
     "Households":55,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":221,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":66,
@@ -1860,21 +1860,21 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Khun Mae La Tai",
     "Households":30,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":201,
     "% Population Without Enough Rice":40,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":72,
-    "Adult Males":null,
-    "Adult Females":null,
+    "Adult Males":"-",
+    "Adult Females":"-",
     "Distance to Hospital (km)":72,
     "Nearest Health Centre":"Ban PaKae",
     "Distance to Pratom (km)":6,
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":10,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer and skin infection",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -1888,7 +1888,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Khun Mae Song",
     "Households":116,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":338,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":134,
@@ -1916,7 +1916,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Khun Wong Nua",
     "Households":74,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":237,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":106,
@@ -1925,11 +1925,11 @@ var VillageData = {
     "Adult Females":67,
     "Distance to Hospital (km)":22,
     "Nearest Health Centre":"Ban Mae Ho",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":8,
     "Distance to Health Centre (km)":25,
     "Distance to Mathayom (km)":22,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -1946,18 +1946,18 @@ var VillageData = {
     "Households":70,
     "Road Conditions":"Poor (not paved, lots of potholes)",
     "Total Population":228,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":70,
     "Distance to Town (km)":33,
     "Adult Males":83,
     "Adult Females":75,
     "Distance to Hospital (km)":33,
     "Nearest Health Centre":"Ban Mae Ho",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
     "Distance to Health Centre (km)":37,
     "Distance to Mathayom (km)":33,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -1972,7 +1972,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Kok Luang",
     "Households":82,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":420,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":134,
@@ -1981,10 +1981,10 @@ var VillageData = {
     "Adult Females":148,
     "Distance to Hospital (km)":90,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":4,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, Arthritis, high blood pressure",
     "Hosted KHT Projects":"WASH"
     }
@@ -2000,7 +2000,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Kor Moo Der",
     "Households":92,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":505,
     "% Population Without Enough Rice":90,
     "Children (Aged 0 - 18)":220,
@@ -2009,10 +2009,10 @@ var VillageData = {
     "Adult Females":156,
     "Distance to Hospital (km)":60,
     "Nearest Health Centre":"Mae Sam Laeb",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":13,
     "Distance to Health Centre (km)":12,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
     "Hosted KHT Projects":"WASH"
     }
@@ -2028,7 +2028,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Kra Baw Noi",
     "Households":48,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":229,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":80,
@@ -2037,10 +2037,10 @@ var VillageData = {
     "Adult Females":73,
     "Distance to Hospital (km)":30,
     "Nearest Health Centre":"Ban Mae Sam Laep",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
     "Distance to Health Centre (km)":20,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Skin effection",
     "Hosted KHT Projects":"WASH"
     }
@@ -2056,7 +2056,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Kre Bor",
     "Households":47,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":199,
     "% Population Without Enough Rice":90,
     "Children (Aged 0 - 18)":75,
@@ -2065,7 +2065,7 @@ var VillageData = {
     "Adult Females":60,
     "Distance to Hospital (km)":30,
     "Nearest Health Centre":"Mae Sam Laeb",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":4,
     "Distance to Health Centre (km)":35,
     "Distance to Mathayom (km)":30,
@@ -2084,7 +2084,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban La Oop",
     "Households":163,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":962,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":432,
@@ -2093,11 +2093,11 @@ var VillageData = {
     "Adult Females":265,
     "Distance to Hospital (km)":25,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -2112,7 +2112,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Au",
     "Households":36,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":204,
     "% Population Without Enough Rice":25,
     "Children (Aged 0 - 18)":50,
@@ -2121,11 +2121,11 @@ var VillageData = {
     "Adult Females":72,
     "Distance to Hospital (km)":25,
     "Nearest Health Centre":"Ban Hua Pon",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":1,
     "Distance to Health Centre (km)":4,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -2140,7 +2140,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Harn",
     "Households":277,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":1053,
     "% Population Without Enough Rice":20,
     "Children (Aged 0 - 18)":453,
@@ -2149,10 +2149,10 @@ var VillageData = {
     "Adult Females":297,
     "Distance to Hospital (km)":13,
     "Nearest Health Centre":"Ban Sop Harn",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":6,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -2168,7 +2168,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Hu",
     "Households":49,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":251,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":68,
@@ -2177,9 +2177,9 @@ var VillageData = {
     "Adult Females":140,
     "Distance to Hospital (km)":35,
     "Nearest Health Centre":"Ban Mae Hu",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":35,
     "Common Diseases":"Flu",
     "Hosted KHT Projects":"WASH"
@@ -2196,7 +2196,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Ja Noi",
     "Households":15,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":110,
     "% Population Without Enough Rice":90,
     "Children (Aged 0 - 18)":41,
@@ -2208,8 +2208,8 @@ var VillageData = {
     "Distance to Pratom (km)":18,
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":8,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -2224,7 +2224,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Jae",
     "Households":59,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":382,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":105,
@@ -2233,12 +2233,12 @@ var VillageData = {
     "Adult Females":139,
     "Distance to Hospital (km)":40,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":6,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":40,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -2280,7 +2280,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Jaw Nua",
     "Households":16,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":89,
     "% Population Without Enough Rice":20,
     "Children (Aged 0 - 18)":34,
@@ -2292,7 +2292,7 @@ var VillageData = {
     "Distance to Pratom (km)":6,
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":6,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer and skin infection",
     "Hosted KHT Projects":"WASH"
     }
@@ -2308,7 +2308,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Kha Nua",
     "Households":34,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":187,
     "% Population Without Enough Rice":55,
     "Children (Aged 0 - 18)":65,
@@ -2320,7 +2320,7 @@ var VillageData = {
     "Distance to Pratom (km)":15,
     "Annual Typhoid Cases":6,
     "Distance to Health Centre (km)":15,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -2336,7 +2336,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Khae Noi",
     "Households":24,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":100,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":35,
@@ -2345,7 +2345,7 @@ var VillageData = {
     "Adult Females":32,
     "Distance to Hospital (km)":91,
     "Nearest Health Centre":"Ban Mae Sam Laep",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":8,
     "Distance to Health Centre (km)":25,
     "Distance to Mathayom (km)":12,
@@ -2364,7 +2364,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Kheed Noi",
     "Households":33,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":144,
     "% Population Without Enough Rice":60,
     "Children (Aged 0 - 18)":69,
@@ -2375,7 +2375,7 @@ var VillageData = {
     "Nearest Health Centre":"Ban Mae Kheed",
     "Distance to Pratom (km)":10,
     "Annual Typhoid Cases":4,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":10,
     "Common Diseases":"Flu and cancer",
     "Hosted KHT Projects":"WASH"
@@ -2392,7 +2392,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Kho Joo",
     "Households":54,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":206,
     "% Population Without Enough Rice":25,
     "Children (Aged 0 - 18)":80,
@@ -2401,10 +2401,10 @@ var VillageData = {
     "Adult Females":63,
     "Distance to Hospital (km)":43,
     "Nearest Health Centre":"Ban Mae La Ka",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":20,
     "Distance to Health Centre (km)":4,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Cold, Stomach, Flu",
     "Hosted KHT Projects":"WASH"
     }
@@ -2420,7 +2420,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae khor",
     "Households":17,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":76,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":29,
@@ -2448,7 +2448,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Ko Pee",
     "Households":82,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":412,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":170,
@@ -2457,10 +2457,10 @@ var VillageData = {
     "Adult Females":122,
     "Distance to Hospital (km)":42,
     "Nearest Health Centre":"Ban Mae Jae",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":13,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -2478,14 +2478,14 @@ var VillageData = {
     "Households":43,
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":176,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":51,
     "Distance to Town (km)":20,
     "Adult Males":65,
     "Adult Females":60,
     "Distance to Hospital (km)":20,
     "Nearest Health Centre":"Ban Huay Phueng",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
     "Distance to Health Centre (km)":3,
     "Distance to Mathayom (km)":3,
@@ -2504,7 +2504,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Kwang Tai",
     "Households":45,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":168,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":95,
@@ -2513,7 +2513,7 @@ var VillageData = {
     "Adult Females":38,
     "Distance to Hospital (km)":30,
     "Nearest Health Centre":"Ban Huay Phuang",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":6,
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":30,
@@ -2532,7 +2532,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Lamong Nua",
     "Households":34,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":218,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":79,
@@ -2541,7 +2541,7 @@ var VillageData = {
     "Adult Females":72,
     "Distance to Hospital (km)":30,
     "Nearest Health Centre":"Ban Mae Su",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":12,
     "Distance to Health Centre (km)":15,
     "Distance to Mathayom (km)":30,
@@ -2560,7 +2560,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Lit Luang",
     "Households":55,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":305,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":180,
@@ -2569,12 +2569,12 @@ var VillageData = {
     "Adult Females":63,
     "Distance to Hospital (km)":44,
     "Nearest Health Centre":"Ban Mae Lid Pa Kae",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":5,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"ulcer, high blood pressure, flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -2588,21 +2588,21 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Na Jang Tai",
     "Households":85,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":480,
     "% Population Without Enough Rice":50,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":75,
-    "Adult Males":null,
-    "Adult Females":null,
+    "Adult Males":"-",
+    "Adult Females":"-",
     "Distance to Hospital (km)":75,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -2616,7 +2616,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Najang Nua",
     "Households":49,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":448,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":223,
@@ -2625,10 +2625,10 @@ var VillageData = {
     "Adult Females":113,
     "Distance to Hospital (km)":75,
     "Nearest Health Centre":"Ban Kok Luang",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":15,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Diarrhea and Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -2644,7 +2644,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Nin Nai",
     "Households":50,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":261,
     "% Population Without Enough Rice":45,
     "Children (Aged 0 - 18)":72,
@@ -2653,7 +2653,7 @@ var VillageData = {
     "Adult Females":97,
     "Distance to Hospital (km)":52,
     "Nearest Health Centre":"Ban Na Hong",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
     "Distance to Health Centre (km)":18,
     "Distance to Mathayom (km)":52,
@@ -2672,7 +2672,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Ookhor Noi",
     "Households":9,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":54,
     "% Population Without Enough Rice":60,
     "Children (Aged 0 - 18)":33,
@@ -2684,9 +2684,9 @@ var VillageData = {
     "Distance to Pratom (km)":3,
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":22,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"diarrhea",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -2700,7 +2700,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Ookhor Nua",
     "Households":11,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":59,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":30,
@@ -2710,10 +2710,10 @@ var VillageData = {
     "Distance to Hospital (km)":20,
     "Nearest Health Centre":"Ban Pang Tong",
     "Distance to Pratom (km)":4,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":4,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -2728,7 +2728,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Oom Pai Nua",
     "Households":42,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":228,
     "% Population Without Enough Rice":20,
     "Children (Aged 0 - 18)":119,
@@ -2737,11 +2737,11 @@ var VillageData = {
     "Adult Females":55,
     "Distance to Hospital (km)":55,
     "Nearest Health Centre":"Ban Mae To",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":9,
     "Distance to Health Centre (km)":5,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -2756,7 +2756,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Oomong",
     "Households":38,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":154,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":70,
@@ -2765,12 +2765,12 @@ var VillageData = {
     "Adult Females":42,
     "Distance to Hospital (km)":18,
     "Nearest Health Centre":"Pang Ma Pa",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":1,
     "Distance to Health Centre (km)":18,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -2812,7 +2812,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Pae",
     "Households":65,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":503,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":169,
@@ -2826,7 +2826,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":12,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -2840,7 +2840,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Sa Kud",
     "Households":28,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":130,
     "% Population Without Enough Rice":45,
     "Children (Aged 0 - 18)":45,
@@ -2849,11 +2849,11 @@ var VillageData = {
     "Adult Females":44,
     "Distance to Hospital (km)":31,
     "Nearest Health Centre":"Ban Mae Tia",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":7,
     "Distance to Health Centre (km)":35,
     "Distance to Mathayom (km)":5,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -2870,7 +2870,7 @@ var VillageData = {
     "Households":50,
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":234,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":92,
     "Distance to Town (km)":32,
     "Adult Males":71,
@@ -2881,7 +2881,7 @@ var VillageData = {
     "Annual Typhoid Cases":7,
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":0,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -2896,9 +2896,9 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Samaeng",
     "Households":24,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":106,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":43,
     "Distance to Town (km)":56,
     "Adult Males":44,
@@ -2906,9 +2906,9 @@ var VillageData = {
     "Distance to Hospital (km)":56,
     "Nearest Health Centre":"Ban Kad Luang",
     "Distance to Pratom (km)":3,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":10,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
     "Hosted KHT Projects":"WASH"
     }
@@ -2924,7 +2924,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Sapueng Klang",
     "Households":30,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":112,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":41,
@@ -2952,7 +2952,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Saw",
     "Households":38,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":153,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":45,
@@ -2964,9 +2964,9 @@ var VillageData = {
     "Distance to Pratom (km)":5,
     "Annual Typhoid Cases":8,
     "Distance to Health Centre (km)":5,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Irrigation;Further Education Scholarships;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Irrigation, Further Education Scholarships, WASH"
     }
   },
   {
@@ -2980,7 +2980,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Surin Noi",
     "Households":17,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":82,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":35,
@@ -2989,12 +2989,12 @@ var VillageData = {
     "Adult Females":24,
     "Distance to Hospital (km)":45,
     "Nearest Health Centre":"Ban Paw New Khei",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":4,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3008,7 +3008,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Tho Klang",
     "Households":137,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":428,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":293,
@@ -3017,12 +3017,12 @@ var VillageData = {
     "Adult Females":69,
     "Distance to Hospital (km)":60,
     "Nearest Health Centre":"In the village",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":2,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3036,7 +3036,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Yod",
     "Households":55,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":281,
     "% Population Without Enough Rice":45,
     "Children (Aged 0 - 18)":81,
@@ -3045,10 +3045,10 @@ var VillageData = {
     "Adult Females":94,
     "Distance to Hospital (km)":40,
     "Nearest Health Centre":"Ban Pang Uhg",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":4,
     "Distance to Health Centre (km)":15,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Typhoid, Flue, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3073,10 +3073,10 @@ var VillageData = {
     "Adult Females":22,
     "Distance to Hospital (km)":6,
     "Nearest Health Centre":"Khun Yuam",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":8,
     "Distance to Health Centre (km)":6,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Stomach, Flu",
     "Hosted KHT Projects":"WASH"
     }
@@ -3092,20 +3092,20 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Manora",
     "Households":31,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":189,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":68,
     "Distance to Town (km)":25,
     "Adult Males":58,
     "Adult Females":63,
     "Distance to Hospital (km)":25,
     "Nearest Health Centre":"Pang Ma Pa",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":25,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -3120,7 +3120,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Muang Paem",
     "Households":108,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":528,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":210,
@@ -3129,10 +3129,10 @@ var VillageData = {
     "Adult Females":157,
     "Distance to Hospital (km)":13,
     "Nearest Health Centre":"Ban Tham Lod",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":6,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3148,7 +3148,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Na Hua Laem",
     "Households":42,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":183,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":54,
@@ -3157,12 +3157,12 @@ var VillageData = {
     "Adult Females":64,
     "Distance to Hospital (km)":30,
     "Nearest Health Centre":"Ban Huay Na",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":13,
     "Distance to Health Centre (km)":5,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer, blood pressure",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3176,7 +3176,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Na Pa Pae",
     "Households":35,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":193,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":46,
@@ -3190,7 +3190,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":90,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3204,7 +3204,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Nong Muan",
     "Households":85,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":346,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":245,
@@ -3213,12 +3213,12 @@ var VillageData = {
     "Adult Females":55,
     "Distance to Hospital (km)":52,
     "Nearest Health Centre":"Ban Kok Luang",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":1,
     "Distance to Health Centre (km)":12,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3232,7 +3232,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Nong Pak Nam",
     "Households":51,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":256,
     "% Population Without Enough Rice":15,
     "Children (Aged 0 - 18)":98,
@@ -3244,9 +3244,9 @@ var VillageData = {
     "Distance to Pratom (km)":7,
     "Annual Typhoid Cases":20,
     "Distance to Health Centre (km)":5,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Stomach, Flu",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3260,7 +3260,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Omlarn",
     "Households":35,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":197,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":105,
@@ -3269,10 +3269,10 @@ var VillageData = {
     "Adult Females":47,
     "Distance to Hospital (km)":62,
     "Nearest Health Centre":"Ban Pakae",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":4,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3288,7 +3288,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pa Kae Tai",
     "Households":40,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":250,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":80,
@@ -3297,9 +3297,9 @@ var VillageData = {
     "Adult Females":86,
     "Distance to Hospital (km)":94,
     "Nearest Health Centre":"Ban Pa Kae",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":5,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":30,
     "Common Diseases":"ulcer, high blood pressure, flu",
     "Hosted KHT Projects":"WASH"
@@ -3357,7 +3357,7 @@ var VillageData = {
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":10,
     "Distance to Mathayom (km)":64,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -3385,7 +3385,7 @@ var VillageData = {
     "Annual Typhoid Cases":15,
     "Distance to Health Centre (km)":17,
     "Distance to Mathayom (km)":80,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"WASH"
     }
   },
@@ -3400,7 +3400,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pae",
     "Households":215,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":2113,
     "% Population Without Enough Rice":20,
     "Children (Aged 0 - 18)":318,
@@ -3409,10 +3409,10 @@ var VillageData = {
     "Adult Females":1172,
     "Distance to Hospital (km)":8,
     "Nearest Health Centre":"Ban Sop Harn",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":3,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3428,7 +3428,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pahuey",
     "Households":24,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":236,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":169,
@@ -3440,7 +3440,7 @@ var VillageData = {
     "Distance to Pratom (km)":2,
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":4,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3456,7 +3456,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pang Tong Tai",
     "Households":12,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":71,
     "% Population Without Enough Rice":70,
     "Children (Aged 0 - 18)":31,
@@ -3468,7 +3468,7 @@ var VillageData = {
     "Distance to Pratom (km)":3,
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":3,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Headache, Skin infection",
     "Hosted KHT Projects":"WASH"
     }
@@ -3484,7 +3484,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Mae Ookhor Luang",
     "Households":49,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":282,
     "% Population Without Enough Rice":15,
     "Children (Aged 0 - 18)":117,
@@ -3493,12 +3493,12 @@ var VillageData = {
     "Adult Females":82,
     "Distance to Hospital (km)":17,
     "Nearest Health Centre":"Ban Huay Pong",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":6,
     "Distance to Health Centre (km)":15,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3512,21 +3512,21 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pha Daeng Luang",
     "Households":90,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":256,
     "% Population Without Enough Rice":60,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":60,
-    "Adult Males":null,
-    "Adult Females":null,
+    "Adult Males":"-",
+    "Adult Females":"-",
     "Distance to Hospital (km)":60,
     "Nearest Health Centre":"Ban Mae To",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":1,
     "Distance to Health Centre (km)":20,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3540,7 +3540,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Pha La Pi",
     "Households":28,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":174,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":65,
@@ -3568,7 +3568,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Piang Luang",
     "Households":57,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":454,
     "% Population Without Enough Rice":20,
     "Children (Aged 0 - 18)":54,
@@ -3580,9 +3580,9 @@ var VillageData = {
     "Distance to Pratom (km)":3,
     "Annual Typhoid Cases":4,
     "Distance to Health Centre (km)":3,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3596,7 +3596,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Prabart Huay Phueng",
     "Households":52,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":182,
     "% Population Without Enough Rice":50,
     "Children (Aged 0 - 18)":62,
@@ -3605,10 +3605,10 @@ var VillageData = {
     "Adult Females":58,
     "Distance to Hospital (km)":40,
     "Nearest Health Centre":"Ban Mae Hu",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":4,
     "Distance to Health Centre (km)":10,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu and Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3624,7 +3624,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Sao Hin",
     "Households":116,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":426,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":125,
@@ -3633,12 +3633,12 @@ var VillageData = {
     "Adult Females":145,
     "Distance to Hospital (km)":107,
     "Nearest Health Centre":"Ban Sa La Jiang Tong",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":20,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":4,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3652,7 +3652,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Siwader",
     "Households":107,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":423,
     "% Population Without Enough Rice":45,
     "Children (Aged 0 - 18)":164,
@@ -3661,10 +3661,10 @@ var VillageData = {
     "Adult Females":134,
     "Distance to Hospital (km)":71,
     "Nearest Health Centre":"Ban Mae Sam Laep",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":15,
     "Distance to Health Centre (km)":15,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu ans Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3680,7 +3680,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Sob Mae Sa Top",
     "Households":60,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":351,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":141,
@@ -3708,7 +3708,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Sud Huay Na",
     "Households":26,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":129,
     "% Population Without Enough Rice":30,
     "Children (Aged 0 - 18)":50,
@@ -3717,10 +3717,10 @@ var VillageData = {
     "Adult Females":39,
     "Distance to Hospital (km)":38,
     "Nearest Health Centre":"Ban Mae Lid Pa Kae",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":2,
     "Distance to Health Centre (km)":10,
-    "Distance to Mathayom (km)":null,
+    "Distance to Mathayom (km)":"-",
     "Common Diseases":"Flu, Ulcer",
     "Hosted KHT Projects":"WASH"
     }
@@ -3736,7 +3736,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Thung Ma Kham Pom",
     "Households":65,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":311,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":104,
@@ -3750,7 +3750,7 @@ var VillageData = {
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":4,
     "Common Diseases":"Flu and Ulcer",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3764,7 +3764,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Thung Pra Pon",
     "Households":25,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":135,
     "% Population Without Enough Rice":60,
     "Children (Aged 0 - 18)":64,
@@ -3775,7 +3775,7 @@ var VillageData = {
     "Nearest Health Centre":"Ban Pa Kae",
     "Distance to Pratom (km)":8,
     "Annual Typhoid Cases":10,
-    "Distance to Health Centre (km)":null,
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":40,
     "Common Diseases":"Flu and Ulcer",
     "Hosted KHT Projects":"WASH"
@@ -3792,7 +3792,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Ban Wa No",
     "Households":98,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":320,
     "% Population Without Enough Rice":35,
     "Children (Aged 0 - 18)":135,
@@ -3801,7 +3801,7 @@ var VillageData = {
     "Adult Females":95,
     "Distance to Hospital (km)":28,
     "Nearest Health Centre":"Ban Mae Jae",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":3,
     "Distance to Health Centre (km)":5,
     "Distance to Mathayom (km)":28,
@@ -3848,7 +3848,7 @@ var VillageData = {
     "Village Owner.id":"zcrm_361303000000269001",
     "Village Name":"Paw Naw Khi",
     "Households":76,
-    "Road Conditions":"",
+    "Road Conditions":"-",
     "Total Population":379,
     "% Population Without Enough Rice":40,
     "Children (Aged 0 - 18)":153,
@@ -3857,12 +3857,12 @@ var VillageData = {
     "Adult Females":111,
     "Distance to Hospital (km)":45,
     "Nearest Health Centre":"In village",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":8,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Further Education Scholarships;WASH"
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Further Education Scholarships, WASH"
     }
   },
   {
@@ -3885,7 +3885,7 @@ var VillageData = {
     "Adult Females":51,
     "Distance to Hospital (km)":33,
     "Nearest Health Centre":"Ban Pong Ung",
-    "Distance to Pratom (km)":null,
+    "Distance to Pratom (km)":"-",
     "Annual Typhoid Cases":5,
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":8,
@@ -3907,17 +3907,17 @@ var VillageData = {
     "Road Conditions":"Good (paved roads, few potholes)",
     "Total Population":365,
     "% Population Without Enough Rice":40,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":35,
     "Adult Males":128,
     "Adult Females":135,
-    "Distance to Hospital (km)":null,
-    "Nearest Health Centre":"",
+    "Distance to Hospital (km)":"-",
+    "Nearest Health Centre":"-",
     "Distance to Pratom (km)":0,
-    "Annual Typhoid Cases":null,
-    "Distance to Health Centre (km)":null,
+    "Annual Typhoid Cases":"-",
+    "Distance to Health Centre (km)":"-",
     "Distance to Mathayom (km)":25,
-    "Common Diseases":"",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"Irrigation"
     }
   },
@@ -3935,17 +3935,17 @@ var VillageData = {
     "Road Conditions":"Good (paved roads, few potholes)",
     "Total Population":1135,
     "% Population Without Enough Rice":50,
-    "Children (Aged 0 - 18)":null,
-    "Distance to Town (km)":null,
+    "Children (Aged 0 - 18)":"-",
+    "Distance to Town (km)":"-",
     "Adult Males":435,
     "Adult Females":365,
-    "Distance to Hospital (km)":null,
-    "Nearest Health Centre":"",
-    "Distance to Pratom (km)":null,
-    "Annual Typhoid Cases":null,
-    "Distance to Health Centre (km)":null,
-    "Distance to Mathayom (km)":null,
-    "Common Diseases":"",
+    "Distance to Hospital (km)":"-",
+    "Nearest Health Centre":"-",
+    "Distance to Pratom (km)":"-",
+    "Annual Typhoid Cases":"-",
+    "Distance to Health Centre (km)":"-",
+    "Distance to Mathayom (km)":"-",
+    "Common Diseases":"-",
     "Hosted KHT Projects":"Irrigation"
     }
   },
@@ -3962,8 +3962,8 @@ var VillageData = {
     "Households":70,
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":237,
-    "% Population Without Enough Rice":null,
-    "Children (Aged 0 - 18)":null,
+    "% Population Without Enough Rice":"-",
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":20,
     "Adult Males":95,
     "Adult Females":85,
@@ -3973,8 +3973,8 @@ var VillageData = {
     "Annual Typhoid Cases":10,
     "Distance to Health Centre (km)":6,
     "Distance to Mathayom (km)":20,
-    "Common Diseases":"",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Common Diseases":"-",
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -3991,7 +3991,7 @@ var VillageData = {
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":183,
     "% Population Without Enough Rice":20,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":45,
     "Adult Males":86,
     "Adult Females":72,
@@ -4002,7 +4002,7 @@ var VillageData = {
     "Distance to Health Centre (km)":7,
     "Distance to Mathayom (km)":7,
     "Common Diseases":"Flu",
-    "Hosted KHT Projects":"Irrigation;WASH"
+    "Hosted KHT Projects":"Irrigation, WASH"
     }
   },
   {
@@ -4019,14 +4019,14 @@ var VillageData = {
     "Road Conditions":"Very Good (paved roads)",
     "Total Population":282,
     "% Population Without Enough Rice":60,
-    "Children (Aged 0 - 18)":null,
+    "Children (Aged 0 - 18)":"-",
     "Distance to Town (km)":14,
     "Adult Males":148,
     "Adult Females":134,
     "Distance to Hospital (km)":14,
     "Nearest Health Centre":"Ban Song Thasn",
     "Distance to Pratom (km)":13,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":32,
     "Distance to Mathayom (km)":14,
     "Common Diseases":"Malaria, Typhoid, Cholera, Parasites",
@@ -4046,7 +4046,7 @@ var VillageData = {
     "Households":78,
     "Road Conditions":"Average (some paved road, some potholes)",
     "Total Population":367,
-    "% Population Without Enough Rice":null,
+    "% Population Without Enough Rice":"-",
     "Children (Aged 0 - 18)":200,
     "Distance to Town (km)":94,
     "Adult Males":141,
@@ -4058,7 +4058,7 @@ var VillageData = {
     "Distance to Health Centre (km)":9,
     "Distance to Mathayom (km)":5,
     "Common Diseases":"Malaria, Typoid, Diarrhea",
-    "Hosted KHT Projects":""
+    "Hosted KHT Projects":"-"
     }
   },
   {
@@ -4082,11 +4082,11 @@ var VillageData = {
     "Distance to Hospital (km)":40,
     "Nearest Health Centre":"Ban Mae Ki",
     "Distance to Pratom (km)":5,
-    "Annual Typhoid Cases":null,
+    "Annual Typhoid Cases":"-",
     "Distance to Health Centre (km)":8,
     "Distance to Mathayom (km)":40,
     "Common Diseases":"Malaria, Typhoid and Dengue Fever",
-    "Hosted KHT Projects":""
+    "Hosted KHT Projects":"-"
     }
   }
 ]

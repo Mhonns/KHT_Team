@@ -1,0 +1,13 @@
+127.0.0.1 - - [21/Nov/2023 14:10:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2023 14:10:34] "GET /favicon.ico HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2023 14:10:41] "GET /?operation=hero HTTP/1.1" 200 -
+127.0.0.1 - - [21/Nov/2023 14:10:41] "GET /favicon.ico HTTP/1.1" 200 -
+  File "/root/KHT_Team/Src/api_provider.py", line 29
+    if Operation == "pull_static_data":
+TabError: inconsistent use of tabs and spaces in indentation
+  File "/root/KHT_Team/Src/api_provider.py", line 29
+    if Operation == "pull_static_data":
+TabError: inconsistent use of tabs and spaces in indentation
+  File "/root/KHT_Team/Src/api_provider.py", line 29
+    if Operation == "pull_static_data":
+TabError: inconsistent use of tabs and spaces in indentation

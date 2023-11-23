@@ -6,35 +6,38 @@ import postgreSQL
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        # Set CORS headers
-        self.send_header('Access-Control-Allow-Origin', '*')  # Allow requests from any origin
-        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-
-	# Parse the URL to extract parameters
+        # Parse the URL to extract parameters
         parsed_url = urlparse(self.path)
         query_params = parse_qs(parsed_url.query)
 
         # get the operation
         operation = query_params.get('operation', [''])[0]
+        geojson_data = ""
         marker1 = query_params.get('marker1', [''])[0]
         marker2 = query_params.get('marker2', [''])[0]
         message = "Operation {}".format(operation)
 
         if operation == "pull-static-data":
             geojson_data = postgreSQL.get_table("village_test")
-            # send back the data
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(bytes(geojson_data, "utf8"))
-
-        if operation == "get-distance":
+        elif operation == "get-distance":
             message = "TODO Return distance between {} to {}".format(marker1, marker2)
-        if operation == "find-nearest-hospital":
+        elif operation == "find-nearest-hospital":
             message = "TODO"
 
-        return
+        # Enable CORS
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')  # You can replace '*' with specific origins
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Origin, Content-Type')
+
+        self.end_headers()
+
+        # Return the response and data
+        try:
+            self.wfile.write(bytes(geojson_data, "utf8"))
+        except BrokenPipeError:
+            pass  # Ignore BrokenPipeError
 
 # Set the host and port for the server
 host = '127.0.0.1' # bind all address 0.0.0.0

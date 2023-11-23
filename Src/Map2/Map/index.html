@@ -56,12 +56,15 @@
 <script src = "./data/Village_Details.js"></script>
 <script src = "./data/School.js"></script>
 <script src = "./data/amenity_hospital.js"></script>
+<script src = "./data/mhs_roads.js"></script>
+<script src = "./data/msh_water_areas.js"></script>
+<script src = "./data/msh_water_lines.js"></script>
 
 <script>
 
     var map = L.map('map').setView([18.7370, 97.8722], 9.45);
-    
-    
+
+
 
     /* ==========================================
                 TILE  LAYER and WMS
@@ -117,9 +120,13 @@
     =============================================*/
     var myIcon = L.icon({
     iconUrl: 'img/hospital_marker.png',
-    iconSize: [50, 50],
+    iconSize: [30, 30],
     });
 
+    // var SchoolIcon = L.icon({
+    // iconUrl: 'img/school_marker.png',
+    // iconSize: [18, 18],
+    // });
     
     
     // var singleMarker = L.marker([18.7370, 97.8722], { icon: myIcon, draggable: false});
@@ -139,23 +146,58 @@
     =============================================*/
     // var poinData = L.geoJSON(pointJson).addTo(map)
     // var lineData = L.geoJSON(lineJson).addTo(map)
+    // Use Fetch API to get GeoJSON data from the provided URL
+
+
+    
+    fetch('http://103.153.118.77:2546/api/pull-static-data ')
+        .then(response => {
+            console.log('Full response:', response);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+            L.geoJSON(data).addTo(map);
+        })
+        .catch(error => console.error('Error fetching GeoJSON:', error));
+        console.log('This is after the fetch request');
+
+    var mhswater = L.geoJSON(waterarea, {
+        style: function(feature) {
+            return {color: "blue"}; 
+        }
+    }).addTo(map);
+
+    var mhswaterline = L.geoJSON(waterline, {
+        style: function(feature) {
+            return {color: "steelblue"}; 
+        }
+    }).addTo(map);
+
+    var mhsroad = L.geoJSON(roads, {
+        style: function(feature) {
+            return {
+                color: "brown",
+                fillOpacity: 0.5
+            }; 
+        }
+    }).addTo(map);
     var hospital = L.geoJSON(hospital, {
   pointToLayer: function (feature, latlng) {
-    return L.circleMarker(latlng, {
-      radius: 8,
-      fillColor: "#008000", // green color
-      color: "#000",
-      weight: 1,
-      opacity: 1,
-      fillOpacity: 0.8
-    });
+    return L.marker(latlng, {icon: myIcon});
   },
   onEachFeature: function (feature, layer) {
     var popupContent = (feature.properties.name || feature.properties['name:en']);
     layer.bindPopup(popupContent);
   }
 }).addTo(map);
-    var district = L.geoJSON(district).addTo(map)
+    var district = L.geoJSON(district, {
+  style: {
+    color: '#FA8072',
+    opacity: 1,
+    fill: false
+  }
+}).addTo(map);
     var school = L.geoJSON(school, {
   pointToLayer: function (feature, latlng) {
     return L.circleMarker(latlng, {
@@ -175,8 +217,8 @@
     var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], {interactive: false}).addTo(map);
     var subdistrict = L.geoJSON(subdistrict, {
   style: {
-    color: 'red',
-    opacity: 0.125,
+    color: 'pink',
+    opacity: 1,
     fill: false
   }
 }).addTo(map);
@@ -222,20 +264,12 @@
                 const projectName = feature.properties["Hosted KHT Projects"]
                 sessionStorage.setItem('project-name', projectName);
 
-                const coordinates = e.latlng;
-                sessionStorage.setItem('coordinates', JSON.stringify(coordinates));
+                const adultmale = feature.properties["Adult Males"]
+                sessionStorage.setItem('adult-male', adultmale);
 
-                // Fetch the distance data
-                fetch(`http://103.153.118.77:2546/?operation=get-distance&coordinates=${JSON.stringify(coordinates)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Handle the response data
-                        console.log(data);
-                    })
-                    .catch(error => {
-                        // Handle the error
-                        console.error('Error:', error);
-                    });
+                const adultfemale = feature.properties["Adult Females"]
+                sessionStorage.setItem('adult-female', adultfemale);
+                
             });
         }
     }).addTo(map);
@@ -251,15 +285,15 @@ function resetClickedLayer() {
 }
     // var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     // var waterline = L.geoJSON(waterlinedata).addTo(map)
-    var road = L.geoJSON(roaddata, {
-        onEachFeature: function(feature, layer) {
-        //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
-        },
-        style: {
-            color: 'red',
-            opacity: 0.5,
-        }
-    }).addTo(map)
+    // var road = L.geoJSON(roaddata, {
+    //     onEachFeature: function(feature, layer) {
+    //     //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
+    //     },
+    //     style: {
+    //         color: 'red',
+    //         opacity: 0.5,
+    //     }
+    // }).addTo(map)
 
     // var polygonData = L.geoJSON(polygonJson, {
     //     onEachFeature: function(feature, layer) {
@@ -287,7 +321,7 @@ function resetClickedLayer() {
 
     var HospitalLayer = L.layerGroup([hospital])
 
-    var GeographicLayer = L.layerGroup([road])
+    var GeographicLayer = L.layerGroup([mhsroad])
 
 
 // Define a new control

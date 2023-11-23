@@ -272,6 +272,27 @@
 
                 const commonDisease = feature.properties["Common Diseases"]
                 sessionStorage.setItem('common-disease', commonDisease);
+
+                const Households = feature.properties["Households"]
+                sessionStorage.setItem('Households', Households);
+
+                const riceRatio = feature.properties["% Population Without Enough Rice"]
+                sessionStorage.setItem('rice-ratio', riceRatio);
+
+                const children = feature.properties["Children (Aged 0 - 18)"]
+                sessionStorage.setItem('children', children);
+
+                const distanceTown = feature.properties["Distance to Town (km)"]
+                sessionStorage.setItem('distance-town', distanceTown);
+
+                const distanceHospital = feature.properties["Distance to Hospital (km)"]
+                sessionStorage.setItem('distance-hospital', distanceHospital);
+
+                const nearestHealthCenter = feature.properties["Nearest Health Centre"]
+                sessionStorage.setItem('nearest-health-center', nearestHealthCenter);
+
+                const annualTyphoid = feature.properties["Annual Typhoid Cases"]
+                sessionStorage.setItem('annual-typhoid', annualTyphoid);
             });
         }
     }).addTo(map);

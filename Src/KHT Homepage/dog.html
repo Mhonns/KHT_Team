@@ -28,7 +28,11 @@
 
     /* Add this style to make text color black */
     h1, h2, h3 {
+<<<<<<< Updated upstream
       padding-left: 15px;
+=======
+      padding-left: 5%;
+>>>>>>> Stashed changes
     }
     h6 {
       padding-top: 10px;
@@ -68,16 +72,6 @@
             </a>
             <a href="#" class="nav-link">
               <h3>
-                <p id="distance-pratom"></p>
-              </h3>
-            </a>
-            <a href="#" class="nav-link">
-              <h3>
-                <p id="distance-mathayom"></p>
-              </h3>
-            </a>
-            <a href="#" class="nav-link">
-              <h3>
                 <p id="project-name"></p>
               </h3>
             </a>
@@ -85,7 +79,16 @@
               <h3>
                 <Details>
                   <h6>
+                    <p id="distance-town"></p>
+                    <p id="distance-hospital"></p>
+                    <p id="nearest-health-center"></p>
                     <p id="common-disease"></p>
+                    <p id="annual-typhoid"></p>
+                    <p id="children"></p>
+                    <p id="distance-pratom"></p>
+                    <p id="distance-mathayom"></p>
+                    <p id="Households"></p>
+                    <p id="rice-ratio"></p>
                   </h6>
                 </Details>
               </h3>
@@ -176,6 +179,13 @@
     document.getElementById('distance-mathayom').innerHTML = 'Distance to Mathayom';
     document.getElementById('project-name').innerHTML = 'KHT Hosted Project';
     document.getElementById('common-disease').innerHTML = 'Common Diseases';
+    document.getElementById('Households').innerHTML = 'Number of households';
+    document.getElementById('rice-ratio').innerHTML = '% of population without rice';
+    document.getElementById('children').innerHTML = 'Number of children (< 19)';
+    document.getElementById('distance-town').innerHTML = 'Distance to Town (km)';
+    document.getElementById('distance-hospital').innerHTML = 'Distance to Hospital (km)';
+    document.getElementById('nearest-health-center').innerHTML = 'Nearest Health Centre';
+    document.getElementById('annual-typhoid').innerHTML = 'Annual Typhoid Cases';
   }
     // Add an event listener for the storage event
     window.addEventListener('storage', function (e) {
@@ -206,6 +216,35 @@
       const commonDisease = sessionStorage.getItem('common-disease');
       document.getElementById("common-disease").innerHTML = "Common Diseases: " + commonDisease;
 
+    }
+    if (e.key === 'Households') {
+      const Households = sessionStorage.getItem('Households');
+      document.getElementById("Households").innerHTML = "Number of households: " + Households;
+
+    }
+    if (e.key === 'rice-ratio') {
+      const riceRatio = sessionStorage.getItem('rice-ratio');
+      document.getElementById("rice-ratio").innerHTML = "% of population without rice: " + riceRatio;
+    }
+    if (e.key === 'children') {
+      const children = sessionStorage.getItem('children');
+      document.getElementById("children").innerHTML = "Number of children (< 19): " + children;
+    }
+    if (e.key === 'distance-town') {
+      const distanceTown = sessionStorage.getItem('distance-town');
+      document.getElementById("distance-town").innerHTML = "Distance to Town: " + distanceTown + " km";
+    }
+    if (e.key === 'distance-hospital') {
+      const distanceHospital = sessionStorage.getItem('distance-hospital');
+      document.getElementById("distance-hospital").innerHTML = "Distance to Hospital: " + distanceHospital + " km";
+    }
+    if (e.key === 'nearest-health-center') {
+      const nearestHealthCenter = sessionStorage.getItem('nearest-health-center');
+      document.getElementById("nearest-health-center").innerHTML = "Nearest Health Centre: " + nearestHealthCenter;
+    }
+    if (e.key === 'annual-typhoid') {
+      const annualTyphoid = sessionStorage.getItem('annual-typhoid');
+      document.getElementById("annual-typhoid").innerHTML = "Annual Typhoid Cases: " + annualTyphoid;
     }
 });
   </script>

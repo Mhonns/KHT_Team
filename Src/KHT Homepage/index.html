@@ -250,49 +250,49 @@
                 clickedLayer = layer;
 
                 const villageName = feature.properties["Village Name"];
-                sessionStorage.setItem('village-name', villageName);
+                localStorage.setItem('village-name', villageName);
 
                 const roadQuality = feature.properties["Road Conditions"];
-                sessionStorage.setItem('road-quality', roadQuality);
+                localStorage.setItem('road-quality', roadQuality);
 
                 const distancePratom = feature.properties["Distance to Pratom (km)"];
-                sessionStorage.setItem('distance-pratom', distancePratom);
+                localStorage.setItem('distance-pratom', distancePratom);
 
                 const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
-                sessionStorage.setItem('distance-mathayom', distanceMathayom);
+                localStorage.setItem('distance-mathayom', distanceMathayom);
 
                 const projectName = feature.properties["Hosted KHT Projects"]
-                sessionStorage.setItem('project-name', projectName);
+                localStorage.setItem('project-name', projectName);
 
                 const adultmale = feature.properties["Adult Males"]
-                sessionStorage.setItem('adult-male', adultmale);
+                localStorage.setItem('adult-male', adultmale);
 
                 const adultfemale = feature.properties["Adult Females"]
-                sessionStorage.setItem('adult-female', adultfemale);
+                localStorage.setItem('adult-female', adultfemale);
 
                 const commonDisease = feature.properties["Common Diseases"]
-                sessionStorage.setItem('common-disease', commonDisease);
+                localStorage.setItem('common-disease', commonDisease);
 
                 const Households = feature.properties["Households"]
-                sessionStorage.setItem('Households', Households);
+                localStorage.setItem('Households', Households);
 
                 const riceRatio = feature.properties["% Population Without Enough Rice"]
-                sessionStorage.setItem('rice-ratio', riceRatio);
+                localStorage.setItem('rice-ratio', riceRatio);
 
                 const children = feature.properties["Children (Aged 0 - 18)"]
-                sessionStorage.setItem('children', children);
+                localStorage.setItem('children', children);
 
                 const distanceTown = feature.properties["Distance to Town (km)"]
-                sessionStorage.setItem('distance-town', distanceTown);
+                localStorage.setItem('distance-town', distanceTown);
 
                 const distanceHospital = feature.properties["Distance to Hospital (km)"]
-                sessionStorage.setItem('distance-hospital', distanceHospital);
+                localStorage.setItem('distance-hospital', distanceHospital);
 
                 const nearestHealthCenter = feature.properties["Nearest Health Centre"]
-                sessionStorage.setItem('nearest-health-center', nearestHealthCenter);
+                localStorage.setItem('nearest-health-center', nearestHealthCenter);
 
                 const annualTyphoid = feature.properties["Annual Typhoid Cases"]
-                sessionStorage.setItem('annual-typhoid', annualTyphoid);
+                localStorage.setItem('annual-typhoid', annualTyphoid);
             });
         }
     }).addTo(map);

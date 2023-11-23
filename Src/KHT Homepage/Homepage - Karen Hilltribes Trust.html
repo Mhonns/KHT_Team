@@ -532,17 +532,29 @@ var Give_Recurring_Vars = {"email_access":"1","pretty_intervals":{"1":"Every","2
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<!-- leaflet js -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src = "./data/point.js"></script>
 <script src = "./data/line.js"></script>
-<script src = "./data/polygon.js"></script>
+<!-- <script src = "./data/polygon.js"></script> -->
 <script src = "./data/hotdogcat.js"></script>
 <script src = "./data/waterline.js"></script>
-<script src = "./data/"></script>
+<script src = "./data/THA_roads.js"></script>
+<script src = "./data/District_MAE_HONG_SON.js"></script>
+<script src = "./data/village_point.js"></script>
+<script src = "./data/subdistrict_area.js"></script>
+<script src = "./data/Village_Details.js"></script>
+<script src = "./data/School.js"></script>
+<script src = "./data/amenity_hospital.js"></script>
+<script src = "./data/mhs_roads.js"></script>
+<script src = "./data/msh_water_areas.js"></script>
+<script src = "./data/msh_water_lines.js"></script>
+
 <script>
-    // Map initialization
-    var map = L.map('map').setView([18.7370, 97.8722], 9);
-    
-    
+
+    var map = L.map('map').setView([18.7370, 97.8722], 8);
+
+
 
     /* ==========================================
                 TILE  LAYER and WMS
@@ -592,51 +604,31 @@ var Give_Recurring_Vars = {"email_access":"1","pretty_intervals":{"1":"Every","2
     attribution: "Weather data © 2012 IEM Nexrad"
     });
 
-
-// Remove the default zoom control
-map.zoomControl.remove();
-
-// Create a custom zoom control
-var customZoomControl = L.control();
-
-customZoomControl.onAdd = function(map) {
-    var container = L.DomUtil.create('div', 'custom-zoom-control');
-
-    // Add your custom zoom buttons or any other content here
-    container.innerHTML = '<button onclick="zoomIn()">+</button><button onclick="zoomOut()">-</button>';
-
-    return container;
-};
-
-customZoomControl.addTo(map);
-
-// Define your custom zoom functions
-function zoomIn() {
-    map.zoomIn();
-}
-
-function zoomOut() {
-    map.zoomOut();
-}
     
     /* ==========================================
                         MARKER
     =============================================*/
     var myIcon = L.icon({
-    iconUrl: 'img/red_marker.png',
-    iconSize: [50, 50],
+    iconUrl: 'img/hospital_marker.png',
+    iconSize: [30, 30],
     });
 
-    var singleMarker = L.marker([18.7370, 97.8722], { icon: myIcon, draggable: false});
-    var popup1 = singleMarker.bindPopup('Maehongson').openPopup()
-    popup1.addTo(map)
+    // var SchoolIcon = L.icon({
+    // iconUrl: 'img/school_marker.png',
+    // iconSize: [18, 18],
+    // });
+    
+    
+    // var singleMarker = L.marker([18.7370, 97.8722], { icon: myIcon, draggable: false});
+    // var popup1 = singleMarker.bindPopup('This is Maehongson ' + singleMarker.getLatLng().toString()).openPopup()
+    // popup1.addTo(map)
 
-    var Ban_Mae_Kong_Pae_Marker = L.marker([18.565066, 98.116619], { icon: myIcon, draggable: false});
-    var popup2 = Ban_Mae_Kong_Pae_Marker.bindPopup('Ban Mae Kong Pae').openPopup()
-    popup2.addTo(map)
+    // var Ban_Mae_Kong_Pae_Marker = L.marker([18.565066, 98.116619], { icon: myIcon, draggable: false});
+    // var popup2 = Ban_Mae_Kong_Pae_Marker.bindPopup('This is Ban Mae Kong Pae ' + Ban_Mae_Kong_Pae_Marker.getLatLng().toString()).openPopup()
+    // popup2.addTo(map)
 
 
-    console.log(singleMarker.toGeoJSON())
+    // console.log(singleMarker.toGeoJSON())
 
 
     /* ==========================================
@@ -644,17 +636,154 @@ function zoomOut() {
     =============================================*/
     // var poinData = L.geoJSON(pointJson).addTo(map)
     // var lineData = L.geoJSON(lineJson).addTo(map)
-    var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
-    var waterline = L.geoJSON(waterlinedata).addTo(map)
-    var road = L.geoJSON(roaddata, {
-        onEachFeature: function(feature, layer) {
-        //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
-        },
-        style: {
-            color: 'red',
-            opacity: 0.5,
+    // Use Fetch API to get GeoJSON data from the provided URL
+
+
+    
+    fetch('http://103.153.118.77:2546/api/pull-static-data ')
+        .then(response => {
+            console.log('Full response:', response);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+            L.geoJSON(data).addTo(map);
+        })
+        .catch(error => console.error('Error fetching GeoJSON:', error));
+        console.log('This is after the fetch request');
+
+    var mhswater = L.geoJSON(waterarea, {
+        style: function(feature) {
+            return {color: "blue"}; 
         }
-    }).addTo(map)
+    }).addTo(map);
+
+    var mhswaterline = L.geoJSON(waterline, {
+        style: function(feature) {
+            return {color: "steelblue"}; 
+        }
+    }).addTo(map);
+
+    var mhsroad = L.geoJSON(roads, {
+        style: function(feature) {
+            return {
+                color: "brown",
+                fillOpacity: 0.5
+            }; 
+        }
+    }).addTo(map);
+    var hospital = L.geoJSON(hospital, {
+  pointToLayer: function (feature, latlng) {
+    return L.marker(latlng, {icon: myIcon});
+  },
+  onEachFeature: function (feature, layer) {
+    var popupContent = (feature.properties.name || feature.properties['name:en']);
+    layer.bindPopup(popupContent);
+  }
+}).addTo(map);
+    var district = L.geoJSON(district, {
+  style: {
+    color: '#FA8072',
+    opacity: 1,
+    fill: false
+  }
+}).addTo(map);
+    var school = L.geoJSON(school, {
+  pointToLayer: function (feature, latlng) {
+    return L.circleMarker(latlng, {
+      radius: 8,
+      fillColor: "yellow",
+      color: "yellow",
+      weight: 1,
+      opacity: 0.5,
+      fillOpacity: 0.2
+    });
+  },
+  onEachFeature: function (feature, layer) {
+    layer.bindPopup(feature.properties.CUL_PNAME);
+  }
+}).addTo(map);
+    // var village = L.geoJSON(village).addTo(map)
+    var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], {interactive: false, opacity: 0.5}).addTo(map);
+    var subdistrict = L.geoJSON(subdistrict, {
+  style: {
+    color: 'pink',
+    opacity: 1,
+    fill: false
+  }
+}).addTo(map);
+    var VillageData = L.geoJSON(VillageData, {
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 8,
+                fillColor: 'blue',
+                color: 'white',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.7
+            });
+        },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties["Village Name"]);
+
+            layer.on('click', function (e) {
+                // Reset the style of the previously clicked layer
+                resetClickedLayer();
+
+                // Change the marker color to red
+                layer.setStyle({ fillColor: 'red', color: 'white' });
+
+                // Bring the clicked layer to the front
+                layer.bringToFront();
+                
+                // Store the currently clicked layer
+                clickedLayer = layer;
+
+                const villageName = feature.properties["Village Name"];
+                sessionStorage.setItem('village-name', villageName);
+
+                const roadQuality = feature.properties["Road Conditions"];
+                sessionStorage.setItem('road-quality', roadQuality);
+
+                const distancePratom = feature.properties["Distance to Pratom (km)"];
+                sessionStorage.setItem('distance-pratom', distancePratom);
+
+                const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
+                sessionStorage.setItem('distance-mathayom', distanceMathayom);
+
+                const projectName = feature.properties["Hosted KHT Projects"]
+                sessionStorage.setItem('project-name', projectName);
+
+                const adultmale = feature.properties["Adult Males"]
+                sessionStorage.setItem('adult-male', adultmale);
+
+                const adultfemale = feature.properties["Adult Females"]
+                sessionStorage.setItem('adult-female', adultfemale);
+                
+            });
+        }
+    }).addTo(map);
+
+// Variable to store the currently clicked layer
+var clickedLayer;
+
+// Function to reset the style of the previously clicked layer
+function resetClickedLayer() {
+    if (clickedLayer) {
+        clickedLayer.setStyle({ fillColor: 'blue', color: 'white' });
+    }
+}
+    // var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
+    // var waterline = L.geoJSON(waterlinedata).addTo(map)
+    // var road = L.geoJSON(roaddata, {
+    //     onEachFeature: function(feature, layer) {
+    //     //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
+    //     },
+    //     style: {
+    //         color: 'red',
+    //         opacity: 0.5,
+    //     }
+    // }).addTo(map)
 
     // var polygonData = L.geoJSON(polygonJson, {
     //     onEachFeature: function(feature, layer) {
@@ -669,13 +798,45 @@ function zoomOut() {
 
 
     // Create a layer group for markers
-    var markersLayerGroup = L.layerGroup([singleMarker, Ban_Mae_Kong_Pae_Marker]);
+    var markersLayerGroup = L.layerGroup([VillageData]);
 
     // Create a layer group for GeoJSON data
-    var geoJSONLayerGroup = L.layerGroup([hotdogcat, waterline, road]);
+    var SubdistrictLayer = L.layerGroup([subdistrict]);
+
+    var DistrictLayer = L.layerGroup([district]);
+    
+    var elevationLayer = L.layerGroup([elevation])
+
+    var SchoolLayer = L.layerGroup([school])
+
+    var HospitalLayer = L.layerGroup([hospital])
+
+    var GeographicLayer = L.layerGroup([mhsroad])
 
 
+// Define a new control
+/* var RecenterControl = L.Control.extend({
+    options: {
+        position: 'topleft' // Position of the control
+    },
 
+    onAdd: function (map) {
+        // Create a button, set the text and type to 'button'
+        var button = L.DomUtil.create('button');
+        button.innerHTML = 'Recenter';
+        button.type = 'button';
+
+        // Attach the onclick event to the button
+        button.onclick = function () {
+            map.setView([18.7370, 97.8722], 9.45); // Recenter the map
+        }
+
+        return button;
+    }
+}); */
+
+// Add the control to the map
+new RecenterControl().addTo(map);
     
     /* ==========================================
                     LAYER CONTROL
@@ -689,8 +850,13 @@ function zoomOut() {
     };
 
     var overlayMaps = {
-        "Markers": markersLayerGroup,
-        'GeoJSON Data': geoJSONLayerGroup,
+        "Villages": markersLayerGroup,
+        'Elevation': elevationLayer,
+        'Subdistrict': SubdistrictLayer,
+        'District': DistrictLayer,
+        'School': SchoolLayer,
+        'Geographic': GeographicLayer,
+        'Hospital': HospitalLayer
 
         // 'nexrad': nexrad
     };

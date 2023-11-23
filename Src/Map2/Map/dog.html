@@ -91,20 +91,25 @@
                 
                 So far, our health projects have provided 55,643 Karen people with improved WASH conditions through installing over 200 water systems and building or repairing 3,150 latrines!</h6></Details></h3>
             </a>
-            <div style="width: 300px; height: 300px;">
+            <a href="#" class="nav-link">
+              <h3> Gender charts</h3>
+            </a>
+            <div style="width: 300px; height: 300px; padding-left: 100px;">
               <!-- Create a canvas element where the chart will be rendered -->
+
+              <button id="updateChartButton">Update Chart</button>
+
               <canvas id="myChart"></canvas>
           </div>
           
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
           
           <script>
-            
-            const adultfemale = sessionStorage.getItem('adult-female');
-            const adultmale = sessionStorage.getItem('adult-male');
+            const adultfemale = parseInt(sessionStorage.getItem('adult-female')) || 0;
+            const adultmale = parseInt(sessionStorage.getItem('adult-male')) || 0;
           
             // Define your data
-            var labels = ['Red', 'Blue'];
+            var labels = ['Female', 'Male'];
             var data = [ adultfemale, adultmale
             ];
             
@@ -179,6 +184,7 @@
     if (e.key === 'project-name') {
       const projectName = sessionStorage.getItem('project-name');
       document.getElementById("project-name").innerHTML = "Project Name: " + projectName;
+
     }
 });
   </script>

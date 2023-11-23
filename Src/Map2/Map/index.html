@@ -56,6 +56,9 @@
 <script src = "./data/Village_Details.js"></script>
 <script src = "./data/School.js"></script>
 <script src = "./data/amenity_hospital.js"></script>
+<script src = "./data/mhs_roads.js"></script>
+<script src = "./data/msh_water_areas.js"></script>
+<script src = "./data/msh_water_lines.js"></script>
 
 <script>
 
@@ -117,7 +120,7 @@
     =============================================*/
     var myIcon = L.icon({
     iconUrl: 'img/hospital_marker.png',
-    iconSize: [25, 25],
+    iconSize: [30, 30],
     });
 
     // var SchoolIcon = L.icon({
@@ -145,21 +148,40 @@
     // var lineData = L.geoJSON(lineJson).addTo(map)
     // Use Fetch API to get GeoJSON data from the provided URL
 
-    
-    
-    // fetch('http://103.153.118.77:2546/pull-static-data')
-    //     .then(response => {
-    //         console.log('Full response:', response);
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         console.log('Response data:', data);
-    //         L.geoJSON(data).addTo(map);
-    //     })
-    //     .catch(error => console.error('Error fetching GeoJSON:', error));
-    //     console.log('This is after the fetch request');
 
+    
+    fetch('http://103.153.118.77:2546/api/pull-static-data ')
+        .then(response => {
+            console.log('Full response:', response);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+            L.geoJSON(data).addTo(map);
+        })
+        .catch(error => console.error('Error fetching GeoJSON:', error));
+        console.log('This is after the fetch request');
 
+    var mhswater = L.geoJSON(waterarea, {
+        style: function(feature) {
+            return {color: "blue"}; 
+        }
+    }).addTo(map);
+
+    var mhswaterline = L.geoJSON(waterline, {
+        style: function(feature) {
+            return {color: "steelblue"}; 
+        }
+    }).addTo(map);
+
+    var mhsroad = L.geoJSON(roads, {
+        style: function(feature) {
+            return {
+                color: "brown",
+                fillOpacity: 0.5
+            }; 
+        }
+    }).addTo(map);
     var hospital = L.geoJSON(hospital, {
   pointToLayer: function (feature, latlng) {
     return L.marker(latlng, {icon: myIcon});
@@ -169,7 +191,13 @@
     layer.bindPopup(popupContent);
   }
 }).addTo(map);
-    var district = L.geoJSON(district).addTo(map)
+    var district = L.geoJSON(district, {
+  style: {
+    color: '#FA8072',
+    opacity: 1,
+    fill: false
+  }
+}).addTo(map);
     var school = L.geoJSON(school, {
   pointToLayer: function (feature, latlng) {
     return L.circleMarker(latlng, {
@@ -189,8 +217,8 @@
     var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], {interactive: false}).addTo(map);
     var subdistrict = L.geoJSON(subdistrict, {
   style: {
-    color: 'red',
-    opacity: 0.125,
+    color: 'pink',
+    opacity: 1,
     fill: false
   }
 }).addTo(map);
@@ -257,15 +285,15 @@ function resetClickedLayer() {
 }
     // var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     // var waterline = L.geoJSON(waterlinedata).addTo(map)
-    var road = L.geoJSON(roaddata, {
-        onEachFeature: function(feature, layer) {
-        //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
-        },
-        style: {
-            color: 'red',
-            opacity: 0.5,
-        }
-    }).addTo(map)
+    // var road = L.geoJSON(roaddata, {
+    //     onEachFeature: function(feature, layer) {
+    //     //     layer.bindPopup(`<b>Name: </b>` + feature.properties.Name)
+    //     },
+    //     style: {
+    //         color: 'red',
+    //         opacity: 0.5,
+    //     }
+    // }).addTo(map)
 
     // var polygonData = L.geoJSON(polygonJson, {
     //     onEachFeature: function(feature, layer) {
@@ -293,7 +321,7 @@ function resetClickedLayer() {
 
     var HospitalLayer = L.layerGroup([hospital])
 
-    var GeographicLayer = L.layerGroup([road])
+    var GeographicLayer = L.layerGroup([mhsroad])
 
 
 // Define a new control

@@ -28,7 +28,7 @@
 
     /* Add this style to make text color black */
     h1, h2, h3 {
-      padding-left: 10px;
+      padding-left: 15px;
     }
     h6 {
       padding-top: 10px;
@@ -53,7 +53,7 @@
           <div class="collapse show" id="sidebar"> <!-- Add the collapse class and an id -->
             <a href="#" class="nav-link">
               <div style="margin-left: 6%; margin-top: 10%; margin-bottom: 10%">
-                <img src="img/KHT.jpg" alt="Karen village" width="400" height="200">
+                <img src="img/KHT.jpg" alt="Karen village" width="500" height="250">
               </div>
             </a>
             <a href="#" class="nav-link">
@@ -174,7 +174,7 @@
     document.getElementById('road-quality').innerHTML = 'Road Quality';
     document.getElementById('distance-pratom').innerHTML = 'Distance to Pratom';
     document.getElementById('distance-mathayom').innerHTML = 'Distance to Mathayom';
-    document.getElementById('project-name').innerHTML = 'Project Name';
+    document.getElementById('project-name').innerHTML = 'KHT Hosted Project';
     document.getElementById('common-disease').innerHTML = 'Common Diseases';
   }
     // Add an event listener for the storage event
@@ -200,7 +200,7 @@
     }
     if (e.key === 'project-name') {
       const projectName = sessionStorage.getItem('project-name');
-      document.getElementById("project-name").innerHTML = "Project Name: " + projectName;
+      document.getElementById("project-name").innerHTML = "KHT Hosted Project: " + projectName;
     }
     if (e.key === 'common-disease') {
       const commonDisease = sessionStorage.getItem('common-disease');

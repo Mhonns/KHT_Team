@@ -269,7 +269,9 @@
 
                 const adultfemale = feature.properties["Adult Females"]
                 sessionStorage.setItem('adult-female', adultfemale);
-                
+
+                const commonDisease = feature.properties["Common Diseases"]
+                sessionStorage.setItem('common-disease', commonDisease);
             });
         }
     }).addTo(map);
@@ -377,13 +379,13 @@ new RecenterControl().addTo(map);
     /* ==========================================
                     LEAFLET EVENT
     =============================================*/
-    map.on('mouseover', function() {
+    /* map.on('mouseover', function() {
         console.log('your mouse is over the map')
     })
 
     map.on('mousemove', function(e) {
         document.getElementsByClassName('coordinate')[0].innerHTML = 'Lat: ' + e.latlng.lat + ' Lng: ' + e.latlng.lng
         console.log('Lat: ' + e.latlng.lat, 'Lng' + e.latlng.lng)
-    })
+    }) */
 
 </script>

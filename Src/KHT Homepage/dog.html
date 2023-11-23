@@ -51,7 +51,7 @@
           <div class="collapse show" id="sidebar"> <!-- Add the collapse class and an id -->
             <a href="#" class="nav-link">
               <div style="margin-left: 6%; margin-top: 10%; margin-bottom: 10%">
-                <img src="img/KHT.jpg" alt="Karen village" width="500" height="250">
+                <img src="img/KHT.jpg" alt="Karen village" width="400" height="200">
               </div>
             </a>
             <a href="#" class="nav-link">
@@ -80,16 +80,24 @@
               </h3>
             </a>
             <a href="#" class="nav-link">
-              <h3> </h3>
+              <h3>
+                <p id="common-disease"></p>
+              </h3>
             </a>
             <a href="#" class="nav-link">
-              <h3><Details><h6>Good health and wellbeing is one of the 17 United Nations Sustainable Development Goals. Promoting a healthy community is one of the most important ways to reduce poverty and inequality, helping communities to thrive.
+              <h3>
+                <Details>
+                  <h6>
+                    Good health and wellbeing is one of the 17 United Nations Sustainable Development Goals. Promoting a healthy community is one of the most important ways to reduce poverty and inequality, helping communities to thrive.
 
-                One of the main reasons for poor health in Karen communities is through lack of access to adequate clean water, sanitation and hygiene (WASH) facilities. Around 40% of the population in Mae Hong Son lack access to clean drinking water and adequate waste disposal making. This makes them vulnerable to many diseases including diarrhea, typhoid, stomach ulcers and parasitic worms. Not only do these cause short-term health problems but they can also cause long-term chronic complications which have lasting impacts on health, education and livelihoods outcomes, helping continue the cycle of poverty.
+                    One of the main reasons for poor health in Karen communities is through lack of access to adequate clean water, sanitation and hygiene (WASH) facilities. Around 40% of the population in Mae Hong Son lack access to clean drinking water and adequate waste disposal making. This makes them vulnerable to many diseases including diarrhea, typhoid, stomach ulcers and parasitic worms. Not only do these cause short-term health problems but they can also cause long-term chronic complications which have lasting impacts on health, education and livelihoods outcomes, helping continue the cycle of poverty.
                 
-                The Karen Hilltribes Trust (KHT) is one of the few organisations working in this region, reaching out to the poorest and most isolated communities Mae Hong Son. We are dedicated to working towards good health and wellbeing. All our projects are coordinated in cooperation with every village we work in to ensure long-term sustainability and local ownership. Our current health project is WASH – Water, Sanitation and Hygiene. Read more about our WASH project below.
+                    The Karen Hilltribes Trust (KHT) is one of the few organisations working in this region, reaching out to the poorest and most isolated communities Mae Hong Son. We are dedicated to working towards good health and wellbeing. All our projects are coordinated in cooperation with every village we work in to ensure long-term sustainability and local ownership. Our current health project is WASH – Water, Sanitation and Hygiene. Read more about our WASH project below.
                 
-                So far, our health projects have provided 55,643 Karen people with improved WASH conditions through installing over 200 water systems and building or repairing 3,150 latrines!</h6></Details></h3>
+                    So far, our health projects have provided 55,643 Karen people with improved WASH conditions through installing over 200 water systems and building or repairing 3,150 latrines!
+                  </h6>
+                </Details>
+              </h3>
             </a>
             <a href="#" class="nav-link">
               <h3> Gender charts</h3>
@@ -176,7 +184,8 @@
     document.getElementById('distance-pratom').innerHTML = 'Distance to Pratom';
     document.getElementById('distance-mathayom').innerHTML = 'Distance to Mathayom';
     document.getElementById('project-name').innerHTML = 'Project Name';
-}
+    document.getElementById('common-disease').innerHTML = 'Common Diseases';
+  }
     // Add an event listener for the storage event
     window.addEventListener('storage', function (e) {
     // Check if the changed key is 'village-name'
@@ -201,6 +210,10 @@
     if (e.key === 'project-name') {
       const projectName = sessionStorage.getItem('project-name');
       document.getElementById("project-name").innerHTML = "Project Name: " + projectName;
+    }
+    if (e.key === 'common-disease') {
+      const commonDisease = sessionStorage.getItem('common-disease');
+      document.getElementById("common-disease").innerHTML = "Common Diseases: " + commonDisease;
 
     }
 });

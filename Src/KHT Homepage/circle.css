@@ -37,6 +37,22 @@ body{
     transition: transform 0.3s ease-in-out;
 }
 
+.circle4{
+
+    height: 45px;
+    width: 150px;
+    border-radius: 0%;
+    background-color: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: auto;
+    width: 50%;
+    text-align: left; /* Center the text inside the circle */
+    line-height: 350px; /* Vertically center the text */   
+    transition: transform 0.3s ease-in-out;
+}
+
 
 .circle2{
 

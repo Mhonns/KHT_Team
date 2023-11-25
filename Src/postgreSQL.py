@@ -27,13 +27,12 @@ def query_to_geojson(cursor, query):
     features = []
     for row in results:
         properties = dict(zip(columns, row))
-        geometry = properties.pop('geometry', None)  # Assuming 'geometry' is the column name for geometry data
-
-        feature = geojson.Feature(geometry=geometry, properties=properties)
+        geometry = properties.pop('geom', None)  # Assuming 'geometry' is the column name for geometry data
+        feature = geojson.Feature(properties=properties)
         features.append(feature)
 
     feature_collection = geojson.FeatureCollection(features)
-    return geojson.dumps(feature_collection)
+    return geojson.dumps(feature_collection, indent=2)
 
 # Query all vallages datail
 def get_table(target_table):

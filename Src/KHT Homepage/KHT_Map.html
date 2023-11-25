@@ -197,21 +197,12 @@
         document.getElementById("road-quality").innerHTML = "Road quality: " + roadQuality;
     }
     if (e.key === 'distance-pratom') {
-<<<<<<< Updated upstream:Src/KHT Homepage/KHT_Map.html
-      const distancePratom = localStorage.getItem('distance-pratom');
-      document.getElementById("distance-pratom").innerHTML = "Distance to Pratom: " + distancePratom + " km";
-    }
-    if (e.key === 'distance-mathayom') {
-      const distanceMathayom = localStorage.getItem('distance-mathayom');
-      document.getElementById("distance-mathayom").innerHTML = "Distance to Mathayom: " + distanceMathayom + " km";
-=======
       const distancePratom = sessionStorage.getItem('distance-pratom');
       document.getElementById("distance-pratom").innerHTML = "Distance to Primary school: " + distancePratom + " km";
     }
     if (e.key === 'distance-mathayom') {
       const distanceMathayom = sessionStorage.getItem('distance-mathayom');
       document.getElementById("distance-mathayom").innerHTML = "Distance to Secondary school: " + distanceMathayom + " km";
->>>>>>> Stashed changes:Src/KHT Homepage/dog.html
     }
     if (e.key === 'project-name') {
       const projectName = localStorage.getItem('project-name');

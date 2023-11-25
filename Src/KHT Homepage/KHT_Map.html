@@ -197,11 +197,14 @@
         document.getElementById("road-quality").innerHTML = "Road quality: " + roadQuality;
     }
     if (e.key === 'distance-pratom') {
-      const distancePratom = sessionStorage.getItem('distance-pratom');
+
+
+      const distancePratom = localStorage.getItem('distance-pratom');
+      
       document.getElementById("distance-pratom").innerHTML = "Distance to Primary school: " + distancePratom + " km";
     }
     if (e.key === 'distance-mathayom') {
-      const distanceMathayom = sessionStorage.getItem('distance-mathayom');
+      const distanceMathayom = localStorage.getItem('distance-mathayom');
       document.getElementById("distance-mathayom").innerHTML = "Distance to Secondary school: " + distanceMathayom + " km";
     }
     if (e.key === 'project-name') {

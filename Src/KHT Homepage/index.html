@@ -60,9 +60,23 @@
 <script src = "./data/msh_water_areas.js"></script>
 <script src = "./data/msh_water_lines.js"></script>
 
+<!-- <style>
+    .leaflet-control-scale-line {
+        border: 2px solid #777;
+        border-top: none;
+        line-height: 20px;
+        font-size: 20px;
+    }
+</style> -->
+
 <script>
 
     var map = L.map('map').setView([18.7370, 97.8722], 9.45);
+
+    var scale = L.control.scale({
+        position: 'bottomleft',
+        imperial: true
+    }).addTo(map);
 
 
 
@@ -354,17 +368,24 @@ var RecenterControl = L.Control.extend({
     },
 
     onAdd: function (map) {
-        // Create a button, set the text and type to 'button'
-        var button = L.DomUtil.create('button');
-        button.innerHTML = 'Recenter';
-        button.type = 'button';
+        // Create an img element
+        var img = L.DomUtil.create('img');
 
-        // Attach the onclick event to the button
-        button.onclick = function () {
+        // Set the source of the image
+        img.src = 'img/re-center.png';
+
+        // Set the width and height of the image
+        img.style.width = '32px';
+        img.style.height = '32px';
+
+        img.style.borderRadius = '10%';
+
+        // Attach the onclick event to the image
+        img.onclick = function () {
             map.setView([18.7370, 97.8722], 9.45); // Recenter the map
         }
 
-        return button;
+        return img;
     }
 });
 

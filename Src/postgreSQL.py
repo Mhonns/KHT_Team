@@ -4,8 +4,8 @@ from psycopg2 import sql
 
 
 # Database configurations
-db_host = "103.153.118.77"
-db_port = "2547"
+db_host = "127.0.0.1" # "103.153.118.77"
+db_port = "5432" # "2547"
 db_name = "mhs_geographic"
 db_user = "postgres"
 db_password = "postgres"
@@ -28,7 +28,9 @@ def query_to_geojson(cursor, query):
     for row in results:
         properties = dict(zip(columns, row))
         geometry = properties.pop('geom', None)  # Assuming 'geometry' is the column name for geometry data
-        feature = geojson.Feature(properties=properties)
+
+    if geometry:
+        feature = geojson.Feature(properties=properties, geometry=geometry)
         features.append(feature)
 
     feature_collection = geojson.FeatureCollection(features)
@@ -40,7 +42,9 @@ def get_table(target_table):
     query = sql.SQL("SELECT * FROM {};").format(sql.Identifier(target_table))
     cursor.execute(query)
     geojson_result = query_to_geojson(cursor, query)
-    return geojson_result
+    results = cursor.fetchall()
+    # return geojson_result
+    return {"villages": geojson_result}
 
 # Establish a connection to the database
 try:
@@ -49,6 +53,7 @@ try:
 
     # Create a cursor object to execute SQL queries
     cursor = connection.cursor()
+    print(get_table("village"))
 
 except psycopg2.Error as e:
     print(f"Unable to connect to the database. Error: {e}")

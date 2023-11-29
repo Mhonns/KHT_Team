@@ -1,7 +1,9 @@
 import psycopg2
 import geojson
 from psycopg2 import sql
-
+from shapely import wkb
+from shapely.geometry import mapping
+import json
 
 # Database configurations
 db_host = "103.153.118.77"
@@ -20,19 +22,43 @@ connection_params = {
 }
 
 def query_to_geojson(cursor, query):
-    cursor.execute(query)
-    columns = [desc[0] for desc in cursor.description]
-    results = cursor.fetchall()
+    # cursor.execute(query)
+    # columns = [desc[0] for desc in cursor.description]
+    # results = cursor.fetchall()
 
-    features = []
-    for row in results:
-        properties = dict(zip(columns, row))
-        geometry = properties.pop('geom', None)  # Assuming 'geometry' is the column name for geometry data
-        feature = geojson.Feature(properties=properties)
-        features.append(feature)
+    # features = []
+    # for row in results:
+    #     properties = dict(zip(columns, row))
+    #     geometry = properties.pop('geom', None)  # Assuming 'geometry' is the column name for geometry data
+    #     feature = geojson.Feature(properties=properties, geometry=geometry)
+    #     features.append(feature)
 
-    feature_collection = geojson.FeatureCollection(features)
-    return geojson.dumps(feature_collection, indent=2)
+    # feature_collection = geojson.FeatureCollection(features)
+    # return geojson.dumps(feature_collection, indent=2)
+   
+        cursor.execute(query)
+        columns = [desc[0] for desc in cursor.description]
+        results = cursor.fetchall()
+
+        features = []
+        for row in results:
+            properties = dict(zip(columns, row))
+            geometry_key = 'geom'
+            geometry_str = properties.get(geometry_key)
+            if geometry_str is not None:
+                try:
+                    # Convert the hex WKB to a Shapely geometry
+                    geometry = wkb.loads(geometry_str, hex=True)
+                    # Convert the Shapely geometry to GeoJSON
+                    geometry_geojson = mapping(geometry)
+                    feature = geojson.Feature(properties=properties, geometry=geometry_geojson)
+                    features.append(feature)
+                except (json.JSONDecodeError, ValueError):
+                    print(f"Invalid GeoJSON string: {geometry_str}")
+
+        feature_collection = geojson.FeatureCollection(features)
+        geojson_result = geojson.dumps(feature_collection, indent=2)
+        return geojson_result
 
 # Query all vallages datail
 def get_table(target_table):

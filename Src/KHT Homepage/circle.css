@@ -57,7 +57,7 @@ body{
 .circle2{
 
     height: 350px;
-    width: 950px;
+    width: 1000px;
     border-radius: 0%;
     background-color: blanchedalmond;
     margin: auto;
@@ -68,9 +68,6 @@ body{
     cursor: pointer;
 }
 .circle:hover {
-    transform: scale(1.1); /* Apply the scale transformation on hover */
-}
-.circle2:hover {
     transform: scale(1.1); /* Apply the scale transformation on hover */
 }
 .circle3:hover {

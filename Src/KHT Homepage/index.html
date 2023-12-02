@@ -30,7 +30,7 @@
 </head>
 
 <body>
-  <link rel="stylesheet" href="dog.css">
+  <!-- <link rel="stylesheet" href="dog.css"> -->
   <div id="map">
       <div class="leaflet-control coordinate"></div>
   </div>
@@ -44,14 +44,14 @@
 
 <!-- leaflet js -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src = "./data/point.js"></script>
-<script src = "./data/line.js"></script>
+<!-- <script src = "./data/point.js"></script>
+<script src = "./data/line.js"></script> -->
 <!-- <script src = "./data/polygon.js"></script> -->
-<script src = "./data/hotdogcat.js"></script>
+<!-- <script src = "./data/hotdogcat.js"></script> -->
 <script src = "./data/waterline.js"></script>
-<script src = "./data/THA_roads.js"></script>
+<!-- <script src = "./data/THA_roads.js"></script> -->
 <script src = "./data/District_MAE_HONG_SON.js"></script>
-<script src = "./data/village_point.js"></script>
+<!-- <script src = "./data/village_point.js"></script> -->
 <script src = "./data/subdistrict_area.js"></script>
 <script src = "./data/Village_Details.js"></script>
 <script src = "./data/School.js"></script>
@@ -59,6 +59,8 @@
 <script src = "./data/mhs_roads.js"></script>
 <script src = "./data/msh_water_areas.js"></script>
 <script src = "./data/msh_water_lines.js"></script>
+<!-- <script src = "./data/Contour.js"></script> -->
+<scirpt src = "./data/Contourline.js"></scirpt>
 
 <!-- <style>
     .leaflet-control-scale-line {
@@ -70,6 +72,7 @@
 </style> -->
 
 <script>
+
 
     var map = L.map('map').setView([18.7370, 97.8722], 9.45);
 
@@ -164,17 +167,27 @@
 
 
     
-    fetch('http://103.153.118.77:2546/api/pull-static-data ')
-        .then(response => {
-            console.log('Full response:', response);
-            return response.json();
-        })
-        .then(data => {
-            console.log('Response data:', data);
-            L.geoJSON(data).addTo(map);
-        })
-        .catch(error => console.error('Error fetching GeoJSON:', error));
-        console.log('This is after the fetch request');
+    async function fetchData() {
+    try {
+        const response = await fetch('http://103.153.118.77:2546/api/get/?table=village');
+        const data = await response.json();
+        console.log('Data from API:', data);
+        L.geoJSON(data).addTo(map);
+    } catch (error) {
+        console.error('Error fetching GeoJSON:', error);
+    }
+}
+
+fetchData();
+
+//     var contourline = L.geoJson(contourline, {
+//     style: function(feature) {
+//         console.log('feature', feature);
+//         return {color: 'orange'};
+//     }
+// }).addTo(map);
+
+// console.log('Contourline:', contourline);
 
     var mhswater = L.geoJSON(waterarea, {
         style: function(feature) {
@@ -228,7 +241,7 @@
   }
 }).addTo(map);
     // var village = L.geoJSON(village).addTo(map)
-    var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], {interactive: false}).addTo(map);
+    var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], {interactive: false, opacity: 0.5}).addTo(map);
     var subdistrict = L.geoJSON(subdistrict, {
   style: {
     color: 'pink',
@@ -360,6 +373,8 @@ function resetClickedLayer() {
 
     var GeographicLayer = L.layerGroup([mhsroad, mhswater, mhswaterline])
 
+    // var ContourLayer = L.layerGroup([contourline])
+
 
 // Define a new control
 var RecenterControl = L.Control.extend({
@@ -405,12 +420,13 @@ new RecenterControl().addTo(map);
 
     var overlayMaps = {
         "Villages": markersLayerGroup,
-        'Elevation': elevationLayer,
+        'Terrain': elevationLayer,
         'Subdistrict': SubdistrictLayer,
         'District': DistrictLayer,
         'School': SchoolLayer,
-        'Geographic': GeographicLayer,
-        'Hospital': HospitalLayer
+        'Geographical Info': GeographicLayer,
+        'Hospital': HospitalLayer,
+        // 'Contour': ContourLayer
 
         // 'nexrad': nexrad
     };

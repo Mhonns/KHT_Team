@@ -7,7 +7,8 @@
     <title>Leaflet</title>
 
     <!-- leaflet css -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
@@ -30,37 +31,38 @@
 </head>
 
 <body>
-  <!-- <link rel="stylesheet" href="dog.css"> -->
-  <div id="map">
-      <div class="leaflet-control coordinate"></div>
-  </div>
-  <div id="widget">
-      <!-- Content of the widget goes here -->
-  </div>
-  </script>
+    <!-- <link rel="stylesheet" href="dog.css"> -->
+    <div id="map">
+        <div class="leaflet-control coordinate"></div>
+    </div>
+    <div id="widget">
+        <!-- Content of the widget goes here -->
+    </div>
+    </script>
 </body>
 
 </html>
 
 <!-- leaflet js -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <!-- <script src = "./data/point.js"></script>
 <script src = "./data/line.js"></script> -->
 <!-- <script src = "./data/polygon.js"></script> -->
 <!-- <script src = "./data/hotdogcat.js"></script> -->
-<script src = "./data/waterline.js"></script>
+<script src="./data/waterline.js"></script>
 <!-- <script src = "./data/THA_roads.js"></script> -->
-<script src = "./data/District_MAE_HONG_SON.js"></script>
+<script src="./data/District_MAE_HONG_SON.js"></script>
 <!-- <script src = "./data/village_point.js"></script> -->
-<script src = "./data/subdistrict_area.js"></script>
-<script src = "./data/Village_Details.js"></script>
-<script src = "./data/School.js"></script>
-<script src = "./data/amenity_hospital.js"></script>
-<script src = "./data/mhs_roads.js"></script>
-<script src = "./data/msh_water_areas.js"></script>
-<script src = "./data/msh_water_lines.js"></script>
+<script src="./data/subdistrict_area.js"></script>
+<script src="./data/Village_Details.js"></script>
+<script src="./data/School.js"></script>
+<script src="./data/amenity_hospital.js"></script>
+<script src="./data/mhs_roads.js"></script>
+<script src="./data/msh_water_areas.js"></script>
+<script src="./data/msh_water_lines.js"></script>
 <!-- <script src = "./data/Contour.js"></script> -->
-<scirpt src = "./data/Contourline.js"></scirpt>
+<scirpt src="./data/Contourline.js"></scirpt>
 
 <!-- <style>
     .leaflet-control-scale-line {
@@ -94,58 +96,58 @@
 
     // water color
     var watercolor = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.{ext}', {
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
-    minZoom: 1,
-	maxZoom: 16,
-    ext: 'jpg'
+        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        subdomains: 'abcd',
+        minZoom: 1,
+        maxZoom: 16,
+        ext: 'jpg'
     });
     // watercolor.addTo(map)
 
     // dark map
     var dark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 20
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
     });
     // dark.addTo(map)
 
     // google street
-    googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-    maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
+    googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
     // googleStreets.addTo(map)
- 
+
     // google hybrid
-    googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-    maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
+    googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
     // googleHybrid.addTo(map)
 
     var nexrad = L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
-    layers: 'nexrad-n0r-900913',
-    format: 'image/png',
-    transparent: true,
-    attribution: "Weather data © 2012 IEM Nexrad"
+        layers: 'nexrad-n0r-900913',
+        format: 'image/png',
+        transparent: true,
+        attribution: "Weather data © 2012 IEM Nexrad"
     });
 
-    
+
     /* ==========================================
                         MARKER
     =============================================*/
     var myIcon = L.icon({
-    iconUrl: 'img/hospital_marker.png',
-    iconSize: [30, 30],
+        iconUrl: 'img/hospital_marker.png',
+        iconSize: [30, 30],
     });
 
     // var SchoolIcon = L.icon({
     // iconUrl: 'img/school_marker.png',
     // iconSize: [18, 18],
     // });
-    
-    
+
+
     // var singleMarker = L.marker([18.7370, 97.8722], { icon: myIcon, draggable: false});
     // var popup1 = singleMarker.bindPopup('This is Maehongson ' + singleMarker.getLatLng().toString()).openPopup()
     // popup1.addTo(map)
@@ -166,179 +168,255 @@
     // Use Fetch API to get GeoJSON data from the provided URL
 
 
-    
+
     async function fetchData() {
-    try {
-        const response = await fetch('http://103.153.118.77:2546/api/get/?table=village');
-        const data = await response.json();
-        console.log('Data from API:', data);
-        L.geoJSON(data, {
-            onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.village_name)
+        try {
+            const response = await fetch('http://103.153.118.77:2546/api/get/?table=village');
+            const data = await response.json();
+            console.log('Data from API:', data);
+
+            var clickedLayer;
+
+            function resetClickedLayer() {
+                if (clickedLayer) {
+                    clickedLayer.setStyle({ fillColor: 'blue', color: 'white' });
+                }
             }
-        }).addTo(map);
-    } catch (error) {
-        console.error('Error fetching GeoJSON:', error);
+
+            var VillageData = L.geoJSON(data, {
+                pointToLayer: function (feature, latlng) {
+                    return L.circleMarker(latlng, {
+                        radius: 8,
+                        fillColor: 'green',
+                        color: 'white',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.7
+                    });
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup(feature.properties.village_name);
+
+                    layer.on('click', function (e) {
+                        // Reset the style of the previously clicked layer
+                        resetClickedLayer();
+
+                        // Change the marker color to red
+                        layer.setStyle({ fillColor: 'red', color: 'white' });
+
+                        // Bring the clicked layer to the front
+                        layer.bringToFront();
+
+                        // Store the currently clicked layer
+                        clickedLayer = layer;
+
+                        const villageName = feature.properties["village_name"];
+                        localStorage.setItem('village-name', villageName);
+
+                        const roadQuality = feature.properties["road_conditions"];
+                        localStorage.setItem('road-quality', roadQuality);
+
+                        const distancePratom = feature.properties["distance_to_pratom_km"];
+                        localStorage.setItem('distance-pratom', distancePratom);
+
+                        const distanceMathayom = feature.properties["distance_to_mathayom_km"]
+                        localStorage.setItem('distance-mathayom', distanceMathayom);
+
+                        const projectName = feature.properties["hosted_kht_projects"]
+                        localStorage.setItem('project-name', projectName);
+
+                        const adultmale = feature.properties["adult_males"]
+                        localStorage.setItem('adult-male', adultmale);
+
+                        const adultfemale = feature.properties["adult_females"]
+                        localStorage.setItem('adult-female', adultfemale);
+
+                        const commonDisease = feature.properties["common_diseases"]
+                        localStorage.setItem('common-disease', commonDisease);
+
+                        const Households = feature.properties["households"]
+                        localStorage.setItem('Households', Households);
+
+                        const riceRatio = feature.properties["population_without_enough_rice"]
+                        localStorage.setItem('rice-ratio', riceRatio);
+
+                        const children = feature.properties["children_aged_0_18"]
+                        localStorage.setItem('children', children);
+
+                        const distanceTown = feature.properties["distance_to_town_km"]
+                        localStorage.setItem('distance-town', distanceTown);
+
+                        const distanceHospital = feature.properties["distance_to_hospital_km"]
+                        localStorage.setItem('distance-hospital', distanceHospital);
+
+                        const nearestHealthCenter = feature.properties["nearest_health_centre"]
+                        localStorage.setItem('nearest-health-center', nearestHealthCenter);
+
+                        const annualTyphoid = feature.properties["annual_typhoid_cases"]
+                        localStorage.setItem('annual-typhoid', annualTyphoid);
+                    });
+                }
+            }).addTo(map);
+        } catch (error) {
+            console.error('Error fetching GeoJSON:', error);
+        }
     }
-}
 
-fetchData();
+    fetchData();
 
-fetchData();
+    //     var contourline = L.geoJson(contourline, {
+    //     style: function(feature) {
+    //         console.log('feature', feature);
+    //         return {color: 'orange'};
+    //     }
+    // }).addTo(map);
 
-//     var contourline = L.geoJson(contourline, {
-//     style: function(feature) {
-//         console.log('feature', feature);
-//         return {color: 'orange'};
-//     }
-// }).addTo(map);
-
-// console.log('Contourline:', contourline);
+    // console.log('Contourline:', contourline);
 
     var mhswater = L.geoJSON(waterarea, {
-        style: function(feature) {
-            return {color: "blue"}; 
+        style: function (feature) {
+            return { color: "blue" };
         }
     }).addTo(map);
 
     var mhswaterline = L.geoJSON(waterline, {
-        style: function(feature) {
-            return {color: "steelblue"}; 
+        style: function (feature) {
+            return { color: "steelblue" };
         }
     }).addTo(map);
 
     var mhsroad = L.geoJSON(roads, {
-        style: function(feature) {
+        style: function (feature) {
             return {
                 color: "brown",
                 fillOpacity: 0.5
-            }; 
+            };
         }
     }).addTo(map);
     var hospital = L.geoJSON(hospital, {
-  pointToLayer: function (feature, latlng) {
-    return L.marker(latlng, {icon: myIcon});
-  },
-  onEachFeature: function (feature, layer) {
-    var popupContent = (feature.properties['name:en']);
-    layer.bindPopup(popupContent);
-  }
-}).addTo(map);
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, { icon: myIcon });
+        },
+        onEachFeature: function (feature, layer) {
+            var popupContent = (feature.properties['name:en']);
+            layer.bindPopup(popupContent);
+        }
+    }).addTo(map);
     var district = L.geoJSON(district, {
-  style: {
-    color: '#FA8072',
-    opacity: 1,
-    fill: false
-  }
-}).addTo(map);
+        style: {
+            color: '#FA8072',
+            opacity: 1,
+            fill: false
+        }
+    }).addTo(map);
     var school = L.geoJSON(school, {
-  pointToLayer: function (feature, latlng) {
-    return L.circleMarker(latlng, {
-      radius: 8,
-      fillColor: "yellow",
-      color: "yellow",
-      weight: 1,
-      opacity: 0.5,
-      fillOpacity: 0.2
-    });
-  },
-  onEachFeature: function (feature, layer) {
-    layer.bindPopup(feature.properties.CUL_PNAME);
-  }
-}).addTo(map);
-    // var village = L.geoJSON(village).addTo(map)
-    var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], {interactive: false, opacity: 0.5}).addTo(map);
-    var subdistrict = L.geoJSON(subdistrict, {
-  style: {
-    color: 'pink',
-    opacity: 1,
-    fill: false
-  }
-}).addTo(map);
-    var VillageData = L.geoJSON(VillageData, {
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, {
                 radius: 8,
-                fillColor: 'blue',
-                color: 'white',
-                weight: 2,
-                opacity: 1,
-                fillOpacity: 0.7
+                fillColor: "yellow",
+                color: "yellow",
+                weight: 1,
+                opacity: 0.5,
+                fillOpacity: 0.2
             });
         },
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties["Village Name"]);
-
-            layer.on('click', function (e) {
-                // Reset the style of the previously clicked layer
-                resetClickedLayer();
-
-                // Change the marker color to red
-                layer.setStyle({ fillColor: 'red', color: 'white' });
-
-                // Bring the clicked layer to the front
-                layer.bringToFront();
-                
-                // Store the currently clicked layer
-                clickedLayer = layer;
-
-                const villageName = feature.properties["Village Name"];
-                localStorage.setItem('village-name', villageName);
-
-                const roadQuality = feature.properties["Road Conditions"];
-                localStorage.setItem('road-quality', roadQuality);
-
-                const distancePratom = feature.properties["Distance to Pratom (km)"];
-                localStorage.setItem('distance-pratom', distancePratom);
-
-                const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
-                localStorage.setItem('distance-mathayom', distanceMathayom);
-
-                const projectName = feature.properties["Hosted KHT Projects"]
-                localStorage.setItem('project-name', projectName);
-
-                const adultmale = feature.properties["Adult Males"]
-                localStorage.setItem('adult-male', adultmale);
-
-                const adultfemale = feature.properties["Adult Females"]
-                localStorage.setItem('adult-female', adultfemale);
-
-                const commonDisease = feature.properties["Common Diseases"]
-                localStorage.setItem('common-disease', commonDisease);
-
-                const Households = feature.properties["Households"]
-                localStorage.setItem('Households', Households);
-
-                const riceRatio = feature.properties["% Population Without Enough Rice"]
-                localStorage.setItem('rice-ratio', riceRatio);
-
-                const children = feature.properties["Children (Aged 0 - 18)"]
-                localStorage.setItem('children', children);
-
-                const distanceTown = feature.properties["Distance to Town (km)"]
-                localStorage.setItem('distance-town', distanceTown);
-
-                const distanceHospital = feature.properties["Distance to Hospital (km)"]
-                localStorage.setItem('distance-hospital', distanceHospital);
-
-                const nearestHealthCenter = feature.properties["Nearest Health Centre"]
-                localStorage.setItem('nearest-health-center', nearestHealthCenter);
-
-                const annualTyphoid = feature.properties["Annual Typhoid Cases"]
-                localStorage.setItem('annual-typhoid', annualTyphoid);
-            });
+            layer.bindPopup(feature.properties.CUL_PNAME);
         }
     }).addTo(map);
+    // var village = L.geoJSON(village).addTo(map)
+    var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], { interactive: false, opacity: 0.5 }).addTo(map);
+    var subdistrict = L.geoJSON(subdistrict, {
+        style: {
+            color: 'pink',
+            opacity: 1,
+            fill: false
+        }
+    }).addTo(map);
+    // var VillageData = L.geoJSON(VillageData, {
+    //     pointToLayer: function (feature, latlng) {
+    //         return L.circleMarker(latlng, {
+    //             radius: 8,
+    //             fillColor: 'blue',
+    //             color: 'white',
+    //             weight: 2,
+    //             opacity: 1,
+    //             fillOpacity: 0.7
+    //         });
+    //     },
+    //     onEachFeature: function (feature, layer) {
+    //         layer.bindPopup(feature.properties["Village Name"]);
 
-// Variable to store the currently clicked layer
-var clickedLayer;
+    //         layer.on('click', function (e) {
+    //             // Reset the style of the previously clicked layer
+    //             resetClickedLayer();
 
-// Function to reset the style of the previously clicked layer
-function resetClickedLayer() {
-    if (clickedLayer) {
-        clickedLayer.setStyle({ fillColor: 'blue', color: 'white' });
+    //             // Change the marker color to red
+    //             layer.setStyle({ fillColor: 'red', color: 'white' });
+
+    //             // Bring the clicked layer to the front
+    //             layer.bringToFront();
+
+    //             // Store the currently clicked layer
+    //             clickedLayer = layer;
+
+    //             const villageName = feature.properties["Village Name"];
+    //             localStorage.setItem('village-name', villageName);
+
+    //             const roadQuality = feature.properties["Road Conditions"];
+    //             localStorage.setItem('road-quality', roadQuality);
+
+    //             const distancePratom = feature.properties["Distance to Pratom (km)"];
+    //             localStorage.setItem('distance-pratom', distancePratom);
+
+    //             const distanceMathayom = feature.properties["Distance to Mathayom (km)"]
+    //             localStorage.setItem('distance-mathayom', distanceMathayom);
+
+    //             const projectName = feature.properties["Hosted KHT Projects"]
+    //             localStorage.setItem('project-name', projectName);
+
+    //             const adultmale = feature.properties["Adult Males"]
+    //             localStorage.setItem('adult-male', adultmale);
+
+    //             const adultfemale = feature.properties["Adult Females"]
+    //             localStorage.setItem('adult-female', adultfemale);
+
+    //             const commonDisease = feature.properties["Common Diseases"]
+    //             localStorage.setItem('common-disease', commonDisease);
+
+    //             const Households = feature.properties["Households"]
+    //             localStorage.setItem('Households', Households);
+
+    //             const riceRatio = feature.properties["% Population Without Enough Rice"]
+    //             localStorage.setItem('rice-ratio', riceRatio);
+
+    //             const children = feature.properties["Children (Aged 0 - 18)"]
+    //             localStorage.setItem('children', children);
+
+    //             const distanceTown = feature.properties["Distance to Town (km)"]
+    //             localStorage.setItem('distance-town', distanceTown);
+
+    //             const distanceHospital = feature.properties["Distance to Hospital (km)"]
+    //             localStorage.setItem('distance-hospital', distanceHospital);
+
+    //             const nearestHealthCenter = feature.properties["Nearest Health Centre"]
+    //             localStorage.setItem('nearest-health-center', nearestHealthCenter);
+
+    //             const annualTyphoid = feature.properties["Annual Typhoid Cases"]
+    //             localStorage.setItem('annual-typhoid', annualTyphoid);
+    //         });
+    //     }
+    // }).addTo(map);
+
+    // Variable to store the currently clicked layer
+    var clickedLayer;
+
+    // Function to reset the style of the previously clicked layer
+    function resetClickedLayer() {
+        if (clickedLayer) {
+            clickedLayer.setStyle({ fillColor: 'blue', color: 'white' });
+        }
     }
-}
     // var hotdogcat = L.geoJSON(hotdogcatdata).addTo(map)
     // var waterline = L.geoJSON(waterlinedata).addTo(map)
     // var road = L.geoJSON(roaddata, {
@@ -370,7 +448,7 @@ function resetClickedLayer() {
     var SubdistrictLayer = L.layerGroup([subdistrict]);
 
     var DistrictLayer = L.layerGroup([district]);
-    
+
     var elevationLayer = L.layerGroup([elevation])
 
     var SchoolLayer = L.layerGroup([school])
@@ -382,46 +460,46 @@ function resetClickedLayer() {
     // var ContourLayer = L.layerGroup([contourline])
 
 
-// Define a new control
-var RecenterControl = L.Control.extend({
-    options: {
-        position: 'topleft' // Position of the control
-    },
+    // Define a new control
+    var RecenterControl = L.Control.extend({
+        options: {
+            position: 'topleft' // Position of the control
+        },
 
-    onAdd: function (map) {
-        // Create an img element
-        var img = L.DomUtil.create('img');
+        onAdd: function (map) {
+            // Create an img element
+            var img = L.DomUtil.create('img');
 
-        // Set the source of the image
-        img.src = 'img/re-center.png';
+            // Set the source of the image
+            img.src = 'img/re-center.png';
 
-        // Set the width and height of the image
-        img.style.width = '32px';
-        img.style.height = '32px';
+            // Set the width and height of the image
+            img.style.width = '32px';
+            img.style.height = '32px';
 
-        img.style.borderRadius = '10%';
+            img.style.borderRadius = '10%';
 
-        // Attach the onclick event to the image
-        img.onclick = function () {
-            map.setView([18.7370, 97.8722], 9.45); // Recenter the map
+            // Attach the onclick event to the image
+            img.onclick = function () {
+                map.setView([18.7370, 97.8722], 9.45); // Recenter the map
+            }
+
+            return img;
         }
+    });
 
-        return img;
-    }
-});
+    // Add the control to the map
+    new RecenterControl().addTo(map);
 
-// Add the control to the map
-new RecenterControl().addTo(map);
-    
     /* ==========================================
                     LAYER CONTROL
     =============================================*/
     var baseMaps = {
-    "OSM": osm,
-    "Water color map": watercolor,
-    'Dark': dark,
-    'Google Street': googleStreets,
-    "Google Satellite": googleHybrid,
+        "OSM": osm,
+        "Water color map": watercolor,
+        'Dark': dark,
+        'Google Street': googleStreets,
+        "Google Satellite": googleHybrid,
     };
 
     var overlayMaps = {
@@ -437,8 +515,8 @@ new RecenterControl().addTo(map);
         // 'nexrad': nexrad
     };
     // map.removeLayer(singleMarker)
-    
-    L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(map);
+
+    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
 
     /* ==========================================
                     LEAFLET EVENT

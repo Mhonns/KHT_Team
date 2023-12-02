@@ -22,16 +22,16 @@ class DistanceRequest(BaseModel):
 def read_root():
     return {"message": "The data hosting is working!"}
 
-@app.get("/api/pull-static-data")
-def pull_static_data():
-    geojson_data = postgreSQL.get_table("village")
+@app.get("/api/get/")
+async def pull_static_data(table: str):
+    print(table)
+    geojson_data = postgreSQL.get_table(table)
     return geojson_data
 
 @app.post("/api/get-distance")
 def get_distance(request: DistanceRequest):
     marker1 = request.marker1
     marker2 = request.marker2
-    # Calculate distance here (implement your logic)
     distance = f"TODO Return distance between {marker1} to {marker2}"
     return {"message": distance}
 
@@ -43,6 +43,6 @@ def find_nearest_hospital():
 if __name__ == "__main__":
     import uvicorn
 
-    host = '127.0.0.1'  # You can use '0.0.0.0' to bind to all available network interfaces
+    host = '127.0.0.1'  # '0.0.0.0' to bind to all available network interfaces
     port = 443  # Change this to your desired port
     uvicorn.run(app, host=host, port=port)

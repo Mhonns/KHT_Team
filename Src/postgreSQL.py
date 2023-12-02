@@ -58,17 +58,34 @@ def query_to_geojson(cursor, query):
 
         feature_collection = geojson.FeatureCollection(features)
         geojson_result = geojson.dumps(feature_collection, indent=2)
-        return geojson_result
+        return feature_collection
 
-# Query all vallages datail
-def get_table(target_table):
-    # Example query
-    query = sql.SQL("SELECT * FROM {};").format(sql.Identifier(target_table))
+# Query all data into json format
+def query_to_json(cursor, query):
     cursor.execute(query)
-    geojson_result = query_to_geojson(cursor, query)
-    results = cursor.fetchall()
+    columns = [desc[0] for desc in cursor.description]
+    rows = cursor.fetchall()
+    json_result = json.dumps(rows, indent=2)
+    return json_result
+
+# Query all column datail
+def get_table(target_table, geojson_format=True, columns=[], arguments=[]):
+    # Example query
+    query = None
+    if len(columns) < 1:
+        query = sql.SQL("SELECT * FROM {};").format(sql.Identifier(target_table))
+    else:
+        query = sql.SQL("SELECT * FROM {}; WHERE {} = {}").format(sql.Identifier(target_table, columns[0], arguments[0]))
+    cursor.execute(query)
+    results = None
+    if geojson_format:
+        geojson_result = query_to_geojson(cursor, query)
+        result = geojson_result
+    else:
+        json_result = query_to_json(cursor, query)
+        result = json_result
     # return geojson_result
-    return {"villages": geojson_result}
+    return {target_table: result}
 
 # Establish a connection to the database
 try:
@@ -77,7 +94,7 @@ try:
 
     # Create a cursor object to execute SQL queries
     cursor = connection.cursor()
-    print(get_table("village"))
+    print(get_table("project", False))
 
 except psycopg2.Error as e:
     print(f"Unable to connect to the database. Error: {e}")

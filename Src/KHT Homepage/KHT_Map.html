@@ -30,11 +30,22 @@
     h1, h2, h3 {
       padding-left: 15px;
     }
+    h5 {
+      padding-top: 10px;
+      padding-left: 47px;
+      color: black;
+      font-size: 20px;
+    }
     h6 {
       padding-top: 10px;
       padding-left: 32px;
       color: black;
       font-size: 20px;
+    }
+    summary {
+      font-size: 27px;
+      font-weight: 600;
+      padding-left: 15px;
     }
   </style>
 
@@ -71,13 +82,16 @@
                 <p id="project-name"></p>
               </h3>
             </a>
-
             <a href="#" class="nav-link">
               <details>
-                <summary>Project</summary>
-                <p>Hotdog is here</p>
+                <summary>Project Details</summary>
+                <h5>
+                  <p id="project-details"></p>
+                  <p id="start-dates"></p>
+                  <p id="end-dates"></p>
+                </h5>
               </details>
-              
+            </a>
             <a href="#" class="nav-link">
               <h3>
                 <Details>
@@ -177,6 +191,9 @@
     crossorigin="anonymous"></script>
   <script>
     window.onload = function() {
+    document.getElementById('project-details').innerHTML = 'Project Detail';
+    document.getElementById('start-dates').innerHTML = 'Start Date';
+    document.getElementById('end-dates').innerHTML = 'End Date';
     document.getElementById('village-name').innerHTML = 'Village Name';
     document.getElementById('road-quality').innerHTML = 'Road Quality';
     document.getElementById('distance-pratom').innerHTML = 'Distance to Primary school';
@@ -205,10 +222,7 @@
         document.getElementById("road-quality").innerHTML = "Road quality: " + roadQuality;
     }
     if (e.key === 'distance-pratom') {
-
-
       const distancePratom = localStorage.getItem('distance-pratom');
-
       document.getElementById("distance-pratom").innerHTML = "Distance to Primary school: " + distancePratom + " km";
     }
     if (e.key === 'distance-mathayom') {
@@ -222,12 +236,10 @@
     if (e.key === 'common-disease') {
       const commonDisease = localStorage.getItem('common-disease');
       document.getElementById("common-disease").innerHTML = "Common Diseases: " + commonDisease;
-
     }
     if (e.key === 'Households') {
       const Households = localStorage.getItem('Households');
       document.getElementById("Households").innerHTML = "Number of households: " + Households;
-
     }
     if (e.key === 'rice-ratio') {
       const riceRatio = localStorage.getItem('rice-ratio');
@@ -253,6 +265,32 @@
       const annualTyphoid = localStorage.getItem('annual-typhoid');
       document.getElementById("annual-typhoid").innerHTML = "Annual Typhoid Cases: " + annualTyphoid;
     }
+    if (e.key === 'project-details') {
+      const projectDetails = JSON.parse(localStorage.getItem('project-details')); // Parse the string to an array
+      let content = ""; // Initialize a variable to hold the content
+      for (var i = 0; i < projectDetails.length; i++) {
+        content += "Project Detail: " + projectDetails[i] + "<br>"; // Append each detail with a line break
+      }
+      document.getElementById("project-details").innerHTML = content; // Set the content to innerHTML
+    }
+    if (e.key === 'start-dates') {
+      const startDate = JSON.parse(localStorage.getItem('start-dates')); // Parse the string to an array
+      let content = ""; // Initialize a variable to hold the content
+      for (var i = 0; i < startDate.length; i++) {
+        content += "start-dates: " + startDate[i] + "<br>"; // Append each detail with a line break
+      }
+      document.getElementById("start-dates").innerHTML = content; // Set the content to innerHTML
+    }
+    if (e.key === 'end-dates') {
+      const endDate = JSON.parse(localStorage.getItem('end-dates')); // Parse the string to an array
+      let content = ""; // Initialize a variable to hold the content
+      for (var i = 0; i < endDate.length; i++) {
+        content += "end-dates: " + endDate[i] + "<br>"; // Append each detail with a line break
+      }
+      document.getElementById("end-dates").innerHTML = content; // Set the content to innerHTML
+    }
+
+    
 });
   </script>
 </body>

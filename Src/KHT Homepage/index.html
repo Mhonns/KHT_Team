@@ -200,6 +200,9 @@
                     layer.on('click', function (e) {
                         // Reset the style of the previously clicked layer
                         resetClickedLayer();
+                        localStorage.removeItem('project-details');
+                        localStorage.removeItem('start-dates');
+                        localStorage.removeItem('end-dates');
 
                         // Change the marker color to red
                         layer.setStyle({ fillColor: 'red', color: 'white' });
@@ -220,9 +223,48 @@
 
                                 data.features.forEach(feature => {
                                     const projectDetail = feature.properties.project_name_en;
-                                    console.log('Project Name:', projectDetail);
+                                    // console.log('Project Name:', projectDetail);
+                                    // Get the existing data from local storage
+                                    let projectDetails = JSON.parse(localStorage.getItem('project-details')) || [];
+
+                                    console.log('Project Details:', projectDetails.length);
+
+                                    // Add the new project detail to the array
+                                    projectDetails.push(projectDetail);
+
+                                    // Store the updated array in local storage
+                                    localStorage.setItem('project-details', JSON.stringify(projectDetails));
+
+
                                     const startDate = feature.properties.start_date;
+                                    console.log('Start Date:', startDate);
+
+                                    // Get the existing data from local storage
+                                    let startDates = JSON.parse(localStorage.getItem('start-dates')) || [];
+
+                                    console.log('Start Dates:', startDates.length);
+
+                                    // Add the new start date to the array
+                                    startDates.push(startDate);
+
+                                    // Store the updated array in local storage
+                                    localStorage.setItem('start-dates', JSON.stringify(startDates));
+
                                     const endDate = feature.properties.end_date;
+                                    console.log('End Date:', endDate);
+
+                                    // Get the existing data from local storage
+                                    let endDates = JSON.parse(localStorage.getItem('end-dates')) || [];
+
+                                    console.log('End Dates:', endDates.length);
+
+                                    // Add the new end date to the array
+                                    endDates.push(endDate);
+
+                                    // Store the updated array in local storage
+                                    localStorage.setItem('end-dates', JSON.stringify(endDates));
+
+                                    console.log('Project Details:', projectDetails);
                                     console.log('Start Date:', startDate, ', End Date:', endDate);
                                 });
                             } catch (error) {

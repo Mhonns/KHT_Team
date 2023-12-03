@@ -191,9 +191,6 @@
     crossorigin="anonymous"></script>
   <script>
     window.onload = function() {
-    document.getElementById('project-details').innerHTML = 'Project Detail';
-    document.getElementById('start-dates').innerHTML = 'Start Date';
-    document.getElementById('end-dates').innerHTML = 'End Date';
     document.getElementById('village-name').innerHTML = 'Village Name';
     document.getElementById('road-quality').innerHTML = 'Road Quality';
     document.getElementById('distance-pratom').innerHTML = 'Distance to Primary school';
@@ -265,30 +262,20 @@
       const annualTyphoid = localStorage.getItem('annual-typhoid');
       document.getElementById("annual-typhoid").innerHTML = "Annual Typhoid Cases: " + annualTyphoid;
     }
-    if (e.key === 'project-details') {
-      const projectDetails = JSON.parse(localStorage.getItem('project-details')); // Parse the string to an array
-      let content = ""; // Initialize a variable to hold the content
-      for (var i = 0; i < projectDetails.length; i++) {
-        content += "Project Detail: " + projectDetails[i] + "<br>"; // Append each detail with a line break
-      }
-      document.getElementById("project-details").innerHTML = content; // Set the content to innerHTML
-    }
-    if (e.key === 'start-dates') {
-      const startDate = JSON.parse(localStorage.getItem('start-dates')); // Parse the string to an array
-      let content = ""; // Initialize a variable to hold the content
-      for (var i = 0; i < startDate.length; i++) {
-        content += "start-dates: " + startDate[i] + "<br>"; // Append each detail with a line break
-      }
-      document.getElementById("start-dates").innerHTML = content; // Set the content to innerHTML
-    }
-    if (e.key === 'end-dates') {
-      const endDate = JSON.parse(localStorage.getItem('end-dates')); // Parse the string to an array
-      let content = ""; // Initialize a variable to hold the content
-      for (var i = 0; i < endDate.length; i++) {
-        content += "end-dates: " + endDate[i] + "<br>"; // Append each detail with a line break
-      }
-      document.getElementById("end-dates").innerHTML = content; // Set the content to innerHTML
-    }
+    if (e.key === 'project-details' || e.key === 'start-dates' || e.key === 'end-dates') {
+  const projectDetails = JSON.parse(localStorage.getItem('project-details')); // Parse the string to an array
+  const startDates = JSON.parse(localStorage.getItem('start-dates')); // Parse the string to an array
+  const endDates = JSON.parse(localStorage.getItem('end-dates')); // Parse the string to an array
+
+  let content = ""; // Initialize a variable to hold the content
+  for (var i = 0; i < projectDetails.length; i++) {
+    content += "Project Detail: " + projectDetails[i] + "<br>"; // Append each detail with a line break
+    content += "Start Date: " + startDates[i] + "<br>"; // Append each start date with a line break
+    content += "End Date: " + endDates[i] + "<br>"; // Append each end date with a line break
+    content += "<br>"; // Append a line break after each project
+  }
+  document.getElementById("project-details").innerHTML = content; // Set the content to innerHTML
+}
 
     
 });

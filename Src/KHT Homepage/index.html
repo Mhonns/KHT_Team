@@ -187,7 +187,7 @@
                 pointToLayer: function (feature, latlng) {
                     return L.circleMarker(latlng, {
                         radius: 8,
-                        fillColor: 'green',
+                        fillColor: 'blue',
                         color: 'white',
                         weight: 2,
                         opacity: 1,
@@ -209,6 +209,29 @@
 
                         // Store the currently clicked layer
                         clickedLayer = layer;
+                        const id = feature.properties["id"];
+                        console.log('ID:', id);
+                        localStorage.setItem('id', id);
+                        async function fetchData(id) {
+                            try {
+                                const response = await fetch("http://103.153.118.77:2546/api/get/?table=project&village_id=" + id);
+                                const data = await response.json();
+                                console.log(data);
+
+                                data.features.forEach(feature => {
+                                    const projectDetail = feature.properties.project_name_en;
+                                    console.log('Project Name:', projectDetail);
+                                    const startDate = feature.properties.start_date;
+                                    const endDate = feature.properties.end_date;
+                                    console.log('Start Date:', startDate, ', End Date:', endDate);
+                                });
+                            } catch (error) {
+                                console.error('Error:', error);
+                            }
+                        }
+
+                        fetchData(id);
+
 
                         const villageName = feature.properties["village_name"];
                         localStorage.setItem('village-name', villageName);
@@ -478,6 +501,9 @@
             img.style.height = '32px';
 
             img.style.borderRadius = '10%';
+
+            // Add a border to the image
+            img.style.border = '1.1px solid grey';
 
             // Attach the onclick event to the image
             img.onclick = function () {

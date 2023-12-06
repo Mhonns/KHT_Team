@@ -21,7 +21,8 @@ def connect():
         # create_village_table()
         # create_projectStatus_table()
         # create_project_table()
-        get_village_table()
+        # get_village_table()
+        create_projectVillage_table()
        
         print('PostgreSQL database version:')
         crsc.execute('SELECT version()')
@@ -38,8 +39,8 @@ if __name__ == '__main__':
     # create_village_table()
     # create_projectStatus_table()
     # create_project_table()
-    # create_projectVillage_table()
-    get_village_table()
+    create_projectVillage_table()
+    # get_village_table()
     connect()
 
 

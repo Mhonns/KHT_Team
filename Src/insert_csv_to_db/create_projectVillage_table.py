@@ -38,57 +38,10 @@ def create_projectVillage_table():
         crsc.execute(CREATE_TABLE)
         connection.commit()
 
-        # project_table - insert column: 'Village Id'
-        #   village_table - insert column: 'Record Id' 
-        # insert the Village Id Column in the Project_Cases_001.csv file into the temp_village_id column in the project_table
-        # with open(projectVillage_output_file_path, 'r') as f:
-        #     next(f)
-        #     crsc.copy_expert(   
-        #         "COPY projectVillage (temp_village_id, temp_record_id) FROM STDIN WITH CSV HEADER",
-        #         f
-        #     )
-        # connection.commit()
-
-        # add village_id column from csv file to column village_id in the project table
-        crsc.execute("""ALTER TABLE project
-            ADD COLUMN IF NOT EXISTS village_id VARCHAR(256);""")
-        connection.commit()
-
-
-        with open(projectVillage_output_file_path, 'r') as f:
-            next(f)  # Skip the header
-            try:
-                crsc.copy_expert(
-                    "COPY project(village_id) FROM STDIN WITH CSV",
-                    f
-                )
-                connection.commit()
-                print("village_id inserted successfully.")
-            except Exception as e:
-                connection.rollback()  # Rollback the transaction in case of an error
-                print(f"Error: {e}")
-
-        crsc.execute("""ALTER TABLE village
-            ADD COLUMN IF NOT EXISTS record_id VARCHAR(256);""")
-        connection.commit()
-
-        with open(projectVillage_output_file_path_2, 'r') as f:
-            next(f)
-            try:
-                crsc.copy_expert(
-                    "COPY village(record_id) FROM STDIN WITH CSV",
-                    f
-                )
-                connection.commit()
-                print("record_id inserted successfully.")
-            except Exception as e:
-                connection.rollback()
-                print(f"Error: {e}")
-
         INSERT_TO_PROJECTVILLAGE_TABLE = """INSERT INTO projectVillage (village_id, project_id)
                                             SELECT village.id AS village_id, project.id AS project_id
                                             FROM project
-                                            JOIN village ON project.village_id = village.record_id;"""
+                                            JOIN village ON project.zoho_village_id = village.record_id;"""
         crsc.execute(INSERT_TO_PROJECTVILLAGE_TABLE)
         connection.commit()
                                             

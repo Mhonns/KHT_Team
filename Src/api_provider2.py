@@ -23,10 +23,14 @@ def read_root():
     return {"message": "The data hosting is working!"}
 
 @app.get("/api/get/")
-async def pull_static_data(table: str):
-    print(table)
-    geojson_data = postgreSQL.get_table(table)
-    return geojson_data
+def pull_static_data(table: str, village_id=""):
+    if table == "project":
+        json_data = postgreSQL.get_table(table, False, village_id)
+        return json_data
+    else:
+        print("here")
+        geojson_data = postgreSQL.get_table(table)
+        return geojson_data
 
 @app.post("/api/get-distance")
 def get_distance(request: DistanceRequest):

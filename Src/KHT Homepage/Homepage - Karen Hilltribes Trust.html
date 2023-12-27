@@ -531,6 +531,21 @@ var Give_Recurring_Vars = {"email_access":"1","pretty_intervals":{"1":"Every","2
 		<h2 style="text-align: center; font-size: 30px; ">Interactive Map</h2>
 	</div>
 	<div class="circle2" id="map" onclick="redirectToNewPage()"></div>
+    <script>
+    let clickCount = 0;
+
+    function countClicks() {
+        clickCount++;
+        if (clickCount === 2) {
+            redirectToNewPage();
+            clickCount = 0; // reset the counter
+        }
+    }
+
+    function redirectToNewPage() {
+    window.location.href = "KHT_Map.html"; 
+  }
+</script>
 	<div class="clearfix"></div>
 </div>
 

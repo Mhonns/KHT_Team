@@ -33,7 +33,7 @@ def create_projectVillage_table():
         CREATE_TABLE = """CREATE TABLE IF NOT EXISTS projectVillage (
                 id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                 village_id UUID,
-                project_id UUID
+                project_id UUID 
             );"""
         crsc.execute(CREATE_TABLE)
         connection.commit()

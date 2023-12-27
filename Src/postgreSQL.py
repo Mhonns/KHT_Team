@@ -35,11 +35,9 @@ def query_to_geojson(cursor, query):
 
     # feature_collection = geojson.FeatureCollection(features)
     # return geojson.dumps(feature_collection, indent=2)
-   
         cursor.execute(query)
         columns = [desc[0] for desc in cursor.description]
         results = cursor.fetchall()
-
         features = []
         for row in results:
             properties = dict(zip(columns, row))
@@ -57,35 +55,47 @@ def query_to_geojson(cursor, query):
                     print(f"Invalid GeoJSON string: {geometry_str}")
 
         feature_collection = geojson.FeatureCollection(features)
-        geojson_result = geojson.dumps(feature_collection, indent=2)
+        # geojson_result = geojson.dumps(feature_collection, indent=2)
         return feature_collection
 
 # Query all data into json format
 def query_to_json(cursor, query):
     cursor.execute(query)
     columns = [desc[0] for desc in cursor.description]
-    rows = cursor.fetchall()
-    json_result = json.dumps(rows, indent=2)
-    return json_result
+    results = cursor.fetchall()
+    features = []
+    for row in results:
+        properties = dict(zip(columns, row))
+        feature = {"properties": properties}
+        features.append(feature)
+    feature_collection = {"type": "FeatureCollection", "features": features}
+    # json_result = json.dumps(feature_collection, indent=2)
+    return feature_collection
 
 # Query all column datail
-def get_table(target_table, geojson_format=True, columns=[], arguments=[]):
+def get_table(target_table, geojson_format=True, argument=""):
     # Example query
     query = None
-    if len(columns) < 1:
-        query = sql.SQL("SELECT * FROM {};").format(sql.Identifier(target_table))
-    else:
-        query = sql.SQL("SELECT * FROM {}; WHERE {} = {}").format(sql.Identifier(target_table, columns[0], arguments[0]))
-    cursor.execute(query)
-    results = None
-    if geojson_format:
-        geojson_result = query_to_geojson(cursor, query)
-        result = geojson_result
-    else:
-        json_result = query_to_json(cursor, query)
-        result = json_result
-    # return geojson_result
-    return {target_table: result}
+    if argument == "":
+        query = sql.SQL("SELECT * FROM {}").format(sql.Identifier(target_table))
+    elif target_table == "project":
+        query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id 
+                           FROM {} 
+                           JOIN projectvillage ON projectvillage.project_id = project.id
+                           WHERE village_id = {}::uuid""").format(sql.Identifier(target_table), sql.Literal(argument))
+
+    try:
+        cursor.execute(query)
+        results = None
+        if geojson_format:
+            geojson_result = query_to_geojson(cursor, query)
+            return geojson_result
+        else:
+            json_result = query_to_json(cursor, query)
+            return json_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
 
 # Establish a connection to the database
 try:
@@ -94,7 +104,8 @@ try:
 
     # Create a cursor object to execute SQL queries
     cursor = connection.cursor()
-    print(get_table("project", False))
+    # print(get_table("project", False))
+    # print(get_table("village"))
 
 except psycopg2.Error as e:
     print(f"Unable to connect to the database. Error: {e}")
@@ -104,3 +115,4 @@ def close_all():
         cursor.close()
         connection.close()
         print("Connection closed.")
+

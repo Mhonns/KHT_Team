@@ -8,8 +8,6 @@ import hashlib
 
 app = FastAPI()
 
-user_dict = {}
-
 # Encryption ensuring the private connection
 def generate_password(seed, characters = 16):
     # Use SHA-256 hash function (you can choose a different one if needed)
@@ -34,8 +32,9 @@ def read_root():
     return {"message": "The data hosting is working!"}
 
 @app.get("/api/get/")
-def pull_static_data(request: Request, table: str, private_key="", village_id=""):
-    if private_key == user_dict[request.client.host]:
+def pull_static_data(table: str, private_key="", village_id=""):
+    if generate_password(current_seed) == private_key:
+        current_seed += 1
         if table == "project":
             json_data = postgreSQL.get_table(table, False, village_id)
             return json_data
@@ -46,11 +45,16 @@ def pull_static_data(request: Request, table: str, private_key="", village_id=""
         print(current_seed)
 
 @app.post("/api/auth")
-def get_authenticate(request: Request, username: str, password: str):
+def get_authenticate(username: str, password: str):
     if generate_password(password) == username:
-        access_token = generate_password("1234", 20)
-        user_dict[request.client.host] = access_token
-	return {"access-token": access_token}
+	return {"access-token": generate_password("1234")}
+
+@app.post("/api/get-distance")
+def get_distance(request: DistanceRequest):
+    marker1 = request.marker1
+    marker2 = request.marker2
+    distance = f"TODO Return distance between {marker1} to {marker2}"
+    return {"message": distance}
 
 if __name__ == "__main__":
     import uvicorn

@@ -177,14 +177,76 @@
     // var lineData = L.geoJSON(lineJson).addTo(map)
     // Use Fetch API to get GeoJSON data from the provided URL
 
-
+     // import the village class from village.js
+     class Village {
+        constructor(id, village_name, households, road_conditions, total_population, gps_latitude, gps_longitude, population_without_enough_rice, children_aged_0_18, distance_to_town_km, adult_males, adult_females, distance_to_hospital_km, nearest_health_centre, distance_to_pratom_km, annual_typhoid_cases, distance_to_health_centre_km, distance_to_mathayom_km, common_diseases, hosted_kht_projects, record_id, geom) {
+            this.id = id;
+            this.village_name = village_name;
+            this.households = households;
+            this.road_conditions = road_conditions;
+            this.total_population = total_population;
+            this.gps_latitude = gps_latitude;
+            this.gps_longitude = gps_longitude;
+            this.population_without_enough_rice = population_without_enough_rice;
+            this.children_aged_0_18 = children_aged_0_18;
+            this.distance_to_town_km = distance_to_town_km;
+            this.adult_males = adult_males;
+            this.adult_females = adult_females;
+            this.distance_to_hospital_km = distance_to_hospital_km;
+            this.nearest_health_centre = nearest_health_centre;
+            this.distance_to_pratom_km = distance_to_pratom_km;
+            this.annual_typhoid_cases = annual_typhoid_cases;
+            this.distance_to_health_centre_km = distance_to_health_centre_km;
+            this.distance_to_mathayom_km = distance_to_mathayom_km;
+            this.common_diseases = common_diseases;
+            this.hosted_kht_projects = hosted_kht_projects;
+            this.record_id = record_id;
+            this.geom = geom;
+        }
+    }
 
     async function fetchData() {
         try {
             const response = await fetch('http://103.153.118.77:2546/api/get/?table=village');
             const data = await response.json();
             console.log('Data from API:', data);
+            console.log("Village Name:", data.features[0].properties.village_name);
 
+            // Create an array to store all the village data
+            const villageData = [];
+
+            // Loop through the data.features array and create a new instance of the Village class for each item using the Village class constructor
+            data.features.forEach(feature => {
+                const village = new Village(
+                    feature.properties.id,
+                    feature.properties.village_name,
+                    feature.properties.households,
+                    feature.properties.road_conditions,
+                    feature.properties.total_population,
+                    feature.properties.gps_latitude,
+                    feature.properties.gps_longitude,
+                    feature.properties.population_without_enough_rice,
+                    feature.properties.children_aged_0_18,
+                    feature.properties.distance_to_town_km,
+                    feature.properties.adult_males,
+                    feature.properties.adult_females,
+                    feature.properties.distance_to_hospital_km,
+                    feature.properties.nearest_health_centre,
+                    feature.properties.distance_to_pratom_km,
+                    feature.properties.annual_typhoid_cases,
+                    feature.properties.distance_to_health_centre_km,
+                    feature.properties.distance_to_mathayom_km,
+                    feature.properties.common_diseases,
+                    feature.properties.hosted_kht_projects,
+                    feature.properties.record_id,
+                    feature.properties.geom
+                );
+                villageData.push(village);
+            });
+
+            //print the the first village in the array
+            console.log('First Village:', villageData[0]);
+            
             var clickedLayer;
 
             function resetClickedLayer() {

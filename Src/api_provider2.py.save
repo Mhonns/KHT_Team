@@ -5,16 +5,17 @@ from pydantic import BaseModel
 import postgreSQL
 import json
 import hashlib
+import datetime
 
+current_seed = 0
 app = FastAPI()
 
-user_dict = {}
-
 # Encryption ensuring the private connection
-def generate_password(seed, characters = 16):
+def generate_password(seed):
     # Use SHA-256 hash function (you can choose a different one if needed)
     hashed_seed = hashlib.sha256(seed.encode()).hexdigest()
-    password = hashed_seed[:characters]
+    # Take the first 16 characters as the password (adjust as needed)
+    password = hashed_seed[:16]
     return password
 
 # CORS middleware to allow all origins
@@ -34,26 +35,31 @@ def read_root():
     return {"message": "The data hosting is working!"}
 
 @app.get("/api/get/")
-def pull_static_data(request: Request, table: str, private_key="", village_id=""):
-    if private_key == user_dict[request.client.host]:
-        if table == "project":
-            json_data = postgreSQL.get_table(table, False, village_id)
-            return json_data
-        else:
-            geojson_data = postgreSQL.get_table(table)
-            return geojson_data
+def pull_static_data(table: str, village_id=""):
+    if table == "project":
+        json_data = postgreSQL.get_table(table, False, village_id)
+        return json_data
+    else:
+        geojson_data = postgreSQL.get_table(table)
+        return geojson_data
     else:
         print(current_seed)
 
-@app.post("/api/auth")
-def get_authenticate(request: Request, username: str, password: str):
-    if generate_password(password) == username:
-        access_token = generate_password("1234", 20)
-        user_dict[request.client.host] = access_token
-	return {"access-token": access_token}
+@app.post("/api/get-distance")
+def get_distance(request: DistanceRequest):
+    marker1 = request.marker1
+    marker2 = request.marker2
+    distance = f"TODO Return distance between {marker1} to {marker2}"
+    return {"message": distance}
+
+@app.get("/api/find-nearest-hospital")
+def find_nearest_hospital():
+    # Implement logic to find the nearest hospital
+    return {"message": "TODO"}
 
 if __name__ == "__main__":
     import uvicorn
+
     host = '127.0.0.1'  # '0.0.0.0' to bind to all available network interfaces
     port = 443  # Change this to your desired port
     uvicorn.run(app, host=host, port=port)

@@ -17,12 +17,11 @@ def connect():
 
         crsc = connection.cursor()
 
-        ## Add tables here ##
-        # create_village_table()
+        create_village_table()
         # create_projectStatus_table()
         # create_project_table()
         # get_village_table()
-        create_projectVillage_table()
+        # create_projectVillage_table()
        
         print('PostgreSQL database version:')
         crsc.execute('SELECT version()')
@@ -36,11 +35,6 @@ def connect():
             print('Database connection closed.')
 
 if __name__ == '__main__':
-    # create_village_table()
-    # create_projectStatus_table()
-    # create_project_table()
-    create_projectVillage_table()
-    # get_village_table()
     connect()
 
 

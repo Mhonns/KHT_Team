@@ -18,10 +18,10 @@ def connect():
         crsc = connection.cursor()
 
         create_village_table()
+        create_project_table()
         # create_projectStatus_table()
-        # create_project_table()
+        create_projectVillage_table()
         # get_village_table()
-        # create_projectVillage_table()
        
         print('PostgreSQL database version:')
         crsc.execute('SELECT version()')

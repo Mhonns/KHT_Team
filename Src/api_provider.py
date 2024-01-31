@@ -9,7 +9,7 @@ class MyHandler(BaseHTTPRequestHandler):
         self.wfile.write(bytes(message, "utf8"))
         return
     
-def run(server_class=HTTPServer, handler_class=MyHandler, port=443):
+def run(server_class=HTTPServer, handler_class=MyHandler, port=8080):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print(f"Starting server on port {port}")

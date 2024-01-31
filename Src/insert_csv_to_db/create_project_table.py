@@ -19,6 +19,7 @@ def create_project_table():
         CREATE_TABLE = f"""CREATE TABLE IF NOT EXISTS projectTest (
                 id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                 project_name_en VARCHAR(256),
+                zoho_project_type_id VARCHAR(256),
                 created_time VARCHAR(256),
                 start_date VARCHAR(256),
                 end_date VARCHAR(256),
@@ -34,7 +35,7 @@ def create_project_table():
         input_file_path = get_file_path('Data\Project_Cases_001.csv')
         output_file_path = get_file_path('project_001.csv')
 
-        columns_to_select = ['Solution Title', 'Created Time', 'Project Start Date', 'Project End Date', 'Donor 1 (D1) Id', 'Donor 3 (D3) Id', 'Donor 2 (D2) Id', 'Village Id', 'Project Type']
+        columns_to_select = ['Solution Title', 'Product Name.id', 'Created Time', 'Project Start Date', 'Project End Date', 'Donor 1 (D1) Id', 'Donor 3 (D3) Id', 'Donor 2 (D2) Id', 'Village Id', 'Project Type']
 
         # Select columns and save to a  new CSV file
         select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select)
@@ -52,7 +53,6 @@ def create_project_table():
         # If there are no new rows, print a message and return
         if new_data.empty:
             print('\nNo new rows to add to the project table.')
-            return
         else:
             print('\nAdding new rows to the project table...')
             num_rows_added = len(new_data)
@@ -65,7 +65,7 @@ def create_project_table():
         with open(output_file_path, 'r') as f:
             next(f)  # Skip the header
             crsc.copy_expert(
-                "COPY projectTest (project_name_en, created_time, start_date, end_date, donor1_id, donor3_id, donor2_id, zoho_village_id, status) FROM STDIN WITH CSV DELIMITER ',' QUOTE '\"' NULL 'null'",
+                "COPY projectTest (project_name_en, zoho_project_type_id, created_time, start_date, end_date, donor1_id, donor3_id, donor2_id, zoho_village_id, status) FROM STDIN WITH CSV DELIMITER ',' QUOTE '\"' NULL 'null'",
                 f
             )
         connection.commit()    

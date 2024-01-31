@@ -46,7 +46,6 @@ def create_hospital_table():
                 # If there are no new rows, print a message and return
                 if new_data.empty:
                     print('No new rows to add.')
-                    return
                 else:
                     print('Adding new rows to the hospital table...')
 

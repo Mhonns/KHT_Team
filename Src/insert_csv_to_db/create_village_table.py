@@ -70,7 +70,6 @@ def create_village_table():
                 # If there are no new rows, print a message and return
                 if new_data.empty:
                     print('\nNo new rows to add to the village table.')
-                    return
                 else:
                     print('\nAdding new rows to the village table...')
                     num_rows_added = len(new_data)

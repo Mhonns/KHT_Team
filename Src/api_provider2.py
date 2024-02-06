@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -34,26 +34,27 @@ def read_root():
     return {"message": "The data hosting is working!"}
 
 @app.get("/api/get/")
-def pull_static_data(request: Request, table: str, private_key="", village_id=""):
-    if private_key == user_dict[request.client.host]:
-        if table == "project":
-            json_data = postgreSQL.get_table(table, False, village_id)
-            return json_data
-        else:
-            geojson_data = postgreSQL.get_table(table)
-            return geojson_data
+def pull_static_data(table: str, private_key="", village_id=""):
+    if table == "project":
+        json_data = postgreSQL.get_table(table, False, village_id)
+        return json_data
     else:
-        print(current_seed)
+        geojson_data = postgreSQL.get_table(table)
+        return geojson_data
 
 @app.post("/api/auth")
-def get_authenticate(request: Request, username: str, password: str):
-    if generate_password(password) == username:
-        access_token = generate_password("1234", 20)
-        user_dict[request.client.host] = access_token
-	return {"access-token": access_token}
+def get_authenticate(username: str, password: str):
+    access_token = generate_password("1234", 20)
+    user_dict[username] = access_token
+    return {"access-token": access_token}
+
+@app.post("/auth")
+def get_auth(response : Response, username: str, key: str):
+    response.set_cookie(key="Username", value=generate_password("1234", 20))
+    return {"message": "Come to the dark side, we have cookies"}
 
 if __name__ == "__main__":
     import uvicorn
-    host = '127.0.0.1'  # '0.0.0.0' to bind to all available network interfaces
+    host = '0.0.0.0'  # '0.0.0.0' to bind to all available network interfaces
     port = 443  # Change this to your desired port
     uvicorn.run(app, host=host, port=port)

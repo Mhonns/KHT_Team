@@ -9,14 +9,14 @@ def get_file_path(filename):
     file_path = os.path.join(current_dir, filename)
     return file_path
 
-def create_village_table():
+def create_village_table_test():
     try:    
         params = config()
         print('Connecting to the PostgreSQL database...')
         with psycopg2.connect(**params) as connection:
             with connection.cursor() as crsc:
                 # create village table if it does not exist
-                CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageTest (
+                CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageTest2 (
                         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                         village_name VARCHAR(256),
                         created_time VARCHAR(256),
@@ -25,17 +25,17 @@ def create_village_table():
                         total_population INT,
                         gps_latitude DOUBLE PRECISION,
                         gps_longitude DOUBLE PRECISION,
-                        population_without_enough_rice INT,
+                        population_without_enough_rice DOUBLE PRECISION,
                         children_aged_0_18 INT,
-                        distance_to_town_km INT,
+                        distance_to_town_km DOUBLE PRECISION,
                         adult_males INT,
                         adult_females INT,
-                        distance_to_hospital_km INT,
+                        distance_to_hospital_km DOUBLE PRECISION,
                         nearest_health_centre VARCHAR(256),
-                        distance_to_pratom_km INT,
+                        distance_to_pratom_km DOUBLE PRECISION,
                         annual_typhoid_cases INT,
-                        distance_to_health_centre_km INT,
-                        distance_to_mathayom_km INT,
+                        distance_to_health_centre_km DOUBLE PRECISION,
+                        distance_to_mathayom_km DOUBLE PRECISION,
                         common_diseases VARCHAR(256),
                         hosted_kht_projects VARCHAR(256),
                         record_id VARCHAR(256),
@@ -45,7 +45,7 @@ def create_village_table():
 
                 # Input and output file paths
                 input_file_path = get_file_path('Data/Villages_001.csv')
-                output_file_path = get_file_path('villages_001.csv')
+                output_file_path = get_file_path('villages_test_001.csv')
 
                 # Select columns and save to a  new CSV file
                 columns_to_select = ['Village Name', 'Created Time', 'Households', 'Road Conditions', 'Total Population', 'GPS Latitude',
@@ -54,25 +54,11 @@ def create_village_table():
                     'Nearest Health Centre', 'Distance to Pratom (km)', 'Annual Typhoid Cases',
                     'Distance to Health Centre (km)', 'Distance to Mathayom (km)', 'Common Diseases',
                     'Hosted KHT Projects', 'Record Id']
-                
-                columns_to_convert = [
-                'households',
-                'total_population',
-                '_population_without_enough_rice',
-                'children_aged_0_-_18',
-                'distance_to_town_km',
-                'adult_males',
-                'adult_females',
-                'distance_to_hospital_km',
-                'distance_to_pratom_km',
-                'annual_typhoid_cases',
-                'distance_to_health_centre_km',
-                'distance_to_mathayom_km']
 
-                select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select, columns_to_convert)
+                select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select)
 
                 # Fetch the 'created_time' column from the 'villagetest' table
-                crsc.execute("SELECT created_time FROM villageTest;")
+                crsc.execute("SELECT created_time FROM villageTest2;")
                 existing_times = [item[0] for item in crsc.fetchall()]
 
                 # Load the new CSV data into a DataFrame
@@ -96,20 +82,20 @@ def create_village_table():
                 with open(output_file_path, 'r') as f:
                     next(f)  # Skip the header
                     crsc.copy_expert(
-                        "COPY villageTest (village_name, created_time, households, road_conditions, total_population, gps_latitude, gps_longitude, population_without_enough_rice, children_aged_0_18, distance_to_town_km, adult_males, adult_females, distance_to_hospital_km, nearest_health_centre, distance_to_pratom_km, annual_typhoid_cases, distance_to_health_centre_km, distance_to_mathayom_km, common_diseases, hosted_kht_projects, record_id) FROM STDIN WITH CSV HEADER",
+                        "COPY villageTest2 (village_name, created_time, households, road_conditions, total_population, gps_latitude, gps_longitude, population_without_enough_rice, children_aged_0_18, distance_to_town_km, adult_males, adult_females, distance_to_hospital_km, nearest_health_centre, distance_to_pratom_km, annual_typhoid_cases, distance_to_health_centre_km, distance_to_mathayom_km, common_diseases, hosted_kht_projects, record_id) FROM STDIN WITH CSV HEADER",
                         f
                     )
                 connection.commit()       
 
                 # Remove any rows that gps_latitude and gps_longitude are null
-                DELETE_ROWS = """DELETE FROM villageTest WHERE gps_latitude IS NULL OR gps_longitude IS NULL;"""
+                DELETE_ROWS = """DELETE FROM villageTest2 WHERE gps_latitude IS NULL OR gps_longitude IS NULL;"""
                 crsc.execute(DELETE_ROWS)
                 connection.commit()
                 num_rows_deleted = crsc.rowcount
                 print(f'{num_rows_deleted} rows deleted where gps_latitude and gps_longitude are null from the village table.')
 
                 # Set the SRID of the 'geom' column to 4326
-                SET_GEOM_SRID = """UPDATE villageTest SET geom = ST_SetSRID(ST_MakePoint(gps_longitude, gps_latitude), 4326);"""
+                SET_GEOM_SRID = """UPDATE villageTest2 SET geom = ST_SetSRID(ST_MakePoint(gps_longitude, gps_latitude), 4326);"""
                 crsc.execute(SET_GEOM_SRID)
                 connection.commit()          
                              

@@ -1,6 +1,11 @@
 import pandas as pd
 
-def select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select):
+def convert_to_integer(dataset, columns):
+        for column in columns:
+            dataset[column] = pd.to_numeric(dataset[column], errors='coerce', downcast='integer')
+            dataset[column] = dataset[column].fillna(-1).astype(int)
+
+def select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select, columns_to_convert=''):
 
     # Read the CSV file into a DataFrame with explicit delimiter
     dataset = pd.read_csv(input_file_path, delimiter=',')
@@ -18,6 +23,8 @@ def select_columns_and_save_csv(input_file_path, output_file_path, columns_to_se
     for col in dataset.columns:
         if dataset[col].dtype == object:
             dataset[col] = dataset[col].str.strip().str.replace(',', '.')
+         
+    convert_to_integer(dataset, columns_to_convert)
 
     # Save the new DataFrame to the same CSV file, overwriting the existing file
     dataset.to_csv(output_file_path, index=False)

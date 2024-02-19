@@ -42,26 +42,59 @@ def pull_static_data(table: str, village_id=""):
         geojson_data = postgreSQL.get_table(table)
         return geojson_data
 
-@app.post("/api/auth")
-def get_authenticate(username: str, password: str):
-    access_token = generate_password("1234", 20)
-    user_dict[username] = access_token
-    return {"access-token": access_token}
+@app.get("/api/village/")
+def pull_village_data(village_id=""):
+    geojson_data = postgreSQL.get_village(village_id)
+    return geojson_data
+
+@app.get("/api/project/")
+def pull_project_data(village_id="", start_year="", end_year=""):
+    json_data = postgreSQL.get_project(village_id, start_year, end_year)
+    return json_data
+
+@app.get("/api/school/")
+def pull_school_data():
+    geojson_data = postgreSQL.get_school()
+    return geojson_data
+
+@app.get("/api/hospital/")
+def pull_hospital_data():
+    geojson_data = postgreSQL.get_hospital()
+    return geojson_data
+
+@app.get("/api/mhs_districts/")
+def pull_mhs_districts_data():
+    geojson_data = postgreSQL.get_mhs_districts()
+    return geojson_data
+
+@app.get("/api/mhs_roads/")
+def pull_mhs_roads():
+    geojson_data = postgreSQL.get_mhs_roads()
+    return geojson_data
+
+@app.get("/api/mhs_water_ares/")
+def pull_mhs_water_ares():
+    geojson_data = postgreSQL.get_mhs_water_ares()
+    return geojson_data
+
+@app.get("/api/mhs_water_lines")
+def pull_mhs_water_ares():
+    geojson_data = postgreSQL.get_mhs_water_lines()
+    return geojson_data
 
 @app.post("/auth")
 def get_auth(response : Response, username: str, key: str):
     response.set_cookie(key="Username", value=generate_password("1234", 20))
     return {"message": "Come to the dark side, we have cookies"}
 
-@app.get("/.well-known/pki-validation/78AE459F1B584324BF32399DA646034B.txt")
-async def get_txt_file():
-    file_name = "78AE459F1B584324BF32399DA646034B.txt"
-    file_path = f"./{file_name}"
-    file = open(file_path, "r")
-    return PlainTextResponse(file.read())
-
 if __name__ == "__main__":
     import uvicorn
+    import ssl
+
     host = '0.0.0.0'  # '0.0.0.0' to bind to all available network interfaces
-    port = 80  # Change this to your desired port
-    uvicorn.run(app, host=host, port=port)
+    port = 443  # Change this to your desired port for HTTPS (443 is the default HTTPS port)
+
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    ssl_context.load_cert_chain('cert.pem', keyfile='key.pem')
+
+    uvicorn.run(app, host=host, port=port, ssl_keyfile='key.pem', ssl_certfile='cert.pem')

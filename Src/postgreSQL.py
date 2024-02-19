@@ -22,41 +22,28 @@ connection_params = {
 }
 
 def query_to_geojson(cursor, query):
-    # cursor.execute(query)
-    # columns = [desc[0] for desc in cursor.description]
-    # results = cursor.fetchall()
+    cursor.execute(query)
+    columns = [desc[0] for desc in cursor.description]
+    results = cursor.fetchall()
+    features = []
+    for row in results:
+        properties = dict(zip(columns, row))
+        geometry_key = 'geom'
+        geometry_str = properties.get(geometry_key)
+        if geometry_str is not None:
+            try:
+                # Convert the hex WKB to a Shapely geometry
+                geometry = wkb.loads(geometry_str, hex=True)
+                # Convert the Shapely geometry to GeoJSON
+                geometry_geojson = mapping(geometry)
+                feature = geojson.Feature(properties=properties, geometry=geometry_geojson)
+                features.append(feature)
+            except (json.JSONDecodeError, ValueError):
+                print(f"Invalid GeoJSON string: {geometry_str}")
 
-    # features = []
-    # for row in results:
-    #     properties = dict(zip(columns, row))
-    #     geometry = properties.pop('geom', None)  # Assuming 'geometry' is the column name for geometry data
-    #     feature = geojson.Feature(properties=properties, geometry=geometry)
-    #     features.append(feature)
-
-    # feature_collection = geojson.FeatureCollection(features)
-    # return geojson.dumps(feature_collection, indent=2)
-        cursor.execute(query)
-        columns = [desc[0] for desc in cursor.description]
-        results = cursor.fetchall()
-        features = []
-        for row in results:
-            properties = dict(zip(columns, row))
-            geometry_key = 'geom'
-            geometry_str = properties.get(geometry_key)
-            if geometry_str is not None:
-                try:
-                    # Convert the hex WKB to a Shapely geometry
-                    geometry = wkb.loads(geometry_str, hex=True)
-                    # Convert the Shapely geometry to GeoJSON
-                    geometry_geojson = mapping(geometry)
-                    feature = geojson.Feature(properties=properties, geometry=geometry_geojson)
-                    features.append(feature)
-                except (json.JSONDecodeError, ValueError):
-                    print(f"Invalid GeoJSON string: {geometry_str}")
-
-        feature_collection = geojson.FeatureCollection(features)
-        # geojson_result = geojson.dumps(feature_collection, indent=2)
-        return feature_collection
+    feature_collection = geojson.FeatureCollection(features)
+    # geojson_result = geojson.dumps(feature_collection, indent=2)
+    return feature_collection
 
 # Query all data into json format
 def query_to_json(cursor, query):
@@ -97,15 +84,118 @@ def get_table(target_table, geojson_format=True, argument=""):
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
 
+# Query village
+def get_village(village_id=""):
+    query = None
+    if village_id == "":
+        query = sql.SQL("SELECT * FROM village")
+    else:
+        query = sql.SQL("SELECT * FROM village WHERE id = {}").format(sql.Literal(village_id))
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+# Query project
+def get_project(village_id="", start_year="", end_year=""):
+    query = None
+    if village_id == "":
+        if start_year == "":
+            start_year = -1
+        if end_year == "":
+            end_year = 9999
+        query = sql.SQL("""SELECT * FROM project 
+                            WHERE start_date >= {} 
+                            AND end_date <= """).format(sql.Literal(start_year), sql.Literal(end_year))
+    else:
+        query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id 
+                           FROM project
+                           JOIN projectvillage ON projectvillage.project_id = project.id
+                           WHERE village_id = {}::uuid"""), sql.Literal(village_id)
+        pass
+    try:
+        cursor.execute(query)
+        json_result = query_to_json(cursor, query)
+        return json_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+def get_hospital():
+    query = None
+    query = sql.SQL("SELECT * FROM hospital")
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+def get_school():
+    query = None
+    query = sql.SQL("SELECT * FROM school")
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+def get_mhs_districts():
+    query = None
+    query = sql.SQL("SELECT * FROM mhs_districts")
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+def get_mhs_roads():
+    query = None
+    query = sql.SQL("SELECT * FROM mhs_roads")
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+def get_mhs_water_ares():
+    query = None
+    query = sql.SQL("SELECT * FROM mhs_water_ares")
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+def get_mhs_water_lines():
+    query = None
+    query = sql.SQL("SELECT * FROM mhs_water_lines")
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction 
+
 # Establish a connection to the database
 try:
     connection = psycopg2.connect(**connection_params)
     print("Connected to the database!")
-
     # Create a cursor object to execute SQL queries
     cursor = connection.cursor()
-    # print(get_table("project", False))
-    # print(get_table("village"))
 
 except psycopg2.Error as e:
     print(f"Unable to connect to the database. Error: {e}")

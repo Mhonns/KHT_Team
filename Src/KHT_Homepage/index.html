@@ -7,9 +7,12 @@
     <title>Leaflet</title>
 
     <!-- leaflet css -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
         body {
@@ -27,10 +30,11 @@
             bottom: 10px;
             right: 50%;
         }
+
         .legend {
-        background-color: rgba(255, 255, 255, 0.7);
-        padding: 15px;
-    }
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+        }
     </style>
 </head>
 
@@ -48,9 +52,10 @@
 </html>
 
 <!-- leaflet js -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<!-- <script src = "./data/point.js"></script>
+<!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- <script src = "./data/point.js"></script>
 <script src = "./data/line.js"></script> -->
 <!-- <script src = "./data/polygon.js"></script> -->
 <!-- <script src = "./data/hotdogcat.js"></script> -->
@@ -86,7 +91,7 @@
         position: 'bottomleft',
         imperial: true
     }).addTo(map);
-    
+
 
 
 
@@ -177,8 +182,8 @@
     // var lineData = L.geoJSON(lineJson).addTo(map)
     // Use Fetch API to get GeoJSON data from the provided URL
 
-     // import the village class from village.js
-     class Village {
+    // import the village class from village.js
+    class Village {
         constructor(id, village_name, households, road_conditions, total_population, gps_latitude, gps_longitude, population_without_enough_rice, children_aged_0_18, distance_to_town_km, adult_males, adult_females, distance_to_hospital_km, nearest_health_centre, distance_to_pratom_km, annual_typhoid_cases, distance_to_health_centre_km, distance_to_mathayom_km, common_diseases, hosted_kht_projects, record_id, geom) {
             this.id = id;
             this.village_name = village_name;
@@ -204,10 +209,10 @@
             this.geom = geom;
         }
     }
-
     async function fetchData() {
         try {
-            const response = await fetch('http://103.153.118.77:2546/api/get/?table=village');
+            // const response = await fetch('http://103.153.118.77:2546/api/get/?table=village');
+            const response = await fetch('https://139.162.62.115/api/get/?table=village');
             const data = await response.json();
             console.log('Data from API:', data);
             console.log("Village Name:", data.features[0].properties.village_name);
@@ -246,7 +251,8 @@
 
             //print the the first village in the array
             console.log('First Village:', villageData[0]);
-            
+
+
             var clickedLayer;
 
             function resetClickedLayer() {
@@ -272,9 +278,11 @@
                     layer.on('click', function (e) {
                         // Reset the style of the previously clicked layer
                         resetClickedLayer();
-                        localStorage.removeItem('project-details');
-                        localStorage.removeItem('start-dates');
-                        localStorage.removeItem('end-dates');
+                        // localStorage.removeItem('project-details');
+                        // localStorage.removeItem('start-dates');
+                        // localStorage.removeItem('end-dates');
+
+                        console.log('localStorage:', localStorage.getItem('project-details'));
 
                         // Change the marker color to red
                         layer.setStyle({ fillColor: 'red', color: 'white' });
@@ -447,13 +455,13 @@
         }
     }).addTo(map);
     var school = L.geoJSON(school, {
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng, {icon: myIcon2});
-    },
-    onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.CUL_PNAME);
-    }
-}).addTo(map);
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, { icon: myIcon2 });
+        },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.CUL_PNAME);
+        }
+    }).addTo(map);
     // var village = L.geoJSON(village).addTo(map)
     var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], { interactive: false, opacity: 0.7 }).addTo(map);
     var elevationColor = L.imageOverlay('img/DEM.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], { interactive: false, opacity: 0.4 }).addTo(map);
@@ -650,29 +658,29 @@
     };
     // map.removeLayer(singleMarker)
     // Create a legend control
-var legendControl = L.control({ position: 'bottomright' });
+    var legendControl = L.control({ position: 'bottomright' });
 
-legendControl.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'legend');
-    div.innerHTML +=
-        '<strong>Legend</strong><br><br>' + 
-        '<img src="img/elevation.png" alt="Elevation" height="20"> Terrain<br>' +
-        '<img src="img/DEM.png" alt="Monochrome Elevation" height="20"> Terrain (Monochrome)<br>' +
-        '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: blue; stroke: white; stroke-width: 3;"></circle></svg> Village<br>' +
-        '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: red; stroke: white; stroke-width: 3;"></circle></svg> Village Clicked<br>' +
-        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:pink;stroke-width:2"></line></svg> Subdistrict<br>'+
-        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:#FA8072;stroke-width:2"></line></svg> District<br>' +
-        '<img src="img/school_marker.png" alt="School" height="20"> School<br>' +
-        '<img src="img/hospital_marker.png" alt="Hospital" height="20"> Hospital<br>' +
-        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:brown;stroke-width:2"></line></svg> Road<br>'+
-        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:steelblue;stroke-width:2"></line></svg> Water Line<br>'+
-        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:blue;stroke-width:2"></line></svg> Water Area<br>'
-        
-    return div;
-};
+    legendControl.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'legend');
+        div.innerHTML +=
+            '<strong>Legend</strong><br><br>' +
+            '<img src="img/elevation.png" alt="Elevation" height="20"> Terrain<br>' +
+            '<img src="img/DEM.png" alt="Monochrome Elevation" height="20"> Terrain (Monochrome)<br>' +
+            '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: blue; stroke: white; stroke-width: 3;"></circle></svg> Village<br>' +
+            '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: red; stroke: white; stroke-width: 3;"></circle></svg> Village Clicked<br>' +
+            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:pink;stroke-width:2"></line></svg> Subdistrict<br>' +
+            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:#FA8072;stroke-width:2"></line></svg> District<br>' +
+            '<img src="img/school_marker.png" alt="School" height="20"> School<br>' +
+            '<img src="img/hospital_marker.png" alt="Hospital" height="20"> Hospital<br>' +
+            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:brown;stroke-width:2"></line></svg> Road<br>' +
+            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:steelblue;stroke-width:2"></line></svg> Water Line<br>' +
+            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:blue;stroke-width:2"></line></svg> Water Area<br>'
 
-// Add the legend control to the map
-legendControl.addTo(map);
+        return div;
+    };
+
+    // Add the legend control to the map
+    legendControl.addTo(map);
 
     L.control.layers(baseMaps, overlayMaps, { collapsed: true }).addTo(map);
 

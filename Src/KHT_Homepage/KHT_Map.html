@@ -204,7 +204,9 @@
     crossorigin="anonymous"></script>
   <script>
     window.onload = function () {
-      document.getElementById('village-name').innerHTML = 'Village Name';
+      document.getElementById('village-name').innerText = 'Village Name';
+      console.log('Village Name1: ' + localStorage.getItem('village-name'));
+      console.log("local storage length: " + localStorage.length)
       document.getElementById('road-quality').innerHTML = 'Road Quality';
       document.getElementById('distance-pratom').innerHTML = 'Distance to Primary school';
       document.getElementById('distance-mathayom').innerHTML = 'Distance to Secondary school';
@@ -224,7 +226,8 @@
       if (e.key === 'village-name') {
         // Update the content in the widget
         const villageName = localStorage.getItem('village-name');
-        document.getElementById("village-name").innerHTML = villageName;
+        document.getElementById("village-name").inner = villageName;
+        console.log('Village Name2: ' + localStorage.getItem('village-name'));
       }
       if (e.key === 'road-quality') {
         // Update the content in the widget

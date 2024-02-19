@@ -52,6 +52,11 @@ def pull_project_data(village_id="", start_year="", end_year=""):
     json_data = postgreSQL.get_project(village_id, start_year, end_year)
     return json_data
 
+@app.get("/api/projecttest/")
+def pull_projecttest_data():
+    json_data = postgreSQL.get_projecttest()
+    return json_data
+
 @app.get("/api/school/")
 def pull_school_data():
     geojson_data = postgreSQL.get_school()
@@ -72,7 +77,7 @@ def pull_mhs_roads():
     geojson_data = postgreSQL.get_mhs_roads()
     return geojson_data
 
-@app.get("/api/mhs_water_ares/")
+@app.get("/api/mhs_water_areas/")
 def pull_mhs_water_ares():
     geojson_data = postgreSQL.get_mhs_water_ares()
     return geojson_data

@@ -109,13 +109,25 @@ def get_project(village_id="", start_year="", end_year=""):
             end_year = 9999
         query = sql.SQL("""SELECT * FROM project 
                             WHERE start_date >= {} 
-                            AND end_date <= """).format(sql.Literal(start_year), sql.Literal(end_year))
+                            AND end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
+        print(query.as_string(cursor))
     else:
         query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id 
                            FROM project
                            JOIN projectvillage ON projectvillage.project_id = project.id
                            WHERE village_id = {}::uuid"""), sql.Literal(village_id)
         pass
+    try:
+        cursor.execute(query)
+        json_result = query_to_json(cursor, query)
+        return json_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+def get_projecttest():
+    query = None
+    query = sql.SQL("SELECT * FROM projecttest")
     try:
         cursor.execute(query)
         json_result = query_to_json(cursor, query)
@@ -170,7 +182,7 @@ def get_mhs_roads():
 
 def get_mhs_water_ares():
     query = None
-    query = sql.SQL("SELECT * FROM mhs_water_ares")
+    query = sql.SQL("SELECT * FROM mhs_water_areas")
     try:
         cursor.execute(query)
         geojson_result = query_to_geojson(cursor, query)

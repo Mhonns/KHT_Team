@@ -33,7 +33,7 @@ def create_projectDonor_table():
 
         INSERT_TO_PROJECTDONOR_TABLE_DONOR1 = """
         INSERT INTO projectDonor (project_id, donor_id)
-        SELECT projectTest.id AS project_id, donor.id AS donor_id
+        SELECT DISTINCT projectTest.id AS project_id, donor.id AS donor_id
         FROM projectTest
         JOIN donor ON projectTest.donor1_id = donor.record_id
         """
@@ -42,7 +42,7 @@ def create_projectDonor_table():
 
         INSERT_TO_PROJECTDONOR_TABLE_DONOR2 = """
         INSERT INTO projectDonor (project_id, donor_id)
-        SELECT projectTest.id AS project_id, donor.id AS donor_id
+        SELECT DISTINCT projectTest.id AS project_id, donor.id AS donor_id
         FROM projectTest
         JOIN donor ON projectTest.donor2_id = donor.record_id
         """
@@ -51,7 +51,7 @@ def create_projectDonor_table():
 
         INSERT_TO_PROJECTDONOR_TABLE_DONOR3 = """
         INSERT INTO projectDonor (project_id, donor_id)
-        SELECT projectTest.id AS project_id, donor.id AS donor_id
+        SELECT DISTINCT projectTest.id AS project_id, donor.id AS donor_id
         FROM projectTest
         JOIN donor ON projectTest.donor3_id = donor.record_id
         """

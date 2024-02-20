@@ -52,9 +52,9 @@ def pull_project_data(village_id="", start_year="", end_year=""):
     json_data = postgreSQL.get_project(village_id, start_year, end_year)
     return json_data
 
-@app.get("/api/projecttest/")
-def pull_projecttest_data():
-    json_data = postgreSQL.get_projecttest()
+@app.get("/api/project_donor/")
+def pull_project_donor_data(project_id=""):
+    json_data = postgreSQL.get_project_donor(project_id)
     return json_data
 
 @app.get("/api/school/")

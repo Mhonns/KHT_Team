@@ -1,3 +1,13 @@
+from fastapi import FastAPI, HTTPException, Response
+from fastapi.responses import JSONResponse, PlainTextResponse
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+import psycopg2
+import geojson
+from psycopg2 import sql
+from shapely import wkb
+from shapely.geometry import mapping
+import json
 import psycopg2
 import geojson
 from psycopg2 import sql
@@ -107,16 +117,18 @@ def get_project(village_id="", start_year="", end_year=""):
             start_year = -1
         if end_year == "":
             end_year = 9999
-        query = sql.SQL("""SELECT * FROM project 
+        query = sql.SQL("""SELECT projecttest.*, projectStatus.status_name
+                            FROM projecttest 
+                            JOIN projectStatus ON projecttest.status_id = projectStatus.status_id
                             WHERE start_date >= {} 
                             AND end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
         print(query.as_string(cursor))
     else:
-        query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id 
-                           FROM project
-                           JOIN projectvillage ON projectvillage.project_id = project.id
-                           WHERE village_id = {}::uuid"""), sql.Literal(village_id)
-        pass
+        query = sql.SQL("""SELECT DISTINCT projecttest.id,project_name_en,start_date,end_date,projectvillagetest.village_id, projectStatus.status_name
+                            FROM projecttest
+                            JOIN projectvillagetest ON projectvillagetest.project_id = projecttest.id
+                            JOIN projectStatus ON projecttest.status_id = projectStatus.Status_id
+                            WHERE village_id = {}::uuid""").format(sql.Literal(village_id))
     try:
         cursor.execute(query)
         json_result = query_to_json(cursor, query)
@@ -125,9 +137,13 @@ def get_project(village_id="", start_year="", end_year=""):
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
 
-def get_projecttest():
+
+def get_project_donor(project_id=""):
     query = None
-    query = sql.SQL("SELECT * FROM projecttest")
+    query = sql.SQL("""SELECT donor.id,donor.donator_name
+                        FROM donor
+                        JOIN projectdonor ON projectdonor.donor_id = donor.id
+                        WHERE projectdonor.project_id= {}::uuid""").format(sql.Literal(project_id))
     try:
         cursor.execute(query)
         json_result = query_to_json(cursor, query)

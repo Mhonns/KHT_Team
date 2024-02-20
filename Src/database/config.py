@@ -1,7 +1,7 @@
 # Config file for database connection
 from configparser import ConfigParser
 
-def config(filename='database.ini', section='postgresql'):
+def config(filename='database.ini', section='linode'):
     # create a parser
     parser = ConfigParser()
     # read config file

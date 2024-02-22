@@ -117,17 +117,17 @@ def get_project(village_id="", start_year="", end_year=""):
             start_year = -1
         if end_year == "":
             end_year = 9999
-        query = sql.SQL("""SELECT projecttest.*, projectStatus.status_name
-                            FROM projecttest 
-                            JOIN projectStatus ON projecttest.status_id = projectStatus.status_id
+        query = sql.SQL("""SELECT project.*, projectStatus.status_name
+                            FROM project 
+                            JOIN projectStatus ON project.status_id = projectStatus.status_id
                             WHERE start_date >= {} 
                             AND end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
         print(query.as_string(cursor))
     else:
-        query = sql.SQL("""SELECT DISTINCT projecttest.id,project_name_en,start_date,end_date,projectvillagetest.village_id, projectStatus.status_name
-                            FROM projecttest
-                            JOIN projectvillagetest ON projectvillagetest.project_id = projecttest.id
-                            JOIN projectStatus ON projecttest.status_id = projectStatus.Status_id
+        query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id, projectStatus.status_name
+                            FROM project
+                            JOIN projectvillage ON projectvillage.project_id = project.id
+                            JOIN projectStatus ON project.status_id = projectStatus.Status_id
                             WHERE village_id = {}::uuid""").format(sql.Literal(village_id))
     try:
         cursor.execute(query)

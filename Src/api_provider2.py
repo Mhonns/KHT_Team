@@ -52,6 +52,12 @@ def pull_project_data(village_id="", start_year="", end_year=""):
     json_data = postgreSQL.get_project(village_id, start_year, end_year)
     return json_data
 
+# 4 types of project data: WASH, Irrigation, Further Education Scholarships, Dormitory Meals, School Buses
+@app.get("/api/project_type/")
+def pull_project_type_data(project_type=""):
+    geojson_data = postgreSQL.get_project_type(project_type)
+    return geojson_data
+
 @app.get("/api/project_donor/")
 def pull_project_donor_data(project_id=""):
     json_data = postgreSQL.get_project_donor(project_id)

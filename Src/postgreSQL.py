@@ -117,22 +117,64 @@ def get_project(village_id="", start_year="", end_year=""):
             start_year = -1
         if end_year == "":
             end_year = 9999
-        query = sql.SQL("""SELECT projecttest.*, projectStatus.status_name
-                            FROM projecttest 
-                            JOIN projectStatus ON projecttest.status_id = projectStatus.status_id
+        query = sql.SQL("""SELECT project.*, projectStatus.status_name
+                            FROM project 
+                            JOIN projectStatus ON project.status_id = projectStatus.status_id
                             WHERE start_date >= {} 
                             AND end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
         print(query.as_string(cursor))
     else:
-        query = sql.SQL("""SELECT DISTINCT projecttest.id,project_name_en,start_date,end_date,projectvillagetest.village_id, projectStatus.status_name
-                            FROM projecttest
-                            JOIN projectvillagetest ON projectvillagetest.project_id = projecttest.id
-                            JOIN projectStatus ON projecttest.status_id = projectStatus.Status_id
+        query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id, projectStatus.status_name
+                            FROM project
+                            JOIN projectvillage ON projectvillage.project_id = project.id
+                            JOIN projectStatus ON project.status_id = projectStatus.Status_id
                             WHERE village_id = {}::uuid""").format(sql.Literal(village_id))
     try:
         cursor.execute(query)
         json_result = query_to_json(cursor, query)
         return json_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+# Query village project by year
+def get_village_project_by_year(year="", start_year="", end_year=""):
+    if year:
+        query = sql.SQL("""SELECT village.*, projectStatus.status_name
+                            FROM village
+                            JOIN projectvillage ON projectvillage.village_id = village.id
+                            JOIN project ON project.id = projectvillage.project_id
+                            JOIN projectStatus ON project.status_id = projectStatus.status_id
+                            WHERE project.start_date <= {}
+                            AND project.end_date >= {}""").format(sql.Literal(str(year)), sql.Literal(str(year)))
+    else:
+        query = sql.SQL("""SELECT village.*, projectStatus.status_name
+                            FROM village
+                            JOIN projectvillage ON projectvillage.village_id = village.id
+                            JOIN project ON project.id = projectvillage.project_id
+                            JOIN projectStatus ON project.status_id = projectStatus.status_id
+                            WHERE project.start_date >= {} 
+                            AND project.end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
+# Query project type
+def get_project_type(project_type=""):
+    query = None
+    query = sql.SQL("""SELECT village.*
+                        FROM village
+                        JOIN projectvillage ON projectvillage.village_id = village.id
+                        JOIN project ON project.id = projectvillage.project_id
+                        WHERE project.project_type = {}""").format(sql.Literal(project_type))
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
     except:
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
@@ -233,4 +275,3 @@ def close_all():
         cursor.close()
         connection.close()
         print("Connection closed.")
-

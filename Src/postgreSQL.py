@@ -137,6 +137,32 @@ def get_project(village_id="", start_year="", end_year=""):
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
 
+# Query village project by year
+def get_village_project_by_year(year="", start_year="", end_year=""):
+    if year:
+        query = sql.SQL("""SELECT village.*, projectStatus.status_name
+                            FROM village
+                            JOIN projectvillage ON projectvillage.village_id = village.id
+                            JOIN project ON project.id = projectvillage.project_id
+                            JOIN projectStatus ON project.status_id = projectStatus.status_id
+                            WHERE project.start_date <= {}
+                            AND project.end_date >= {}""").format(sql.Literal(str(year)), sql.Literal(str(year)))
+    else:
+        query = sql.SQL("""SELECT village.*, projectStatus.status_name
+                            FROM village
+                            JOIN projectvillage ON projectvillage.village_id = village.id
+                            JOIN project ON project.id = projectvillage.project_id
+                            JOIN projectStatus ON project.status_id = projectStatus.status_id
+                            WHERE project.start_date >= {} 
+                            AND project.end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
+
 def get_project_type(project_type=""):
     query = None
     query = sql.SQL("""SELECT village.*

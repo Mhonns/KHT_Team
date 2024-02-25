@@ -163,6 +163,7 @@ def get_village_project_by_year(year="", start_year="", end_year=""):
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
 
+# Query project type
 def get_project_type(project_type=""):
     query = None
     query = sql.SQL("""SELECT village.*

@@ -89,3 +89,4 @@ INFO:     103.153.118.5:53124 - "GET /api/mhs_roads HTTP/1.1" 307 Temporary Redi
 INFO:     103.153.118.5:53124 - "GET /api/mhs_roads/ HTTP/1.1" 200 OK
 INFO:     172.104.11.4:55390 - "GET / HTTP/1.1" 200 OK
 INFO:     103.153.118.5:54864 - "GET /api/get/?table=village HTTP/1.1" 200 OK
+INFO:     172.105.128.12:21326 - "GET / HTTP/1.1" 200 OK

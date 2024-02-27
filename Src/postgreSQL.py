@@ -122,7 +122,6 @@ def get_project(village_id="", start_year="", end_year=""):
                             JOIN projectStatus ON project.status_id = projectStatus.status_id
                             WHERE start_date >= {} 
                             AND end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
-        print(query.as_string(cursor))
     else:
         query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id, projectStatus.status_name
                             FROM project

@@ -5,6 +5,8 @@ from pydantic import BaseModel
 import postgreSQL
 import json
 import hashlib
+import uvicorn
+import ssl
 
 app = FastAPI()
 
@@ -104,13 +106,21 @@ def get_auth(response : Response, username: str, key: str):
     return {"message": "Come to the dark side, we have cookies"}
 
 if __name__ == "__main__":
-    import uvicorn
-    import ssl
 
     host = '0.0.0.0'  # '0.0.0.0' to bind to all available network interfaces
     port = 443  # Change this to your desired port for HTTPS (443 is the default HTTPS port)
 
-    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    ssl_context.load_cert_chain('cert.pem', keyfile='key.pem')
+    # ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    # ssl_context.load_cert_chain('cert.pem', keyfile='key.pem')
 
-    uvicorn.run(app, host=host, port=port, ssl_keyfile='key.pem', ssl_certfile='cert.pem')
+    # uvicorn.run(app, host=host, port=port, ssl_keyfile='key.pem', ssl_certfile='cert.pem', ssl_keyfile_password=passphrase)
+
+    cert_file = 'cert.pem'
+    key_file = 'key.pem'
+    passphrase = b'khtteam1234'
+
+    ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    ssl_context.load_cert_chain(certfile=cert_file, keyfile=key_file, password=passphrase)
+
+    if __name__ == "__main__":
+        uvicorn.run(app, host=host, port=port, ssl_keyfile=key_file, ssl_certfile=cert_file, ssl_keyfile_password=passphrase)

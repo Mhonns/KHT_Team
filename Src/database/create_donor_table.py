@@ -25,7 +25,7 @@ def create_donor_table():
         crsc.execute(CREATE_TABLE)
         connection.commit()
 
-        input_file_path = get_file_path('Data\Donors_001.csv')
+        input_file_path = get_file_path('Data/Donors_001.csv')
         output_file_path = get_file_path('donors_001.csv')
 
         columns_to_select = ['Record Id', 'Full Name', 'Created Time']

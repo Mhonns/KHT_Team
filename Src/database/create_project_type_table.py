@@ -25,7 +25,7 @@ def create_project_type_table():
         crsc.execute(CREATE_TABLE)
         connection.commit()
 
-        input_file_path = get_file_path('Data\Programmes_001.csv')
+        input_file_path = get_file_path('Data/Programmes_001.csv')
         output_file_path = get_file_path('project_types.csv')
 
         columns_to_select = ['Record Id', 'Product Name', 'Created Time']

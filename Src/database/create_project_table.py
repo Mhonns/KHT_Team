@@ -32,7 +32,7 @@ def create_project_table():
         crsc.execute(CREATE_TABLE)
         connection.commit()
 
-        input_file_path = get_file_path('Data\Project_Cases_001.csv')
+        input_file_path = get_file_path('Data/Project_Cases_001.csv')
         output_file_path = get_file_path('project_001.csv')
 
         columns_to_select = ['Solution Title', 'Product Name.id', 'Created Time', 'Project Start Date', 'Project End Date', 'Donor 1 (D1) Id', 'Donor 3 (D3) Id', 'Donor 2 (D2) Id', 'Village Id', 'Project Type']

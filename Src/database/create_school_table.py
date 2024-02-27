@@ -28,7 +28,7 @@ def create_school_table():
                 crsc.execute(CREATE_TABLE)
 
                 # Input and output file paths
-                input_file_path = get_file_path('Data\Villages_001.csv')
+                input_file_path = get_file_path('Data/Villages_001.csv')
                 output_file_path = get_file_path('schools.csv')
 
                 # Select columns and save to a new CSV file

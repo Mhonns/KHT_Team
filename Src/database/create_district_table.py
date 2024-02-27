@@ -25,7 +25,7 @@ def create_district_table():
                 crsc.execute(CREATE_TABLE)
 
                 # Input and output file paths
-                input_file_path = get_file_path('Data\Schools\Towns\Districts_001.csv')
+                input_file_path = get_file_path('Data/Schools/Towns/Districts_001.csv')
                 output_file_path = get_file_path('districts_001.csv')
 
                 # Select columns and save to a new CSV file

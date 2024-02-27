@@ -24,19 +24,19 @@ def connect():
 
         crsc = connection.cursor()
 
-        # create_projectStatus_table()
-        # create_donor_table()
-        # create_project_type_table()
+        create_projectStatus_table()
+        create_donor_table()
+        create_project_type_table()
 
-        # create_village_table()
-        # create_project_table()
-        # create_projectVillage_table()
-        # create_donor_table()
+        create_village_table()
+        create_project_table()
+        create_projectVillage_table()
+        create_donor_table()
         create_projectDonor_table()
 
-        # create_district_table()
-        # create_hospital_table()
-        # create_school_table()
+        create_district_table()
+        create_hospital_table()
+        create_school_table()
 
         # create_village_table_test()
        

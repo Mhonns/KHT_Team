@@ -27,18 +27,10 @@
             bottom: 10px;
             right: 50%;
         }
-
         .legend {
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 15px;
-        }
-
-        .radio-button-container {
-            background-color: blue;
-            border: 1px solid black;
-            padding: 10px;
-            z-index: 1000;
-        }
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 15px;
+    }
     </style>
 </head>
 
@@ -50,11 +42,9 @@
     <div id="widget">
         <!-- Content of the widget goes here -->
     </div>
-    <div class="radio-button-container">
-        <input type="radio" id="radio1" name="radio" value="radio1">
-        <label for="radio1">Option 1</label>
-    </div>
-    </script>
+   
+
+  
 </body>
 
 </html>
@@ -79,6 +69,9 @@
 <script src="./data/msh_water_lines.js"></script>
 <!-- <script src = "./data/Contour.js"></script> -->
 <scirpt src="./data/Contourline.js"></scirpt>
+<scirpt src="pop_up_button.js"></scirpt>
+
+
 
 <!-- <style>
     .leaflet-control-scale-line {
@@ -98,7 +91,7 @@
         position: 'bottomleft',
         imperial: true
     }).addTo(map);
-
+    
 
 
 
@@ -189,8 +182,8 @@
     // var lineData = L.geoJSON(lineJson).addTo(map)
     // Use Fetch API to get GeoJSON data from the provided URL
 
-    // import the village class from village.js
-    class Village {
+     // import the village class from village.js
+     class Village {
         constructor(id, village_name, households, road_conditions, total_population, gps_latitude, gps_longitude, population_without_enough_rice, children_aged_0_18, distance_to_town_km, adult_males, adult_females, distance_to_hospital_km, nearest_health_centre, distance_to_pratom_km, annual_typhoid_cases, distance_to_health_centre_km, distance_to_mathayom_km, common_diseases, hosted_kht_projects, record_id, geom) {
             this.id = id;
             this.village_name = village_name;
@@ -258,7 +251,7 @@
 
             //print the the first village in the array
             console.log('First Village:', villageData[0]);
-
+            
             var clickedLayer;
 
             function resetClickedLayer() {
@@ -459,13 +452,13 @@
         }
     }).addTo(map);
     var school = L.geoJSON(school, {
-        pointToLayer: function (feature, latlng) {
-            return L.marker(latlng, { icon: myIcon2 });
-        },
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.CUL_PNAME);
-        }
-    }).addTo(map);
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: myIcon2});
+    },
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.CUL_PNAME);
+    }
+}).addTo(map);
     // var village = L.geoJSON(village).addTo(map)
     var elevation = L.imageOverlay('img/elevation.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], { interactive: false, opacity: 0.7 }).addTo(map);
     var elevationColor = L.imageOverlay('img/DEM.png', [[19.815284943, 97.343636681], [17.636673832, 98.651692237]], { interactive: false, opacity: 0.4 }).addTo(map);
@@ -639,24 +632,6 @@
     // Add the control to the map
     new RecenterControl().addTo(map);
 
-    // Create a new control
-    var searchBoxControl = L.control({ position: 'topleft' });
-
-    // When the control is added to the map
-    searchBoxControl.onAdd = function (map) {
-        // Create a div for the control
-        var div = L.DomUtil.create('div', 'search-box-control');
-
-        // Add a search box to the div
-        div.innerHTML = '<input type="search" id="searchBox" name="searchBox" placeholder="Search..."><br><input type="radio" id="radio1" name="radio" value="radio1"><label for="radio1">Option 1</label>';
-
-        return div;
-    };
-
-    // Add the control to the map
-    searchBoxControl.addTo(map);
-
-
     /* ==========================================
                     LAYER CONTROL
     =============================================*/
@@ -680,31 +655,31 @@
     };
     // map.removeLayer(singleMarker)
     // Create a legend control
-    var legendControl = L.control({ position: 'bottomright' });
+var legendControl = L.control({ position: 'bottomright' });
 
-    legendControl.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'legend');
-        div.innerHTML +=
-            '<strong>Legend</strong><br><br>' +
-            '<img src="img/elevation.png" alt="Elevation" height="20"> Terrain<br>' +
-            '<img src="img/DEM.png" alt="Monochrome Elevation" height="20"> Terrain (Monochrome)<br>' +
-            '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: blue; stroke: white; stroke-width: 3;"></circle></svg> Village<br>' +
-            '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: red; stroke: white; stroke-width: 3;"></circle></svg> Village Clicked<br>' +
-            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:pink;stroke-width:2"></line></svg> Subdistrict<br>' +
-            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:#FA8072;stroke-width:2"></line></svg> District<br>' +
-            '<img src="img/school_marker.png" alt="School" height="20"> School<br>' +
-            '<img src="img/hospital_marker.png" alt="Hospital" height="20"> Hospital<br>' +
-            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:brown;stroke-width:2"></line></svg> Road<br>' +
-            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:steelblue;stroke-width:2"></line></svg> Water Line<br>' +
-            '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:blue;stroke-width:2"></line></svg> Water Area<br>'
+legendControl.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'legend');
+    div.innerHTML +=
+        '<strong>Legend</strong><br><br>' + 
+        '<img src="img/elevation.png" alt="Elevation" height="20"> Terrain<br>' +
+        '<img src="img/DEM.png" alt="Monochrome Elevation" height="20"> Terrain (Monochrome)<br>' +
+        '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: blue; stroke: white; stroke-width: 3;"></circle></svg> Village<br>' +
+        '<svg height="20" width="20"><circle cx="10" cy="10" r="8" style="fill: red; stroke: white; stroke-width: 3;"></circle></svg> Village Clicked<br>' +
+        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:pink;stroke-width:2"></line></svg> Subdistrict<br>'+
+        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:#FA8072;stroke-width:2"></line></svg> District<br>' +
+        '<img src="img/school_marker.png" alt="School" height="20"> School<br>' +
+        '<img src="img/hospital_marker.png" alt="Hospital" height="20"> Hospital<br>' +
+        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:brown;stroke-width:2"></line></svg> Road<br>'+
+        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:steelblue;stroke-width:2"></line></svg> Water Line<br>'+
+        '<svg height="20" width="20"><line x1="0" y1="10" x2="20" y2="10" style="stroke:blue;stroke-width:2"></line></svg> Water Area<br>'
+        
+    return div;
+};
 
-        return div;
-    };
+// Add the legend control to the map
+legendControl.addTo(map);
 
-    // Add the legend control to the map
-    legendControl.addTo(map);
-
-    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
+    L.control.layers(baseMaps, overlayMaps, { collapsed: true }).addTo(map);
 
     /* ==========================================
                     LEAFLET EVENT
@@ -718,4 +693,25 @@
         console.log('Lat: ' + e.latlng.lat, 'Lng' + e.latlng.lng)
     }) */
 
+    var popup = L.popup();
+
+function togglePopup() {
+    if (popup.getContent() === null) {
+        popup.setContent(`
+            <!-- Popup content -->
+            <div id="popup" class="popup">
+                <label><input type="radio" name="options" value="option1"> Option 1</label>
+                <label><input type="radio" name="options" value="option2"> Option 2</label>
+                <label><input type="radio" name="options" value="option3"> Option 3</label>
+            </div>
+        `);
+    } else {
+        popup.setContent(null);
+    }
+}
+
+// Button to toggle the radio button popup
+document.querySelector('.search-button').addEventListener('click', togglePopup);
+popup.addTo(map);
+togglePopup.addTo(map);
 </script>

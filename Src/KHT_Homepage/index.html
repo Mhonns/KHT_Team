@@ -249,7 +249,7 @@
 
     async function fetchData() {
         try {
-            const response = await fetch('http://103.153.118.77:2546/api/get/?table=village');
+            const response = await fetch('https://139.162.62.115/api/get/?table=village');
             const data = await response.json();
             console.log('Data from API:', data);
             console.log("Village Name:", data.features[0].properties.village_name);
@@ -331,7 +331,7 @@
                         localStorage.setItem('id', id);
                         async function fetchData(id) {
                             try {
-                                const response = await fetch("http://103.153.118.77:2546/api/get/?table=project&village_id=" + id);
+                                const response = await fetch("https://139.162.62.115/api/get/?table=project&village_id=" + id);
                                 const data = await response.json();
                                 console.log(data);
 

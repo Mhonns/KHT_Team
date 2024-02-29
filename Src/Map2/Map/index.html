@@ -26,7 +26,16 @@
             bottom: 10px;
             right: 50%;
         }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
     </style>
+   
 </head>
 
 <body>
@@ -38,6 +47,8 @@
       <!-- Content of the widget goes here -->
   </div>
   </script>
+  <div class="box"></div>
+
 </body>
 
 </html>
@@ -377,13 +388,16 @@ new RecenterControl().addTo(map);
     /* ==========================================
                     LEAFLET EVENT
     =============================================*/
-    map.on('mouseover', function() {
+    /*map.on('mouseover', function() {
         console.log('your mouse is over the map')
     })
 
     map.on('mousemove', function(e) {
         document.getElementsByClassName('coordinate')[0].innerHTML = 'Lat: ' + e.latlng.lat + ' Lng: ' + e.latlng.lng
         console.log('Lat: ' + e.latlng.lat, 'Lng' + e.latlng.lng)
-    })
+    })*/
+
+  
+
 
 </script>

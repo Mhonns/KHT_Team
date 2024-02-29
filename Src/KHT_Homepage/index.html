@@ -34,13 +34,28 @@
         }
 
         .radio-button-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%);
         }
 
         .radio-button-control {
             background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+            z-index: 1000;
+            /* Make sure the control is on top of other elements */
+        }
+
+        .search-button-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .search-button-control {
+            background-color: rgb(188, 185, 185);
             border: 1px solid black;
             padding: 10px;
             z-index: 1000;
@@ -61,7 +76,15 @@
         <input type="radio" id="radio1" name="radio" value="radio1">
         <label for="radio1">Option 1</label>
     </div>
-    </script>
+    <div class="search-button-container">
+        <button id="searchButton">
+            <i class="search_icon.png"></i> <!-- Replace this with your icon -->
+        </button>
+    </div>
+    <button id="search-button">Search</button>
+    <div id="radio-button-container" style="display: none;">
+
+        </script>
 </body>
 
 </html>
@@ -653,13 +676,56 @@
         // Create a div for the control
         var div = L.DomUtil.create('div', 'radio-button-control');
 
-        // Add a radio button to the div
-div.innerHTML = '<input type="search" id="searchBox" name="searchBox" placeholder="Search..."><br><input type="radio" id="radio1" name="radio" value="radio1"><label for="radio1">Time</label><br><input type="radio" id="radio2" name="radio" value="radio2"><label for="radio2">Date</label>';
+        // Add a radio button to the div and initially hide them
+        div.innerHTML = `
+        <div id="radioContainer" style="display: none;">
+            <p>Search for Village by</p><br>
+            <input type="radio" id="radio1" name="radio" value="radio1">
+            <label for="radio1">Year</label><input type="text" size="10" style="margin-left: 20px;" id="input1 "><br style="margin-bottom: 20px;">
+            <input type="radio" id="radio2" name="radio" value="radio2">
+            <label for="radio2">Start Year - End Year</label><input type="text" size="10" style="margin-left: 20px;" id="input2">
+            <input type="text" size="10" style="margin-left: 20px;" id="input3">
+            </div>
+            `;
+
+        return div;
+    };
+
+    // Create a new search button
+    var searchButtonControl = L.control({ position: 'topleft' });
+
+    // When the control is added to the map
+    searchButtonControl.onAdd = function (map) {
+        // Create a div for the control
+        var div = L.DomUtil.create('div', 'search-button-control');
+
+        // Add a button to the div
+        div.innerHTML = '<button id="searchButton"><i class="material-icons">search</i></button>';
+
+        // Add an event listener to the search button
+        div.querySelector('#searchButton').addEventListener('click', function () {
+            // Show the radio buttons when the search button is clicked
+            var radioButtonContainer = document.querySelector('#radioContainer');
+            if (radioButtonContainer) {
+                radioButtonContainer.style.display = 'block';
+                //make the search button and its container disappear
+                var searchButtonContainer = document.querySelector('.search-button-control');
+                if (searchButtonContainer) {
+                    searchButtonContainer.style.display = 'none';
+                }
+            }
+        });
+
         return div;
     };
 
     // Add the control to the map
+    searchButtonControl.addTo(map);
+    // Add the control to the map
     radioButtonControl.addTo(map);
+
+
+
 
     /* ==========================================
                     LAYER CONTROL

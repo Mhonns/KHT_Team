@@ -355,7 +355,52 @@ const fetchLocationDetailsID = async (csvFilePath, outputFilePath) => {
 };
 
 // Usage
-fetchLocationDetailsID('hospital_data_p3.csv', 'hospital_data_p3.json');
+// fetchLocationDetailsID('hospital_data_p3.csv', 'hospital_data_p3.json');
 
-         
+
+const fetchHospitalDetails = async (jsonFilePath, outputFilePath) => {
+    try {
+        const jsonData = fs.readFileSync(jsonFilePath, 'utf-8'); // Read JSON file
+        const locations = JSON.parse(jsonData); // Parse JSON data
+
+        const detailsUrl = "https://pin-point.co/g/search/details";
+        const headers = {
+            "Content-Type": "application/json",
+            "Referer": "panuo"
+        };
+
+        let results = []; // Array to store the results
+        for (const location of locations) {
+            const detailsData = {
+                locationid: location.response.data[0].LocationID,
+                key: "6b56bcf7c907653c3d50b1a5094379aea39090020111b49dc52ce35df6db5c2d64556ded7510e935"
+            };
+            try {
+                const detailsResponse = await fetch(detailsUrl, {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(detailsData)
+                });
+                if (!detailsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${detailsResponse.status}`);
+                }
+                const detailsJsonResponse = await detailsResponse.json();
+                const { LAT_LON, FormattedAddress } = detailsJsonResponse.data;
+                results.push({ location, LAT_LON, FormattedAddress }); // Store the result
+            } catch (error) {
+                console.error("Error processing location:", error);
+            }
+        }
+
+        // Write results to JSON file
+        fs.writeFileSync(outputFilePath, JSON.stringify(results, null, 2));
+        console.log("Results saved to", outputFilePath);
+    } catch (error) {
+        console.error("Fetch error:", error);
+    }
+};
+
+// Usage
+fetchHospitalDetails('hospital_data_p1_chose.json', 'hospital_data_p1_details.json');
+
 

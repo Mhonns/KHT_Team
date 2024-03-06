@@ -8,10 +8,10 @@ with open('hospital_data_p1_details.json', 'r', encoding='utf-8') as json_file:
 # Write to a new CSV file
 with open('complete_hospital_data_p1.csv', 'w', newline='', encoding='utf-8') as csv_file:
     writer = csv.writer(csv_file)
-    writer.writerow(["ชื่อหน่วยงาน", "จังหวัด", "อำเภอ", "ตำบล", "FormattedAddress", "LAT_LON"])
+    writer.writerow(["ชื่อหน่วยงาน", "จังหวัด", "อำเภอ", "ตำบล", "FormattedAddress", "gps_latitude", "gps_longitude"])
 
     for item in data:
-        lat_lon = item['LAT_LON']
+        lat, lon = item['LAT_LON'].split(',')
         formatted_address = item['FormattedAddress']
         # Combine into a single line for CSV
         combined_data = [
@@ -20,6 +20,7 @@ with open('complete_hospital_data_p1.csv', 'w', newline='', encoding='utf-8') as
             "อ.เมืองแม่ฮ่องสอน",
             "ต.ห้วยปูลิง",
             formatted_address,
-            lat_lon
+            lat,
+            lon
         ]
         writer.writerow(combined_data)  # Write the combined data to the CSV file

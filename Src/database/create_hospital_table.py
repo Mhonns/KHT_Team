@@ -29,7 +29,7 @@ def create_hospital_table():
                 crsc.execute(CREATE_TABLE)
 
                 # Input and output file paths
-                input_file_path = get_file_path('Data/completed_hospital_data_p1.csv')
+                input_file_path = get_file_path('Data/complete_hospital_data_p1.csv')
                 output_file_path = get_file_path('hospitals.csv')
 
                 # Select columns and save to a new CSV file

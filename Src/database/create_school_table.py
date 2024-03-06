@@ -66,7 +66,7 @@ def create_school_table():
                 SET_GEOM_SRID = """UPDATE school SET geom = ST_SetSRID(ST_MakePoint(gps_longitude, gps_latitude), 4326);"""
                 crsc.execute(SET_GEOM_SRID)
 
-                print('school table created successfully.')
+                print('School table created successfully.')
                              
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error:", error)

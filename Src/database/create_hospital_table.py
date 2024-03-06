@@ -24,6 +24,8 @@ def create_hospital_table():
                         district VARCHAR(255),
                         sub_district VARCHAR(255),
                         formatted_address VARCHAR(255),
+                        gps_latitude DOUBLE PRECISION,
+                        gps_longitude DOUBLE PRECISION,
                         geom geometry(Point, 4326)
                     );"""
                 crsc.execute(CREATE_TABLE)
@@ -32,8 +34,9 @@ def create_hospital_table():
                 input_file_path = get_file_path('Data/complete_hospital_data_p1.csv')
                 output_file_path = get_file_path('hospitals.csv')
 
+                # ชื่อหน่วยงาน,จังหวัด,อำเภอ,ตำบล,FormattedAddress,gps_latitude,gps_longitude
                 # Select columns and save to a new CSV file
-                columns_to_select = ['ชื่อหน่วยงาน', 'จังหวัด', 'อำเภอ', 'ตำบล', 'FormattedAddress', 'LAT_LON']
+                columns_to_select = ['ชื่อหน่วยงาน', 'จังหวัด', 'อำเภอ', 'ตำบล', 'FormattedAddress', 'gps_latitude', 'gps_longitude']
 
                 select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select)
 
@@ -49,21 +52,20 @@ def create_hospital_table():
                 # Save the filtered data to a new CSV file
                 new_data.to_csv(output_file_path, index=False)
 
-                # Convert 'LAT_LON' to a POINT geometry
-                new_data['LAT_LON'] = new_data['LAT_LON'].apply(lambda x: 'POINT(' + ' '.join(x.split(',')) + ')')
-
                 # Use 'copy_expert' to copy the new data from the CSV file into the 'hospitaltest' table
                 with open(output_file_path, 'r') as f:
                     next(f)  # Skip the header
                     crsc.copy_expert(
-                        "COPY hospital (hospital_name, province, district, sub_district, formatted_address, geom) FROM STDIN WITH CSV HEADER",
+                        "COPY hospital (hospital_name, province, district, sub_district, formatted_address, gps_latitude, gps_longitude) FROM STDIN WITH CSV DELIMITER ',' QUOTE '\"';",
                         f
                     )
-                connection.commit()       
+                connection.commit()     
 
-                 # Set the SRID of the 'geom' column to 4326
-                crsc.execute("SELECT UpdateGeometrySRID('hospital', 'geom', 4326);")    
-                connection.commit()
+                # Set the SRID of the 'geom' column to 4326
+                SET_GEOM_SRID = """UPDATE hospital SET geom = ST_SetSRID(ST_MakePoint(gps_longitude, gps_latitude), 4326);"""
+                crsc.execute(SET_GEOM_SRID)
+
+                print('hello')
                              
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error:", error)

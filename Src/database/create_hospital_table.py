@@ -49,6 +49,9 @@ def create_hospital_table():
                 # Save the filtered data to a new CSV file
                 new_data.to_csv(output_file_path, index=False)
 
+                # Convert 'LAT_LON' to a POINT geometry
+                new_data['LAT_LON'] = new_data['LAT_LON'].apply(lambda x: 'POINT(' + ' '.join(x.split(',')) + ')')
+
                 # Use 'copy_expert' to copy the new data from the CSV file into the 'hospitaltest' table
                 with open(output_file_path, 'r') as f:
                     next(f)  # Skip the header

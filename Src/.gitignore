@@ -4,3 +4,6 @@
 # Ignore .vscode directory
 .vscode/
 
+*.log
+node_modules/
+build/

@@ -16,7 +16,7 @@ def create_project_table():
         connection = psycopg2.connect(**params)
         crsc = connection.cursor() 
 
-        CREATE_TABLE = f"""CREATE TABLE IF NOT EXISTS projectTest (
+        CREATE_TABLE = f"""CREATE TABLE IF NOT EXISTS project (
                 id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                 project_name_en VARCHAR(256),
                 zoho_project_type_id VARCHAR(256),
@@ -41,7 +41,7 @@ def create_project_table():
         select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select)
 
         # Fetch the 'created_time' column from the 'project' table
-        crsc.execute("SELECT created_time FROM projectTest;")
+        crsc.execute("SELECT created_time FROM project;")
         existing_times = [item[0] for item in crsc.fetchall()]
 
         # Load the new CSV data into a DataFrame
@@ -65,29 +65,29 @@ def create_project_table():
         with open(output_file_path, 'r') as f:
             next(f)  # Skip the header
             crsc.copy_expert(
-                "COPY projectTest (project_name_en, zoho_project_type_id, created_time, start_date, end_date, donor1_id, donor3_id, donor2_id, zoho_village_id, status) FROM STDIN WITH CSV DELIMITER ',' QUOTE '\"' NULL 'null'",
+                "COPY project (project_name_en, zoho_project_type_id, created_time, start_date, end_date, donor1_id, donor3_id, donor2_id, zoho_village_id, status) FROM STDIN WITH CSV DELIMITER ',' QUOTE '\"' NULL 'null'",
                 f
             )
         connection.commit()    
 
         # add column for status_id  
-        ADD_PROJECTSTATUS_COLUMN = """ALTER TABLE projectTest
+        ADD_PROJECTSTATUS_COLUMN = """ALTER TABLE project
             ADD COLUMN status_id INTEGER REFERENCES projectStatus (status_id);"""
         crsc.execute(ADD_PROJECTSTATUS_COLUMN)
         connection.commit()
 
         # Update the 'status_id' column based on the values from the projectStatus table
         UPDATE_STATUS_ID = """
-            UPDATE projectTest
+            UPDATE project
             SET status_id = projectStatus.status_id
             FROM projectStatus
-            WHERE projectTest.status = projectStatus.status_name;
+            WHERE project.status = projectStatus.status_name;
         """
         crsc.execute(UPDATE_STATUS_ID)
         connection.commit()
 
         # Drop the old 'status' column
-        DROP_STATUS_COLUMN = """ALTER TABLE projectTest
+        DROP_STATUS_COLUMN = """ALTER TABLE project
                                     DROP COLUMN status;"""
         crsc.execute(DROP_STATUS_COLUMN)
         connection.commit()

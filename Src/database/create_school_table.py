@@ -53,7 +53,7 @@ def create_school_table():
                 # Save the filtered data to a new CSV file
                 new_data.to_csv(output_file_path, index=False)
 
-                # Use 'copy_expert' to copy the new data from the CSV file into the 'villagetest' table
+                # Use 'copy_expert' to copy the new data from the CSV file into the 'village' table
                 with open(output_file_path, 'r') as f:
                     next(f)  # Skip the header
                     crsc.copy_expert(

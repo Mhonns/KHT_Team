@@ -19,41 +19,41 @@ def create_projectDonor_table():
                 id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                 project_id UUID,
                 donor_id UUID,
-                FOREIGN KEY (project_id) REFERENCES projectTest(id),
+                FOREIGN KEY (project_id) REFERENCES project(id),
                 FOREIGN KEY (donor_id) REFERENCES donor(id)
             );"""
         crsc.execute(CREATE_TABLE)
         connection.commit()
 
         # """
-        # INSERT INTO projectVillageTest (village_id, project_id)
-        # SELECT villagetest.id AS village_id, projecttest.id AS project_id
-        # FROM projecttest
-        # JOIN villagetest ON projecttest.zoho_village_id = villagetest.record_id;"""
+        # INSERT INTO projectvillage (village_id, project_id)
+        # SELECT village.id AS village_id, project.id AS project_id
+        # FROM project
+        # JOIN village ON project.zoho_village_id = village.record_id;"""
 
         INSERT_TO_PROJECTDONOR_TABLE_DONOR1 = """
         INSERT INTO projectDonor (project_id, donor_id)
-        SELECT DISTINCT projectTest.id AS project_id, donor.id AS donor_id
-        FROM projectTest
-        JOIN donor ON projectTest.donor1_id = donor.record_id
+        SELECT DISTINCT project.id AS project_id, donor.id AS donor_id
+        FROM project
+        JOIN donor ON project.donor1_id = donor.record_id
         """
         crsc.execute(INSERT_TO_PROJECTDONOR_TABLE_DONOR1)
         connection.commit()
 
         INSERT_TO_PROJECTDONOR_TABLE_DONOR2 = """
         INSERT INTO projectDonor (project_id, donor_id)
-        SELECT DISTINCT projectTest.id AS project_id, donor.id AS donor_id
-        FROM projectTest
-        JOIN donor ON projectTest.donor2_id = donor.record_id
+        SELECT DISTINCT project.id AS project_id, donor.id AS donor_id
+        FROM project
+        JOIN donor ON project.donor2_id = donor.record_id
         """
         crsc.execute(INSERT_TO_PROJECTDONOR_TABLE_DONOR2)
         connection.commit()
 
         INSERT_TO_PROJECTDONOR_TABLE_DONOR3 = """
         INSERT INTO projectDonor (project_id, donor_id)
-        SELECT DISTINCT projectTest.id AS project_id, donor.id AS donor_id
-        FROM projectTest
-        JOIN donor ON projectTest.donor3_id = donor.record_id
+        SELECT DISTINCT project.id AS project_id, donor.id AS donor_id
+        FROM project
+        JOIN donor ON project.donor3_id = donor.record_id
         """
         crsc.execute(INSERT_TO_PROJECTDONOR_TABLE_DONOR3)
         connection.commit()

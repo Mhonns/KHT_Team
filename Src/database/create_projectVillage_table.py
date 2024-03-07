@@ -15,7 +15,7 @@ def create_projectVillage_table():
         connection = psycopg2.connect(**params)
         crsc = connection.cursor()
        
-        CREATE_TABLE = """CREATE TABLE IF NOT EXISTS projectVillageTest (
+        CREATE_TABLE = """CREATE TABLE IF NOT EXISTS projectvillage (
                 id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                 village_id UUID,
                 project_id UUID 
@@ -23,10 +23,10 @@ def create_projectVillage_table():
         crsc.execute(CREATE_TABLE)
         connection.commit()
 
-        INSERT_TO_PROJECTVILLAGE_TABLE = """INSERT INTO projectVillageTest (village_id, project_id)
-                                            SELECT villagetest.id AS village_id, projecttest.id AS project_id
-                                            FROM projecttest
-                                            JOIN villagetest ON projecttest.zoho_village_id = villagetest.record_id;"""
+        INSERT_TO_PROJECTVILLAGE_TABLE = """INSERT INTO projectvillage (village_id, project_id)
+                                            SELECT village.id AS village_id, project.id AS project_id
+                                            FROM project
+                                            JOIN village ON project.zoho_village_id = village.record_id;"""
         crsc.execute(INSERT_TO_PROJECTVILLAGE_TABLE)
         connection.commit()
                                             

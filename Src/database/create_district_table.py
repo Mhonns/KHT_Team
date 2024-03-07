@@ -33,7 +33,7 @@ def create_district_table():
 
                 select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select)
 
-                # Fetch the 'created_time' column from the 'villagetest' table
+                # Fetch the 'created_time' column from the 'village' table
                 crsc.execute("SELECT created_time FROM district;")
                 existing_times = [item[0] for item in crsc.fetchall()]
 
@@ -53,7 +53,7 @@ def create_district_table():
                 # Save the filtered data to a new CSV file
                 new_data.to_csv(output_file_path, index=False)
 
-                # Use 'copy_expert' to copy the new data from the CSV file into the 'villagetest' table
+                # Use 'copy_expert' to copy the new data from the CSV file into the 'village' table
                 with open(output_file_path, 'r') as f:
                     next(f)  # Skip the header
                     crsc.copy_expert(

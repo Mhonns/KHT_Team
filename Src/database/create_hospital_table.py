@@ -27,7 +27,8 @@ def create_hospital_table():
                         formatted_address VARCHAR(255),
                         gps_latitude DOUBLE PRECISION,
                         gps_longitude DOUBLE PRECISION,
-                        geom geometry(Point, 4326)
+                        geom geometry(Point, 4326),
+                        created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                     );"""
                 crsc.execute(CREATE_TABLE)
 
@@ -43,6 +44,16 @@ def create_hospital_table():
 
                 # Load the new CSV data into a DataFrame
                 new_data = pd.read_csv(output_file_path)
+
+                 # Fetch the existing timestamps from the database
+                crsc.execute("SELECT created_time FROM hospital;")
+                existing_times = [item[0] for item in crsc.fetchall()]
+
+                # Convert the existing_times to pandas datetime for comparison
+                existing_times = pd.to_datetime(existing_times)
+
+                # Filter out the rows in new_data that have a created_time in existing_times
+                new_data = new_data[~new_data['created_time'].isin(existing_times)]
 
                 # If there are no new rows, print a message and return
                 if new_data.empty:
@@ -62,6 +73,10 @@ def create_hospital_table():
                         f
                     )
                 connection.commit()     
+
+                UPDATE_CREATED_TIME = """UPDATE hospital SET created_time = CURRENT_TIMESTAMP WHERE created_time IS NULL;"""
+                crsc.execute(UPDATE_CREATED_TIME)
+                connection.commit()
 
                 # Set the SRID of the 'geom' column to 4326
                 SET_GEOM_SRID = """UPDATE hospital SET geom = ST_SetSRID(ST_MakePoint(gps_longitude, gps_latitude), 4326);"""

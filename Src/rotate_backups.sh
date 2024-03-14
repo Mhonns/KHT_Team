@@ -26,19 +26,21 @@ NUM_FILES=$(echo "$BACKUP_FILES" | wc -l)
 # Log the number of backup files found
 log_message "Number of backup files found: $NUM_FILES"
 
-# Check if there are more than NUM_BACKUPS files
-if [ $NUM_FILES -gt $NUM_BACKUPS ]; then
-  # Sort files by modification time (oldest first)
+# Delete the oldest backups, so there should always be three newest backups left
+if [ $NUM_FILES -gt $NUM_BACKUPS ]; then # Check if there are more than NUM_BACKUPS files
+
+  # Sort the backup files by date from oldest to newest
   sorted_files=$(echo "$BACKUP_FILES" | sort)
 
-  # Get the files to delete (oldest ones)
-  FILES_TO_DELETE=$(echo "$sorted_files" | head -n $(($NUM_FILES - $NUM_BACKUPS)))
+  # Get the oldest files from the sorted list (NUM_FILES - NUM_BACKUPS)
+  FILES_TO_DELETE=$(echo "$sorted_files" | head -n $(($NUM_FILES - $NUM_BACKUPS))
 
-  # Delete the oldest backups
+  # Delete the oldest files
   echo "$FILES_TO_DELETE" | xargs rm -f
-  echo "Deleted oldest backups:"
   echo "$FILES_TO_DELETE" | while read -r file; do
-    log_message "Deleted: $file"
+
+  # Log what files has been deleted
+    log_message "Deleted $file"
   done
 fi
 

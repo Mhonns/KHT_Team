@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Define backup directory (modify as needed)
+# Define backup and log directory if it doesn't exist
 BACKUP_DIR=~/backups
-
-# Create backup directory if not exist
-mkdir -p "$BACKUP_DIR"
-
-# Define number of backups to keep
-NUM_BACKUPS=3
-
-# Define log directory
 LOG_DIR=~/logs
 
-# Create log directory if it doesn't exist
+# Create the backup and log directory
+mkdir -p "$BACKUP_DIR"
 mkdir -p "$LOG_DIR"
+
+# NUmbers of backup to keep
+NUM_BACKUPS=3
 
 # Define log file with the current date
 LOG_FILE="$LOG_DIR/ROTATE_BACKUPS$(date +'%Y-%m-%d').log"
@@ -23,10 +19,8 @@ log_message() {
   echo "$(date +'%Y-%m-%d %H:%M:%S') $1" >> "$LOG_FILE"
 }
 
-# Find all backup files in the directory (modify pattern if needed)
+# Find all backup files in the directory and count how many
 BACKUP_FILES=$(find "$BACKUP_DIR" -name "mhs_geographic_backup_*.sql")
-
-# Count the number of backup files
 NUM_FILES=$(echo "$BACKUP_FILES" | wc -l)
 
 # Log the number of backup files found

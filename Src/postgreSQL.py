@@ -8,12 +8,7 @@ from psycopg2 import sql
 from shapely import wkb
 from shapely.geometry import mapping
 import json
-import psycopg2
-import geojson
-from psycopg2 import sql
-from shapely import wkb
-from shapely.geometry import mapping
-import json
+
 
 # Database configurations
 db_host = "127.0.0.1" # "103.153.118.77"

@@ -33,7 +33,7 @@ def create_village_url_table():
                 output_file_path = get_file_path('village_url.csv')
 
                 # Select columns and save to a  new CSV file
-                columns_to_select = ['village_name', 'url', 'article_Stitle', 'posted_date','entered_date']
+                columns_to_select = ['village_name', 'url', 'article_title', 'posted_date','entered_date']
                 
                 columns_to_convert = ['village_name', 'url', 'article_title', 'posted_date','entered_date']
 

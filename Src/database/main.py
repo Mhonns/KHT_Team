@@ -13,7 +13,8 @@ from create_district_table import create_district_table
 from create_school_table import create_school_table
 from create_hospital_table import create_hospital_table
 from create_village_table_test import create_village_table_test
-from create_village_url_table import create_village_url_table
+from database.create_url_table import create_url_table
+from database.create_url_table import create_village_url_table
 
 def connect():
     connection = None
@@ -38,6 +39,7 @@ def connect():
         # create_district_table()
         # create_hospital_table()
         # create_school_table()
+        # create_url_table()
         create_village_url_table()
 
         # create_village_table_test()

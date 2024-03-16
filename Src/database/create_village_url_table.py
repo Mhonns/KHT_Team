@@ -9,7 +9,7 @@ def get_file_path(filename):
     file_path = os.path.join(current_dir, filename)
     return file_path
 
-def create_village_table():
+def create_village_url_table():
     try:    
         params = config()
         print('Connecting to the PostgreSQL database...')

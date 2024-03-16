@@ -15,19 +15,6 @@ def create_village_url_table():
         print('Connecting to the PostgreSQL database...')
         with psycopg2.connect(**params) as connection:
             with connection.cursor() as crsc:
-                # create village table if it does not exist
-                # CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageUrl (
-                #         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-                #         village_id UUID,
-                #         village_name VARCHAR(256),
-                #         url VARCHAR(256),
-                #         sequence INT,
-                #         article_title VARCHAR(256),
-                #         posted_date VARCHAR(256),
-                #         entered_date VARCHAR(256)
-                #     );"""
-                # crsc.execute(CREATE_TABLE)
-
                 CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageUrl (
                     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                     village_name VARCHAR(256),
@@ -56,7 +43,7 @@ def create_village_url_table():
                 # Load the new CSV data into a DataFrame
                 new_data = pd.read_csv(output_file_path)
 
-                print(new_data.head())
+                # Print the columns and first few rows of the new data
                 print(new_data.columns)
                 print(new_data.head())
 

@@ -44,7 +44,9 @@ def create_village_url_table():
                 # existing_times = [item[0] for item in crsc.fetchall()]
 
                 # Load the new CSV data into a DataFrame
-                #new_data = pd.read_csv(output_file_path)
+                new_data = pd.read_csv(output_file_path)
+
+                print(new_data.columns)
 
                 # Filter the new data to only include rows with 'created_time' values that don't exist in the database
                 #new_data = new_data[~new_data['created_time'].isin(existing_times)]
@@ -58,7 +60,7 @@ def create_village_url_table():
                 #     print(f'{num_rows_added} rows added.')
 
                 # # Save the filtered data to a new CSV file
-                # new_data.to_csv(output_file_path, index=False)
+                new_data.to_csv(output_file_path, index=False)
 
                 # Use 'copy_expert' to copy the new data from the CSV file into the 'village' table
                 with open(output_file_path, 'r') as f:

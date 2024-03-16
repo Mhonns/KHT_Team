@@ -24,7 +24,7 @@ def create_village_url_table():
                         sequence INT,
                         article_title VARCHAR(256),
                         posted_date VARCHAR(256),
-                        entered_date VARCHAR(256),
+                        entered_date VARCHAR(256)
                     );"""
                 crsc.execute(CREATE_TABLE)
 

@@ -133,6 +133,7 @@ def get_project(village_id="", start_year="", end_year=""):
 
 # Query village project by year
 def get_village_project_by_year(year="", start_year="", end_year=""):
+    query = None
     if year:
         query = sql.SQL("""SELECT village.*, projectStatus.status_name
                             FROM village
@@ -159,7 +160,7 @@ def get_village_project_by_year(year="", start_year="", end_year=""):
 
 # Query project type
 def get_project_type(project_type=""):
-    query = None
+    query = None 
     query = sql.SQL("""SELECT village.*
                         FROM village
                         JOIN projectvillage ON projectvillage.village_id = village.id
@@ -253,6 +254,23 @@ def get_mhs_water_lines():
     except:
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction 
+
+# just test to see if post api work just print console log in java front end
+def insert_village_url(village_url_data):
+    print(village_url_data)
+    query = None
+    # INSERT into url with village_url_date.village_name, village_url_date.url, village_url_date.article_title, village_url_date.posted_date
+    # For table url.entered_date, use SELECT CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256));
+    query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date)
+                        VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)))
+                        """).format(village_url_data.village_name, village_url_data.url, village_url_data.article_title, village_url_data.posted_date)
+    try:
+        cursor.execute(query)
+        connection.commit()
+        print("Data inserted into url table successfully.")
+    except:
+        print(f"Error executing query")
+        connection.rollback()
 
 # Establish a connection to the database
 try:

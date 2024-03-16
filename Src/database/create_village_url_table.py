@@ -40,8 +40,8 @@ def create_village_url_table():
                 select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select, columns_to_convert)
 
                 # Fetch the 'created_time' column from the 'village' table
-                crsc.execute("SELECT created_time FROM villageUrl;")
-                existing_times = [item[0] for item in crsc.fetchall()]
+                # crsc.execute("SELECT created_time FROM villageUrl;")
+                # existing_times = [item[0] for item in crsc.fetchall()]
 
                 # Load the new CSV data into a DataFrame
                 new_data = pd.read_csv(output_file_path)

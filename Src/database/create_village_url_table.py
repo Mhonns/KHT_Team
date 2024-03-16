@@ -19,7 +19,7 @@ def create_village_url_table():
                 CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageUrl (
                         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                         village_id UUID,
-                        url, VARCHAR(256),
+                        url VARCHAR(256),
                         village_name VARCHAR(256),
                         entered_date VARCHAR(256),
                         sequence INT,

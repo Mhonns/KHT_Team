@@ -27,21 +27,21 @@ def create_village_url_table():
 
                 # Input and output file paths
                 input_file_path = get_file_path('Data/village_url.csv')
-                output_file_path = get_file_path('village_url.csv')
+                output_file_path = get_file_path('village_url.csv') 
 
                 # Select columns and save to a  new CSV file
-                columns_to_select = ['village_name', 'url', 'article_title', 'posted_date','entered_date']
+                # columns_to_select = ['village_name', 'url', 'article_title', 'posted_date','entered_date']
                 
-                columns_to_convert = ['village_name', 'url', 'article_title', 'posted_date','entered_date']
+                # columns_to_convert = ['village_name', 'url', 'article_title', 'posted_date','entered_date']
 
-                select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select, columns_to_convert)
+                # select_columns_and_save_csv(input_file_path, output_file_path, columns_to_select, columns_to_convert)
 
                 # Fetch the 'created_time' column from the 'village' table
                 # crsc.execute("SELECT created_time FROM villageUrl;")
                 # existing_times = [item[0] for item in crsc.fetchall()]
 
                 # Load the new CSV data into a DataFrame
-                new_data = pd.read_csv(output_file_path)
+                new_data = pd.read_csv(input_file_path)
 
                 # Print the columns and first few rows of the new data
                 print(new_data.columns)

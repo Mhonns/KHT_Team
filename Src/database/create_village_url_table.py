@@ -15,7 +15,7 @@ def create_village_url_table():
         print('Connecting to the PostgreSQL database...')
         with psycopg2.connect(**params) as connection:
             with connection.cursor() as crsc:
-                CREATE_TABLE = """CREATE TABLE IF NOT EXISTS url (
+                CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageUrl (
                     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                     village_id UUID,
                     url_id UUID

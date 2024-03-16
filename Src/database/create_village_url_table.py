@@ -43,6 +43,9 @@ def create_village_url_table():
                 # Load the new CSV data into a DataFrame
                 new_data = pd.read_csv(input_file_path)
 
+                # Drop the 'id' column
+                new_data = new_data.drop(columns='id')
+
                 # Print the columns and first few rows of the new data
                 print(new_data.head())
 

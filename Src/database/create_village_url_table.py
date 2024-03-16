@@ -22,14 +22,14 @@ def create_village_url_table():
                 );"""
                 crsc.execute(CREATE_TABLE)
 
-        INSERT_TO_VILLAGEURL_TABLE = """INSERT INTO villageUrl (village_id, url_id)
-                                            SELECT url.id, village.id
-                                            FROM url
-                                            JOIN village ON url.village_name = village.village_name;"""
-        crsc.execute(INSERT_TO_VILLAGEURL_TABLE)
-        connection.commit()
-                                            
-        print('\nvillageUrl table created successfully.')           
+                INSERT_TO_VILLAGEURL_TABLE = """INSERT INTO villageUrl (village_id, url_id)
+                                                    SELECT url.id, village.id
+                                                    FROM url
+                                                    JOIN village ON url.village_name = village.village_name;"""
+                crsc.execute(INSERT_TO_VILLAGEURL_TABLE)
+                connection.commit()
+                                                    
+                print('\nvillageUrl table created successfully.')           
                              
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error:", error)

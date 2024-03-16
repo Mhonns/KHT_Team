@@ -44,7 +44,6 @@ def create_village_url_table():
                 new_data = pd.read_csv(input_file_path)
 
                 # Print the columns and first few rows of the new data
-                print(new_data.columns)
                 print(new_data.head())
 
                 # Filter the new data to only include rows with 'created_time' values that don't exist in the database

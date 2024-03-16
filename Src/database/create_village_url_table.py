@@ -18,7 +18,7 @@ def create_village_url_table():
                 # create village table if it does not exist
                 CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageUrl (
                         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-                        village_id, UUID,
+                        village_id UUID,
                         url, VARCHAR(256),
                         village_name VARCHAR(256),
                         entered_date VARCHAR(256),
@@ -67,7 +67,9 @@ def create_village_url_table():
                         "COPY villageUrl (village_id, url, village_name, entered_date, sequence, article_title, posted_date) FROM STDIN WITH CSV HEADER",  # SQL statement
                         f
                     )
-                connection.commit()              
+                connection.commit()   
+
+                print('villageUrl table created successfully.')           
                              
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error:", error)

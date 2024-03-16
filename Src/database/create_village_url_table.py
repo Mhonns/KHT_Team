@@ -19,12 +19,12 @@ def create_village_url_table():
                 CREATE_TABLE = """CREATE TABLE IF NOT EXISTS villageUrl (
                         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                         village_id UUID,
-                        url VARCHAR(256),
                         village_name VARCHAR(256),
-                        entered_date VARCHAR(256),
+                        url VARCHAR(256),
                         sequence INT,
                         article_title VARCHAR(256),
-                        posted_date VARCHAR(256)
+                        posted_date VARCHAR(256),
+                        entered_date VARCHAR(256),
                     );"""
                 crsc.execute(CREATE_TABLE)
 
@@ -64,7 +64,7 @@ def create_village_url_table():
                 with open(output_file_path, 'r') as f:
                     next(f)  # Skip the header
                     crsc.copy_expert(
-                        "COPY villageUrl (village_id, url, village_name, entered_date, sequence, article_title, posted_date) FROM STDIN WITH CSV HEADER",  # SQL statement
+                        "COPY villageUrl (village_name, url, article_title, posted_date, entered_date) FROM STDIN WITH CSV HEADER",
                         f
                     )
                 connection.commit()   

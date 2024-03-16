@@ -56,6 +56,7 @@ def create_village_url_table():
                 # Load the new CSV data into a DataFrame
                 new_data = pd.read_csv(output_file_path)
 
+                print(new_data.head())
                 print(new_data.columns)
                 print(new_data.head())
 

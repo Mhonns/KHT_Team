@@ -116,12 +116,13 @@ class village_url_data(BaseModel):
 async def create_village_url(village_url_data: village_url_data):
     # Insert the data into the database
     postgreSQL.insert_village_url(village_url_data)
+    print(village_url_data)
     return {"message": "Your data for village_url has been added successfully."}
 
 if __name__ == "__main__":
 
     host = '0.0.0.0'  # '0.0.0.0' to bind to all available network interfaces
-    port = 443  # Change this to your desired port for HTTPS (443 is the default HTTPS port)
+    port = 2546  # Change this to your desired port for HTTPS (443 is the default HTTPS port)
 
     # ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     # ssl_context.load_cert_chain('cert.pem', keyfile='key.pem')

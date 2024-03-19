@@ -7,7 +7,7 @@ import json
 import hashlib
 import uvicorn
 import ssl
-
+from village_url_model import village_url_data
 app = FastAPI()
 
 user_dict = {}
@@ -104,12 +104,6 @@ def pull_mhs_water_ares():
 def get_auth(response : Response, username: str, key: str):
     response.set_cookie(key="Username", value=generate_password("1234", 20))
     return {"message": "Come to the dark side, we have cookies"}
-
-class village_url_data(BaseModel):
-    village_name: str
-    url: str
-    article_title: str
-    posted_date: str
 
 # Post for requesting village_name and url # article_title and posted_date is not necessary
 @app.post("/api/post/village_url/")

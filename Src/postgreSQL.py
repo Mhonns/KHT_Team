@@ -8,7 +8,7 @@ from psycopg2 import sql
 from shapely import wkb
 from shapely.geometry import mapping
 import json
-
+from village_url_model import village_url_data  
 
 # Database configurations
 db_host = "127.0.0.1" # "103.153.118.77"

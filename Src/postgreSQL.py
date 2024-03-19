@@ -263,9 +263,9 @@ def insert_village_url(village_url_data):
     # For table url.entered_date, use SELECT CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256));
     query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date)
                         VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)))
-                        """).format(village_url_data.village_name, village_url_data.url, village_url_data.article_title, village_url_data.posted_date)
+                        """)
     try:
-        cursor.execute(query)
+        cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.article_title, village_url_data.posted_date))
         connection.commit()
         print("Data inserted into url table successfully.")
     except:

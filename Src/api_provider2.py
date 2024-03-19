@@ -105,6 +105,19 @@ def get_auth(response : Response, username: str, key: str):
     response.set_cookie(key="Username", value=generate_password("1234", 20))
     return {"message": "Come to the dark side, we have cookies"}
 
+class village_url_data(BaseModel):
+    village_name: str
+    url: str
+    article_title: str
+    posted_date: str
+
+# Post for requesting village_name and url # article_title and posted_date is not necessary
+@app.post("/api/post/village_url/")
+async def create_village_url(village_url_data: village_url_data):
+    # Insert the data into the database
+    postgreSQL.insert_village_url(village_url_data)
+    return {"message": "Your data for village_url has been added successfully."}
+
 if __name__ == "__main__":
 
     host = '0.0.0.0'  # '0.0.0.0' to bind to all available network interfaces

@@ -65,7 +65,6 @@ const fetchLocationDetailsID = async (csvFilePath, outputFilePath) => {
 // Usage
 // fetchLocationDetailsID('school_data_p1.csv', 'school_data_p1.json');
 
-
 const fetchSchoolDetails = async (jsonFilePath, outputFilePath) => {
     try {
         const jsonData = fs.readFileSync(jsonFilePath, 'utf-8'); // Read JSON file
@@ -113,5 +112,3 @@ const fetchSchoolDetails = async (jsonFilePath, outputFilePath) => {
 
 // Usage
 fetchSchoolDetails('school_data_p1_chose.json', 'school_data_p1_details.json');
-
-

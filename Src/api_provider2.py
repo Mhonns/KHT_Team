@@ -45,19 +45,22 @@ def pull_static_data(table: str, village_id=""):
         return geojson_data
 
 @app.get("/api/village/")
-def pull_village_data(village_id=""):
-    geojson_data = postgreSQL.get_village(village_id)
+def pull_village_data(village_id="", start_year : int = 0, end_year : int = 9999, year : int = -1):
+    if year != -1:
+        start_year = year
+        end_year = year
+    geojson_data = postgreSQL.get_village(village_id, start_year, end_year)
     return geojson_data
-
-@app.get("/api/project/")
-def pull_project_data(village_id="", start_year="", end_year=""):
-    json_data = postgreSQL.get_project(village_id, start_year, end_year)
-    return json_data
 
 @app.get("/api/get_village_project_by_year/")
 def pull_village_project_by_year(year="", start_year="", end_year=""):
     geojson_data = postgreSQL.get_village_project_by_year(year, start_year, end_year)
     return geojson_data
+
+@app.get("/api/project/")
+def pull_project_data(village_id=""):
+    json_data = postgreSQL.get_project(village_id, start_year, end_year, year)
+    return json_data
 
 # 4 types of project data: WASH, Irrigation, Further Education Scholarships, Dormitory Meals, School Buses
 @app.get("/api/project_type/")

@@ -308,7 +308,7 @@ def insert_village_url(village_url_data):
                                 VALUES (%s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
                                 """)
             # print all data of village_url_data rows that are being inserted also print id as well
-            print(f"Data being inserted into url table for sequence {i+1} is: {village_url_data.village_name}, {village_url_data.url[i]}, {village_url_data.article_title}, {village_url_data.posted_date}, {i+1}, {id}")
+            print(f"Data being inserted into url table for sequence {i+1} is: {id}, {village_url_data.village_name}, {village_url_data.url[i]}, {village_url_data.article_title}, {village_url_data.posted_date}, {village_url_data.sequence[i+1]}")
             try:
                 cursor.execute(query, (id, village_url_data.village_name, village_url_data.url[i], village_url_data.article_title, village_url_data.posted_date, i+1))
                 connection.commit()

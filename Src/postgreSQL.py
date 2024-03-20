@@ -9,7 +9,6 @@ from shapely import wkb
 from shapely.geometry import mapping
 import json
 from village_url_model import village_url_data  
-import uuid
 
 # Database configurations
 db_host = "127.0.0.1" # "103.153.118.77"
@@ -307,7 +306,7 @@ def insert_village_url(village_url_data):
                                 VALUES (%s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
                                 """)
             # print all data of village_url_data rows that are being inserted also print id as well
-            print(f"Data being inserted into url table for sequence {i+1} is: {id}, {village_url_data.village_name}, {village_url_data.url[i]}, {village_url_data.article_title}, {village_url_data.posted_date}, {i+1}")
+            print(f"Data being inserted into url table for sequence {i+1} is: {village_url_data.village_name}, {village_url_data.url[i]}, {village_url_data.article_title}, {village_url_data.posted_date}, {i+1}")
             try:
                 cursor.execute(query, (village_url_data.village_name, village_url_data.url[i], village_url_data.article_title, village_url_data.posted_date, i+1))
                 connection.commit()

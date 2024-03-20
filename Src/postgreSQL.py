@@ -302,7 +302,6 @@ def insert_village_url(village_url_data):
             print(f"Error executing query")
             connection.rollback()
     elif len(village_url_data.url) > 1:
-        id = str(uuid.uuid4()) # Generate a UUID
         for i in range(len(village_url_data.url)):
             query = sql.SQL("""INSERT INTO url (id, village_name, url, article_title, posted_date, entered_date, sequence)
                                 VALUES (%s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
@@ -310,7 +309,7 @@ def insert_village_url(village_url_data):
             # print all data of village_url_data rows that are being inserted also print id as well
             print(f"Data being inserted into url table for sequence {i+1} is: {id}, {village_url_data.village_name}, {village_url_data.url[i]}, {village_url_data.article_title}, {village_url_data.posted_date}, {i+1}")
             try:
-                cursor.execute(query, (id, village_url_data.village_name, village_url_data.url[i], village_url_data.article_title, village_url_data.posted_date, i+1))
+                cursor.execute(query, (village_url_data.village_name, village_url_data.url[i], village_url_data.article_title, village_url_data.posted_date, i+1))
                 connection.commit()
                 print(f"Data inserted into url table successfully for sequence {i+1}.")
             except:

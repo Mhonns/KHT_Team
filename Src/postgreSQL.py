@@ -288,7 +288,9 @@ def insert_village_url(village_url_data):
     # article_title: str = None 
     # posted_date: str = None
     # the url is a list[str] and sequence is an int btw
-    if village_url_data.sequence == 1:
+
+    # if the length of the url is > 1 
+    if len(village_url_data.url) == 1:
         query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
                             VALUES (%s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
                             """)
@@ -299,7 +301,7 @@ def insert_village_url(village_url_data):
         except:
             print(f"Error executing query")
             connection.rollback()
-    elif village_url_data.sequence > 1:
+    elif len(village_url_data.url) > 1:
         id = uuid.uuid4() # Generate a UUID
         for i in range(village_url_data.sequence):
             query = sql.SQL("""INSERT INTO url (id, village_name, url, article_title, posted_date, entered_date, sequence)

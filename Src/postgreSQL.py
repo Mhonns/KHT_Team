@@ -303,7 +303,7 @@ def insert_village_url(village_url_data):
             connection.rollback()
     elif len(village_url_data.url) > 1:
         for i in range(len(village_url_data.url)):
-            query = sql.SQL("""INSERT INTO url (id, village_name, url, article_title, posted_date, entered_date, sequence)
+            query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
                                 VALUES (%s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
                                 """)
             # print all data of village_url_data rows that are being inserted also print id as well

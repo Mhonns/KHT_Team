@@ -11,7 +11,6 @@ class village_url_data(BaseModel):
     url: list[str] = []
     article_title: str = None 
     posted_date: str = None
-    sequence: int = None
 
 
 

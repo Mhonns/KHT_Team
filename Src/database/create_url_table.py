@@ -66,6 +66,23 @@ def create_url_table():
                     )
                 connection.commit()   
 
+                # Define a SQL query to update the 'sequence' column in the 'url' table
+                UPDATE_SEQUENCE = """
+                    -- Create a Common Table Expression (CTE) named 'cte'
+                    WITH cte AS (
+                        -- Select the 'id' and the row number within each 'village_name' group
+                        SELECT id, ROW_NUMBER() OVER(PARTITION BY village_name ORDER BY posted_date) AS rn
+                        FROM url
+                    )
+                    -- Update the 'sequence' column in the 'url' table
+                    UPDATE url
+                    SET sequence = cte.rn  -- Set 'sequence' to the row number within each 'village_name' group
+                    FROM cte  -- Use the 'cte' CTE in the UPDATE statement
+                    WHERE url.id = cte.id;  -- Only update rows where the 'id' matches between the 'url' table and the 'cte' CTE
+                """
+                crsc.execute(UPDATE_SEQUENCE)
+                connection.commit()
+
                 print('url table created successfully.')           
                              
     except (Exception, psycopg2.DatabaseError) as error:

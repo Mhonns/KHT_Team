@@ -23,9 +23,14 @@ def create_village_url_table():
                 crsc.execute(CREATE_TABLE)
 
                 INSERT_TO_VILLAGEURL_TABLE = """INSERT INTO villageUrl (village_id, url_id)
-                                                    SELECT url.id, village.id
+                                                    SELECT village.id, url.id
                                                     FROM url
-                                                    JOIN village ON url.village_name = village.village_name;"""
+                                                    JOIN village ON url.village_name = village.village_name
+                                                    WHERE url.sequence = 1 OR url.village_name IN (
+                                                        SELECT village_name
+                                                        FROM url
+                                                        GROUP BY village_name
+                                                        HAVING COUNT(DISTINCT sequence) > 1);"""
                 crsc.execute(INSERT_TO_VILLAGEURL_TABLE)
                 connection.commit()
                                                     

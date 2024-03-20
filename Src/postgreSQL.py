@@ -291,7 +291,7 @@ def insert_village_url(village_url_data):
     # if the length of the url is > 1 
     if len(village_url_data.url) == 1:
         query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
-                            VALUES (%s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
+                            VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
                             """)
         try:
             cursor.execute(query, (village_url_data.village_name, village_url_data.url[0], village_url_data.article_title, village_url_data.posted_date, 1))
@@ -303,7 +303,7 @@ def insert_village_url(village_url_data):
     elif len(village_url_data.url) > 1:
         for i in range(len(village_url_data.url)):
             query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
-                                VALUES (%s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
+                                VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
                                 """)
             # print all data of village_url_data rows that are being inserted also print id as well
             print(f"Data being inserted into url table for sequence {i+1} is: {village_url_data.village_name}, {village_url_data.url[i]}, {village_url_data.article_title}, {village_url_data.posted_date}, {i+1}")

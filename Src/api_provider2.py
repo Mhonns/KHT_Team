@@ -100,6 +100,11 @@ def pull_mhs_water_ares():
     geojson_data = postgreSQL.get_mhs_water_lines()
     return geojson_data
 
+@app.get("/api/village/distance/")
+def get_village_from_distance(distance: int, facility_type: str, facility_name: str):
+    geojson_data = postgreSQL.get_village_from_distance(distance, facility_type, facility_name)
+    return geojson_data
+
 @app.post("/auth")
 def get_auth(response : Response, username: str, key: str):
     response.set_cookie(key="Username", value=generate_password("1234", 20))

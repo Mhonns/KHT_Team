@@ -255,39 +255,35 @@ def get_mhs_water_lines():
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction 
 
-# def insert_village_url(village_url_data):
-#     print(village_url_data)
-#     query = None
-#     # INSERT into url with village_url_date.village_name, village_url_date.url, village_url_date.article_title, village_url_date.posted_date
-#     # For table url.entered_date, use SELECT CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256));
-#     query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, 
-#                         VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)))
-#                         """)
-#     try:
-#         cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.article_title, village_url_data.posted_date))
-#         connection.commit()
-#         print("Data inserted into url table successfully.")
-#     except:
-#         print(f"Error executing query")
-#         connection.rollback()
+def get_village_from_distance(distance, facility_type, facility_name):
+    query = None
+    # facility_type = "hospital"
+    # facility_name = "โรงพยาบาลส่งเสริมสุขภาพตำบลสล่าเชียงตอง"
+    # distance = 5000
+
+    query = sql.SQL("""
+        SELECT village.*
+        FROM village
+        JOIN {} ON {}.{} = %s 
+        AND ST_DWithin(village.geom::geography, {}.geom::geography, %s)
+    """).format(
+        sql.Identifier(facility_type),
+        sql.Identifier(facility_type),
+        sql.Identifier(facility_name),
+        sql.Identifier(facility_type),
+        distance
+    )
+    try:
+        cursor.execute(query)
+        geojson_result = query_to_geojson(cursor, query)
+        return geojson_result
+    except:
+        print(f"Error executing query")
+        connection.rollback()  # Rollback the transaction
 
 def insert_village_url(village_url_data):
     print(village_url_data)
     query = None
-    # INSERT into url with village_url_date.village_name, village_url_date.url, village_url_date.article_title, village_url_date.posted_date
-    # For table url.entered_date, use SELECT CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256));
-    # if article_title and posted_date is not provided, it will be set to null
-    
- 
-
-    # insert the village_url_data only once if sequence is 1
-    #    class village_url_data(BaseModel):
-    # village_name: str
-    # url: list[str] = []
-    # article_title: str = None 
-    # posted_date: str = None
-    # the url is a list[str] and sequence is an int btw
-
     # if the length of the url is > 1 
     if len(village_url_data.url) == 1:
         query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)

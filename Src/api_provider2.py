@@ -118,13 +118,12 @@ def get_auth(response : Response, username: str, key: str):
 async def create_village_url(village_url_data: village_url_data):
     # Insert the data into the database
     postgreSQL.insert_village_url(village_url_data)
-    print(village_url_data)
     return {"message": "Your data for village_url has been added successfully."}
 
 if __name__ == "__main__":
 
     host = '0.0.0.0'  # '0.0.0.0' to bind to all available network interfaces
-    port = 2546  # Change this to your desired port for HTTPS (443 is the default HTTPS port)
+    port = 2547  # Change this to your desired port for HTTPS (443 is the default HTTPS port)
 
     # ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     # ssl_context.load_cert_chain('cert.pem', keyfile='key.pem')
@@ -138,5 +137,6 @@ if __name__ == "__main__":
     ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     ssl_context.load_cert_chain(certfile=cert_file, keyfile=key_file, password=passphrase)
 
-    if __name__ == "__main__":
-        uvicorn.run(app, host=host, port=port, ssl_keyfile=key_file, ssl_certfile=cert_file, ssl_keyfile_password=passphrase)
+    # uvicorn.run(app, host=host, port=port, ssl_keyfile=key_file, ssl_certfile=cert_file, ssl_keyfile_password=passphrase)
+    # without certificate
+    uvicorn.run(app, host=host, port=port)

@@ -65,35 +65,37 @@ def query_to_json(cursor, query):
     return feature_collection
 
 # Query all column datail
-def get_table(target_table, geojson_format=True, argument=""):
-    # Example query
-    query = None
-    if argument == "":
-        query = sql.SQL("SELECT * FROM {}").format(sql.Identifier(target_table))
-    elif target_table == "project":
-        query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id 
-                           FROM {} 
-                           JOIN projectvillage ON projectvillage.project_id = project.id
-                           WHERE village_id = {}::uuid""").format(sql.Identifier(target_table), sql.Literal(argument))
+# def get_table(target_table, geojson_format=True, argument=""):
+#     # Example query
+#     query = None
+#     if argument == "":
+#         query = sql.SQL("SELECT * FROM {}").format(sql.Identifier(target_table))
+#     elif target_table == "project":
+#         query = sql.SQL("""SELECT DISTINCT project.id,project_name_en,start_date,end_date,projectvillage.village_id 
+#                            FROM {} 
+#                            JOIN projectvillage ON projectvillage.project_id = project.id
+#                            WHERE village_id = {}::uuid""").format(sql.Identifier(target_table), sql.Literal(argument))
 
-    try:
-        cursor.execute(query)
-        results = None
-        if geojson_format:
-            geojson_result = query_to_geojson(cursor, query)
-            return geojson_result
-        else:
-            json_result = query_to_json(cursor, query)
-            return json_result
-    except:
-        print(f"Error executing query")
-        connection.rollback()  # Rollback the transaction
+#     try:
+#         cursor.execute(query)
+#         results = None
+#         if geojson_format:
+#             geojson_result = query_to_geojson(cursor, query)
+#             return geojson_result
+#         else:
+#             json_result = query_to_json(cursor, query)
+#             return json_result
+#     except:
+#         print(f"Error executing query")
+#         connection.rollback()  # Rollback the transaction
 
 # Query village
-def get_village(village_id=""):
+def get_village(village_id="", start_year=0, end_year=9999, year=-1):
     query = None
     if village_id == "":
-        query = sql.SQL("SELECT * FROM village")
+        query = sql.SQL("""SELECT * FROM village 
+                            WHERE start_year >= {}
+                            AND end_year <= {}""").format(sql.Literal(start_year), sql.Literal(end_year))
     else:
         query = sql.SQL("SELECT * FROM village WHERE id = {}").format(sql.Literal(village_id))
     try:

@@ -260,6 +260,9 @@ def get_village_from_distance(distance, facility_type, facility_name):
     # facility_type = "hospital"
     # facility_name = "โรงพยาบาลส่งเสริมสุขภาพตำบลสล่าเชียงตอง"
     # distance = 5000
+    print(distance)
+    print(facility_type)
+    print(facility_name)
 
     query = sql.SQL("""
         SELECT village.*
@@ -275,6 +278,7 @@ def get_village_from_distance(distance, facility_type, facility_name):
     )
     try:
         cursor.execute(query)
+        print (query)    
         geojson_result = query_to_geojson(cursor, query)
         return geojson_result
     except:

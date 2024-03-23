@@ -47,7 +47,7 @@ if(isset($_POST["submit"]))
     {
         $article_date = clean_text($_POST["article_date"]);
         $d = DateTime::createFromFormat('d/m/Y', $article_date);
-        if($d && $d->format('d/m/Y') === $article_date) 
+        if($d && $d->format('d/m/Y') === $article_date)
         {
             // $article_date is valid
         } 
@@ -72,7 +72,20 @@ if(isset($_POST["submit"]))
             'article_date' => $article_date
         );
         fputcsv($file_open, $form_data);
-        
+
+        $url = "http://kht-data.uk.to/api/post/village_url";
+
+        $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded",
+            'method'  => 'POST',
+            'content' => http_build_query($form_data)
+        )
+        );
+        $context  = stream_context_create($options);
+        $resp = file_get_contents($url, false, $context);
+        echo $resp;
+
         $village_name = '';
         $article_url = '';
         $article_name = '';

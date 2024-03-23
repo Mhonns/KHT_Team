@@ -1,7 +1,8 @@
 const form = document.getElementById('village-url-form');
 const village_url_model = {
   village_name: '', // Assume villageName is a string
-  url: [], // Assume url is an array of strings
+  url: '', // Assume url is an array of strings
+  image_url: '', // Assume imageUrl is a string
   article_title: '', // Assume articleTitle is a string
   posted_date:  ''
 };
@@ -11,20 +12,16 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent default form submission
 
   const villageName = document.getElementById('village_name').value;
-  const url1 = document.getElementById('url1').value;
-  const url2 = document.getElementById('url2').value;
-  const url3 = document.getElementById('url3').value;
-  const url4 = document.getElementById('url4').value;
-  const url5 = document.getElementById('url5').value;
+  const url1 = document.getElementById('url').value;
+  const url2 = document.getElementById('image_url').value;
   const articleTitle = document.getElementById('article_title').value || ''; // Set to empty string if null
   const postedDate = document.getElementById('posted_date').value || ''; // Set to empty string if null
 
-
-//store the urls in a list called urls
-  const urls = [url1, url2, url3, url4, url5].filter(url => url); // Remove empty strings
+  // Validate the form data
   const data = {
     village_name: villageName,
-    url: urls,
+    url: url1,
+    image_url: url2,
     article_title: articleTitle,
     posted_date: postedDate
   };

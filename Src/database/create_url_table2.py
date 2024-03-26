@@ -19,7 +19,7 @@ def create_url_table2():
                     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
                     village_name VARCHAR(256),
                     url VARCHAR(256),
-                    image_url VARCHAR(256),
+                    image_url VARCHAR(512),
                     article_title VARCHAR(256),
                     posted_date VARCHAR(256),
                     entered_date VARCHAR(256),

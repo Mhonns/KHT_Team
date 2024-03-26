@@ -258,25 +258,38 @@ def get_village_from_distance(distance="", facility_type="", facility_name=""):
     print(distance)
     print(facility_type)
     print(facility_name)
+    print(sql.Literal(facility_name)) 
 
-    query = sql.SQL("""
-        SELECT village.*
-        FROM village
-        JOIN {table} ON {table}.{column} = {facility_name}
-        AND ST_DWithin(village.geom::geography, {table}.geom::geography, %s)
-    """).format(table=sql.Identifier(facility_type),
-                column=sql.Identifier(facility_type + "_name"),
-                facility_name=sql.Literal(facility_name))
+    query = sql.SQL("""SELECT * from {table}""").format(table=sql.Identifier(facility_type))
 
     try:
-        cursor.execute(query, (distance,))
+        cursor.execute(query)
         full_query = query.as_string(cursor)
         print(full_query)
         geojson_result = query_to_geojson(cursor, query)
         return geojson_result
     except:
         print(f"Error executing query")
-        connection.rollback()  # Rollback the transaction
+        connection.rollback()
+    
+    # query = sql.SQL("""
+    #     SELECT village.*
+    #     FROM village
+    #     JOIN {table} ON {table}.{column} = {facility_name}
+    #     AND ST_DWithin(village.geom::geography, {table}.geom::geography, %s)
+    # """).format(table=sql.Identifier(facility_type),
+    #             column=sql.Identifier(facility_type + "_name"),
+    #             facility_name=sql.Literal(facility_name))
+
+    # try:
+    #     cursor.execute(query, (distance,))
+    #     full_query = query.as_string(cursor)
+    #     print(full_query)
+    #     geojson_result = query_to_geojson(cursor, query)
+    #     return geojson_result
+    # except:
+    #     print(f"Error executing query")
+    #     connection.rollback()  # Rollback the transaction
 
 def insert_village_url(village_url_data):
     print(village_url_data)

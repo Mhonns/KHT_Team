@@ -32,8 +32,8 @@ def create_url_table2():
                 output_file_path = get_file_path('village_url_postgres.csv') 
 
                 # Fetch the 'created_time' column from the 'village' table
-                crsc.execute("SELECT created_time FROM url2;")
-                existing_times = [item[0] for item in crsc.fetchall()]
+                # crsc.execute("SELECT created_time FROM url2;")
+                # existing_times = [item[0] for item in crsc.fetchall()]
 
                 # Load the new CSV data into a DataFrame
                 new_data = pd.read_csv(input_file_path)
@@ -45,7 +45,7 @@ def create_url_table2():
                 print(new_data.head())
 
                 # Filter the new data to only include rows with 'created_time' values that don't exist in the database
-                new_data = new_data[~new_data['created_time'].isin(existing_times)]
+                # new_data = new_data[~new_data['created_time'].isin(existing_times)]
                 
                 # If there are no new rows, print a message and return
                 if new_data.empty:
@@ -84,7 +84,7 @@ def create_url_table2():
                 crsc.execute(UPDATE_SEQUENCE)
                 connection.commit()
 
-                print('url table created successfully.')           
+                print('url2 table created successfully.')           
 
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error:", error)

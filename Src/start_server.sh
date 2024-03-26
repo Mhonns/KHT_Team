@@ -13,6 +13,7 @@ fi
 rm nohup.out
 nohup python3 api_provider2.py &
 echo $! > pid_file.txt
+echo "Start the server host 0.0.0.0 port 443"
 
 # Swith the directory back
 cd ../..

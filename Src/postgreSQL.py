@@ -278,11 +278,6 @@ def get_village_from_distance(distance="", facility_type="", facility_name=""):
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
 
-#  village_name: str
-#     url: str
-#     url_image: str
-#     article_title: str = None 
-#     posted_date: str = None
 def insert_village_url(village_url_data):
     print(village_url_data)
     query = None
@@ -299,6 +294,7 @@ def insert_village_url(village_url_data):
         cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.image_url, village_url_data.article_title, village_url_data.posted_date, village_url_data.village_name ))
         rows_inserted = cursor.rowcount
         connection.commit()
+        update_url_table2()
         if cursor.rowcount == 0:
             print(f"Data not inserted into url table. {rows_inserted} rows inserted.")
             message = {
@@ -316,6 +312,45 @@ def insert_village_url(village_url_data):
         connection.rollback()
     return message
    
+# update url table
+def update_url_table2():
+    try:
+        # Define a SQL query to update the 'village_id' column in the 'url2' table
+        UPDATE_VILLAGE_ID = """
+            UPDATE url2
+            SET village_id = village.id  -- Set 'village_id' to the 'id' of the matching 'village' row
+            FROM village  -- Join with the 'village' table
+            WHERE url2.village_name = village.village_name;  -- Match rows based on the 'village_name' column
+        """
+        cursor.execute(UPDATE_VILLAGE_ID)
+        connection.commit()
+        print('Village IDs updated successfully.')
+
+        # Define a SQL query to update the 'sequence' column in the 'url2' table
+        UPDATE_SEQUENCE = """
+            -- Create a Common Table Expression (CTE) named 'cte'
+            WITH cte AS (
+                -- Select the 'id' and the row number within each 'village_name' group
+                SELECT id, ROW_NUMBER() OVER(PARTITION BY village_name ORDER BY posted_date) AS rn
+                FROM url2
+            )
+            -- Update the 'sequence' column in the 'url2' table
+            UPDATE url2
+            SET sequence = cte.rn  -- Set 'sequence' to the row number within each 'village_name' group
+            FROM cte  -- Use the 'cte' CTE in the UPDATE statement
+            WHERE url2.id = cte.id;  -- Only update rows where the 'id' matches between the 'url2' table and the 'cte' CTE
+        """
+        cursor.execute(UPDATE_SEQUENCE)
+        connection.commit()
+        print('Sequence numbers updated successfully.')
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print("Error:", error)
+    finally:
+        if connection is not None:
+            connection.rollback()
+            print('Error occurred. Rolling back changes.')
+
 # Establish a connection to the database
 try:
     connection = psycopg2.connect(**connection_params)

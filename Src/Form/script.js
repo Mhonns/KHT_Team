@@ -1,27 +1,21 @@
 const form = document.getElementById('village-url-form');
-const village_url_model = {
-  village_name: '', // Assume villageName is a string
-  url: '', // Assume url is an array of strings
-  image_url: '', // Assume imageUrl is a string
-  article_title: '', // Assume articleTitle is a string
-  posted_date:  ''
-};
-
+console.log('Form:', form);
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent default form submission
+  console.log('Form submitted!');
 
   const villageName = document.getElementById('village_name').value;
-  const url1 = document.getElementById('url').value;
-  const url2 = document.getElementById('image_url').value;
+  const url = document.getElementById('url').value;
+  const imageUrl = document.getElementById('image_url').value;
   const articleTitle = document.getElementById('article_title').value || ''; // Set to empty string if null
   const postedDate = document.getElementById('posted_date').value || ''; // Set to empty string if null
 
   // Validate the form data
   const data = {
     village_name: villageName,
-    url: url1,
-    image_url: url2,
+    url: url,
+    image_url: imageUrl,
     article_title: articleTitle,
     posted_date: postedDate
   };

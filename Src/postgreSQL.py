@@ -294,7 +294,6 @@ def insert_village_url(village_url_data):
             FROM village
             WHERE village.village_name = %s
         )
-        RETURNING *
     """)
     try:
         cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.image_url, village_url_data.article_title, village_url_data.posted_date, village_url_data.village_name ))
@@ -302,10 +301,10 @@ def insert_village_url(village_url_data):
         connection.commit()
         if cursor.rowcount == 0:
             print(f"Data not inserted into url table. {rows_inserted} rows inserted.")
-            message = f"Error inserting data into url table since village name '{village_url_data.village_name}' does not exist."
+            message = f"Village {village_url_data.village_name} not found in village table. Data not inserted into url table."
         else:
             print(f"Data inserted into url table. {rows_inserted} rows inserted.")
-            message = f"'{village_url_data.village_name}' found in village table. Data inserted into url table successfully."
+            message = f"'Village {village_url_data.village_name}' found in village table. Data inserted into url table successfully."
     except Exception as e:
         print(f"Error executing query: {e}")
         connection.rollback()

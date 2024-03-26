@@ -104,7 +104,7 @@ def pull_mhs_water_ares():
     return geojson_data
 
 @app.get("/api/village/distance/")
-def get_village_from_distance(distance: int, facility_type: str, facility_name: str):
+def get_village_from_distance(distance="", facility_type="", facility_name=""):
     geojson_data = postgreSQL.get_village_from_distance(distance, facility_type, facility_name)
     return geojson_data
 

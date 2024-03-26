@@ -117,8 +117,8 @@ def get_auth(response : Response, username: str, key: str):
 @app.post("/api/post/village_url/")
 async def create_village_url(village_url_data: village_url_data):
     # Insert the data into the database
-    postgreSQL.insert_village_url(village_url_data)
-    return {"message": "Your data for village_url has been added successfully."}
+    message = postgreSQL.insert_village_url(village_url_data)
+    return {"message": message}
 
 if __name__ == "__main__":
 

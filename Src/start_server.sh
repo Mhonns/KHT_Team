@@ -28,10 +28,10 @@ echo "--Successfully kill old local server--"
 
 # Starting new local server
 rm -f local_nohup.out
-nohup python3 api_provider2.py '127.0.0.1' '2546' &> local_nohup.out &
+nohup python3 api_provider2.py '127.0.0.3' '2546' &> local_nohup.out &
 echo $! > local_pid_file.txt
 echo "--Successfully create local server--"
-echo "Start the local server at host 127.0.0.1 port 2546"
+echo "Start the local server at host 127.0.0.3 port 2546"
 
 # Swith the directory back
 cd ../..

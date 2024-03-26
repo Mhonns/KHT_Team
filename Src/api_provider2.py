@@ -121,10 +121,17 @@ async def create_village_url(village_url_data: village_url_data):
     return {"message": message}
 
 if __name__ == "__main__":
+    import sys
 
     host = '0.0.0.0'  # '0.0.0.0' to bind to all available network interfaces
     port = 443  # Change this to your desired port for HTTPS (443 is the default HTTPS port)
 
+    argvs = sys.argv
+    if len(argvs) == 3:
+        host = argvs[1]
+        port = int(argvs[2])
+
+    print("Running api_provider.py at host {} port {}".format(host, port))
     # ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     # ssl_context.load_cert_chain('cert.pem', keyfile='key.pem')
 
@@ -136,6 +143,8 @@ if __name__ == "__main__":
 
     ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     ssl_context.load_cert_chain(certfile=cert_file, keyfile=key_file, password=passphrase)
-
-    uvicorn.run(app, host=host, port=port, ssl_keyfile=key_file, ssl_certfile=cert_file, ssl_keyfile_password=passphrase)
-    # uvicorn.run(app, host=host, port=2546)
+    
+    if port == 443:
+        uvicorn.run(app, host=host, port=port, ssl_keyfile=key_file, ssl_certfile=cert_file, ssl_keyfile_password=passphrase)
+    else:
+        uvicorn.run(app, host=host, port=2546)

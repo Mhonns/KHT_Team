@@ -29,8 +29,7 @@ form.addEventListener('submit', async (event) => {
 
     if (response.ok) {
       const jsonResponse = await response.json();
-      //convert JSON to string
-      alert(JSON.stringify(jsonResponse));
+      alert(JSON.stringify(jsonResponse.message, null, 4)); 
       console.log('Response:', jsonResponse);
     } else {
       alert('Error creating village URL: ' + await response.text());

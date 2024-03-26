@@ -15,6 +15,7 @@ from create_hospital_table import create_hospital_table
 from create_village_table_test import create_village_table_test
 from create_url_table import create_url_table
 from create_village_url_table import create_village_url_table
+from create_url_table2 import create_url_table2
 
 def connect():
     connection = None
@@ -40,7 +41,8 @@ def connect():
         # create_hospital_table()
         # create_school_table()
         # create_url_table()
-        create_village_url_table()
+        # create_village_url_table()
+        create_url_table2()
 
         # create_village_table_test()
        

@@ -90,12 +90,10 @@ def query_to_json(cursor, query):
 #         connection.rollback()  # Rollback the transaction
 
 # Query village
-def get_village(village_id="", start_year=0, end_year=9999, year=-1):
+def get_village(village_id=""):
     query = None
     if village_id == "":
-        query = sql.SQL("""SELECT * FROM village 
-                            WHERE start_year >= {}
-                            AND end_year <= {}""").format(sql.Literal(start_year), sql.Literal(end_year))
+        query = sql.SQL("SELECT * FROM village")
     else:
         query = sql.SQL("SELECT * FROM village WHERE id = {}").format(sql.Literal(village_id))
     try:
@@ -136,22 +134,17 @@ def get_project(village_id="", start_year="", end_year=""):
 # Query village project by year
 def get_village_project_by_year(year="", start_year="", end_year=""):
     query = None
+    print(year, start_year, end_year)
     if year:
-        query = sql.SQL("""SELECT village.*, projectStatus.status_name
-                            FROM village
-                            JOIN projectvillage ON projectvillage.village_id = village.id
-                            JOIN project ON project.id = projectvillage.project_id
-                            JOIN projectStatus ON project.status_id = projectStatus.status_id
-                            WHERE project.start_date <= {}
-                            AND project.end_date >= {}""").format(sql.Literal(str(year)), sql.Literal(str(year)))
-    else:
-        query = sql.SQL("""SELECT village.*, projectStatus.status_name
-                            FROM village
-                            JOIN projectvillage ON projectvillage.village_id = village.id
-                            JOIN project ON project.id = projectvillage.project_id
-                            JOIN projectStatus ON project.status_id = projectStatus.status_id
-                            WHERE project.start_date >= {} 
-                            AND project.end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
+        start_year = year
+        end_year = year
+    query = sql.SQL("""SELECT village.*, projectStatus.status_name
+                        FROM village
+                        JOIN projectvillage ON projectvillage.village_id = village.id
+                        JOIN project ON project.id = projectvillage.project_id
+                        JOIN projectStatus ON project.status_id = projectStatus.status_id
+                        WHERE project.start_date >= {} 
+                        AND project.end_date <= {}""").format(sql.Literal(str(start_year)), sql.Literal(str(end_year)))
     try:
         cursor.execute(query)
         geojson_result = query_to_geojson(cursor, query)
@@ -266,21 +259,19 @@ def get_village_from_distance(distance="", facility_type="", facility_name=""):
     print(facility_type)
     print(facility_name)
 
+    facility_type = str(facility_type)
+    facility_name = str(facility_name)
+
     query = sql.SQL("""
         SELECT village.*
         FROM village
-        JOIN {} ON {}.{} = %s 
-        AND ST_DWithin(village.geom::geography, {}.geom::geography, %s)
-    """).format(
-        sql.Identifier(facility_type),
-        sql.Identifier(facility_type),
-        sql.Identifier(facility_name),
-        sql.Identifier(facility_type),
-        distance
-    )
+        JOIN {0} ON {0}.{1} = %s 
+        AND ST_DWithin(village.geom::geography, {0}.geom::geography, %s)
+    """).format(sql.Identifier(facility_type), sql.Identifier(facility_name + '_name'))
+
     try:
-        cursor.execute(query)
-        print (query)    
+        print(query)
+        cursor.execute(query, (facility_name, distance))
         geojson_result = query_to_geojson(cursor, query)
         return geojson_result
     except:

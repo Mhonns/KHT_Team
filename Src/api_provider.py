@@ -120,7 +120,7 @@ async def create_village_url(village_url_data: village_url_data):
     message = postgreSQL.insert_village_url(village_url_data)
     # if reutrn Success, then update the url table
     if message["status"] == "Success":
-        postgreSQL.update_url_table()
+        postgreSQL.update_url_table2()
     return {"message": message}
 
 if __name__ == "__main__":

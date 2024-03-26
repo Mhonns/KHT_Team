@@ -118,6 +118,9 @@ def get_auth(response : Response, username: str, key: str):
 async def create_village_url(village_url_data: village_url_data):
     # Insert the data into the database
     message = postgreSQL.insert_village_url(village_url_data)
+    # if reutrn Success, then update the url table
+    if message["status"] == "Success":
+        postgreSQL.update_url_table()
     return {"message": message}
 
 if __name__ == "__main__":

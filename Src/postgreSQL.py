@@ -294,7 +294,6 @@ def insert_village_url(village_url_data):
         cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.image_url, village_url_data.article_title, village_url_data.posted_date, village_url_data.village_name ))
         rows_inserted = cursor.rowcount
         connection.commit()
-        update_url_table2()
         if cursor.rowcount == 0:
             print(f"Data not inserted into url table. {rows_inserted} rows inserted.")
             message = {

@@ -1,7 +1,23 @@
-INFO:     Started server process [96559]
+INFO:     Started server process [1683]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-ERROR:    [Errno 13] error while attempting to bind on address ('0.0.0.0', 443): permission denied
-INFO:     Waiting for application shutdown.
-INFO:     Application shutdown complete.
+INFO:     Uvicorn running on https://0.0.0.0:443 (Press CTRL+C to quit)
 Connected to the database!
+Running api_provider.py at host 0.0.0.0 port 443
+INFO:     54.86.50.139:29257 - "GET /api/post/village_url HTTP/1.1" 307 Temporary Redirect
+INFO:     54.86.50.139:45270 - "GET /api/post/village_url/ HTTP/1.1" 405 Method Not Allowed
+INFO:     54.86.50.139:3949 - "GET /api/post/village_url HTTP/1.1" 307 Temporary Redirect
+INFO:     54.86.50.139:54102 - "GET /api/post/village_url/ HTTP/1.1" 405 Method Not Allowed
+INFO:     103.153.118.5:52036 - "GET /api/post/village_url HTTP/1.1" 307 Temporary Redirect
+INFO:     103.153.118.5:52036 - "GET /api/post/village_url/ HTTP/1.1" 405 Method Not Allowed
+INFO:     103.153.118.5:52056 - "GET /api/village/ HTTP/1.1" 200 OK
+INFO:     54.86.50.139:45541 - "GET /api/post/village_url HTTP/1.1" 307 Temporary Redirect
+INFO:     54.86.50.139:28629 - "GET /api/post/village_url/ HTTP/1.1" 405 Method Not Allowed
+INFO:     54.86.50.139:45677 - "POST /api/post/village_url HTTP/1.1" 307 Temporary Redirect
+village_name='Ban Huay Ma Ba' url='http://example.com/321' image_url='url_image_value' article_title='Example Article Title' posted_date='2024-03-19'
+Data inserted into url table. 1 rows inserted.
+INFO:     54.86.50.139:45677 - "POST /api/post/village_url/ HTTP/1.1" 200 OK
+INFO:     54.86.50.139:1355 - "POST /api/post/village_url HTTP/1.1" 307 Temporary Redirect
+village_name='Ban Huay Ma Ba12' url='http://example.com/321' image_url='url_image_value' article_title='Example Article Title' posted_date='2024-03-19'
+Data not inserted into url table. 0 rows inserted.
+INFO:     54.86.50.139:60071 - "POST /api/post/village_url/ HTTP/1.1" 200 OK

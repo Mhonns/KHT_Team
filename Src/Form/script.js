@@ -28,9 +28,10 @@ form.addEventListener('submit', async (event) => {
     });
 
     if (response.ok) {
-      alert('Village URL created successfully!');
-      console.log('Success:', await response.json());
-      // Optionally, clear the form or redirect to another page
+      const jsonResponse = await response.json();
+      //convert JSON to string
+      alert(JSON.stringify(jsonResponse));
+      console.log('Response:', jsonResponse);
     } else {
       alert('Error creating village URL: ' + await response.text());
     }

@@ -278,19 +278,26 @@ def get_village_from_distance(distance="", facility_type="", facility_name=""):
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
 
- village_name: str
-    url: str
-    url_image: str
-    article_title: str = None 
-    posted_date: str = None
+#  village_name: str
+#     url: str
+#     url_image: str
+#     article_title: str = None 
+#     posted_date: str = None
 def insert_village_url(village_url_data):
     print(village_url_data)
     query = None
-    query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
-                        VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
-                        """)
+    query = sql.SQL("""
+        INSERT INTO url2 (village_name, url, image_url, article_title, posted_date, created_time)
+        SELECT %s, %s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256))
+        WHERE EXISTS (
+            SELECT 1
+            FROM url2
+            JOIN village ON url2.village_name = village.village_name
+            WHERE village.village_name = %s
+        )
+    """)
     try:
-        cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.article_title, village_url_data.posted_date, 1))
+        cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.image_url, village_url_data.article_title, village_url_data.posted_date, village_url_data.village_name))
         connection.commit()
         print("Data inserted into url table successfully.")
     except:

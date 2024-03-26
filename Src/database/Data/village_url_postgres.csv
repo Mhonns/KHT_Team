@@ -1,4 +1,4 @@
-id,village_name,url,image_url,article_title,posted_date,entered_date,sequence
+id,village_name,url,image_url,article_title,posted_date,created_time,sequence
 abba9cd1-1bc8-492a-a7fe-38a8c138dc40,Ban Huay Ma Ba,https://karenhilltribes.org.uk/new-irrigation-new-lives/,https://karenhilltribes.org.uk/wp-content/uploads/2023/10/MicrosoftTeams-image-2023-10-16T154041.797-1.jpg,"New Irrigation, New Lives",16/10/2023,15/03/2022,1
 2c2872e5-c715-4111-ac23-b54171ad43cd,Ban Eh Vee Jo,https://karenhilltribes.org.uk/life-in-ban-eh-vee-jo-suthidas-story/,https://karenhilltribes.org.uk/wp-content/uploads/2023/09/MicrosoftTeams-image-2023-09-01T184803.783.jpg,Life in Ban Eh Vee Jo: Suthida's Story,1/9/2023,15/03/2022,1
 35467ef8-60d9-43d8-9be6-e9fe258c6103,Ban Eh Vee Jo,https://karenhilltribes.org.uk/a-journey-to-the-village-of-ban-eh-vee-jo/,https://karenhilltribes.org.uk/wp-content/uploads/2023/09/MicrosoftTeams-image-2023-09-19T125508.903.jpg,A Journey to the Village of Ban Eh Vee Jo,19/09/2023,15/03/2022,2

@@ -262,16 +262,19 @@ def get_village_from_distance(distance="", facility_type="", facility_name=""):
     facility_type = str(facility_type)
     facility_name = str(facility_name)
 
+    # table should be facility_type and column should be facility_type + _name
+    # first %s should be facility_name
+    # second %s should be distance
     query = sql.SQL("""
         SELECT village.*
         FROM village
-        JOIN {0} ON {0}.{1} = %s 
-        AND ST_DWithin(village.geom::geography, {0}.geom::geography, %s)
-    """).format(sql.Identifier(facility_type), sql.Identifier(facility_name + '_name'))
+        JOIN {table} ON {table}.{column} = %s 
+        AND ST_DWithin(village.geom::geography, {table}.geom::geography, %s)
+    """)
 
     try:
         print(query)
-        cursor.execute(query, (facility_name, distance))
+        cursor.execute(query.format(table=sql.Identifier(facility_type), column=sql.Identifier(facility_type + "_name")), (facility_name, distance))
         geojson_result = query_to_geojson(cursor, query)
         return geojson_result
     except:

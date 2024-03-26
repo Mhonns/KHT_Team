@@ -307,6 +307,7 @@ def insert_village_url(village_url_data):
     except Exception as e:
         print(f"Error executing query: {e}")
         connection.rollback()
+    return rows_inserted
    
 # Establish a connection to the database
 try:

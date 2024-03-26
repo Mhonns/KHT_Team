@@ -22,7 +22,7 @@ def create_url_table2():
                     image_url VARCHAR(512),
                     article_title VARCHAR(256),
                     posted_date VARCHAR(256),
-                    entered_date VARCHAR(256),
+                    created_time VARCHAR(256),
                     sequence INT
                 );"""
                 crsc.execute(CREATE_TABLE)
@@ -62,7 +62,7 @@ def create_url_table2():
                 with open(output_file_path, 'r') as f:
                     next(f)  # Skip the header
                     crsc.copy_expert(
-                        "COPY url2 (village_name, url, image_url, article_title, posted_date, entered_date, sequence) FROM STDIN WITH CSV",
+                        "COPY url2 (village_name, url, image_url, article_title, posted_date, created_time, sequence) FROM STDIN WITH CSV",
                         f
                     )
                 connection.commit()   

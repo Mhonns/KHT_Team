@@ -278,36 +278,25 @@ def get_village_from_distance(distance="", facility_type="", facility_name=""):
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction
 
+ village_name: str
+    url: str
+    url_image: str
+    article_title: str = None 
+    posted_date: str = None
 def insert_village_url(village_url_data):
     print(village_url_data)
     query = None
-    # if the length of the url is > 1 
-    if len(village_url_data.url) == 1:
-        query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
-                            VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
-                            """)
-        try:
-            cursor.execute(query, (village_url_data.village_name, village_url_data.url[0], village_url_data.article_title, village_url_data.posted_date, 1))
-            connection.commit()
-            print("Data inserted into url table successfully.")
-        except:
-            print(f"Error executing query")
-            connection.rollback()
-    elif len(village_url_data.url) > 1:
-        for i in range(len(village_url_data.url)):
-            query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
-                                VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
-                                """)
-            # print all data of village_url_data rows that are being inserted also print id as well
-            print(f"Data being inserted into url table for sequence {i+1} is: {village_url_data.village_name}, {village_url_data.url[i]}, {village_url_data.article_title}, {village_url_data.posted_date}, {i+1}")
-            try:
-                cursor.execute(query, (village_url_data.village_name, village_url_data.url[i], village_url_data.article_title, village_url_data.posted_date, i+1))
-                connection.commit()
-                print(f"Data inserted into url table successfully for sequence {i+1}.")
-            except:
-                print(f"Error executing query for sequence {i+1}")
-                connection.rollback()     
-
+    query = sql.SQL("""INSERT INTO url (village_name, url, article_title, posted_date, entered_date, sequence)
+                        VALUES (%s, %s, %s, %s, CAST(TO_CHAR(NOW()::date, 'DD/MM/YYYY') AS VARCHAR(256)), %s)
+                        """)
+    try:
+        cursor.execute(query, (village_url_data.village_name, village_url_data.url, village_url_data.article_title, village_url_data.posted_date, 1))
+        connection.commit()
+        print("Data inserted into url table successfully.")
+    except:
+        print(f"Error executing query")
+        connection.rollback()
+   
 # Establish a connection to the database
 try:
     connection = psycopg2.connect(**connection_params)

@@ -8,7 +8,8 @@ from pydantic import BaseModel
 
 class village_url_data(BaseModel):
     village_name: str
-    url: list[str] = []
+    url: str
+    url_image: str
     article_title: str = None 
     posted_date: str = None
 

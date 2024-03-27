@@ -250,7 +250,7 @@ def get_mhs_water_lines():
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction 
 
-def get_village_from_distance(distance="", facility_type="", facility_name=""):
+def get_village_from_distance(distance, facility_type="", facility_name=""):
     query = None
     # facility_type = "hospital"
     # facility_name = "โรงพยาบาลส่งเสริมสุขภาพตำบลสล่าเชียงตอง"

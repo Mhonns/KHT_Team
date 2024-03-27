@@ -255,7 +255,7 @@ def get_village_from_distance(distance, facility_type="", facility_name=""):
     # facility_type = "hospital"
     # facility_name = "โรงพยาบาลส่งเสริมสุขภาพตำบลสล่าเชียงตอง"
     # distance = 5000
-    print('attempt')
+    print('attempt2')
     print(distance)
     print(facility_type)
     print(facility_name)

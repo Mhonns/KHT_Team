@@ -278,12 +278,10 @@ def get_village_from_distance(distance, facility_type="", facility_name=""):
         SELECT village.*
         FROM village
         JOIN {table} ON {table}.{column} = {facility_name}
-        AND ST_DWithin(village.geom::geography, {table}.geom::geography, %s)
+        AND ST_DWithin(village.geom::geography, {table}.geom::geography, {distance})
     """).format(table=sql.Identifier(facility_type),
                 column=sql.Identifier(facility_type + "_name"),
-                facility_name=sql.Literal(facility_name),
-                distance=sql.Literal(distance))
-
+                facility_name=sql.Literal(facility_name))
     try:
         cursor.execute(query, (distance,))
         full_query = query.as_string(cursor)

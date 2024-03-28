@@ -275,7 +275,7 @@ def get_village_from_distance(distance, facility_type="", facility_name=""):
     #     connection.rollback()
 
     query = sql.SQL("""
-        SELECT village.*
+        SELECT village.*,hospital.*
         FROM village
         JOIN {table} ON {table}.{column} = {facility_name}
         AND ST_DWithin(village.geom::geography, {table}.geom::geography, {distance})

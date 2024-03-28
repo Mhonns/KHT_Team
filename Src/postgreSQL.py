@@ -250,30 +250,8 @@ def get_mhs_water_lines():
         print(f"Error executing query")
         connection.rollback()  # Rollback the transaction 
 
-def get_village_from_distance(distance, facility_type="", facility_name=""):
-    query = None
-    # facility_type = "hospital"
-    # facility_name = "โรงพยาบาลส่งเสริมสุขภาพตำบลสล่าเชียงตอง"
-    # distance = 5000
-    print('attempt2')
-    print(distance)
-    print(facility_type)
-    print(facility_name)
-    print(sql.Literal(facility_name)) 
-
-    # TEST QUERY
-    # query = sql.SQL("""SELECT * from {table}""").format(table=sql.Identifier(facility_type))
-
-    # try:
-    #     cursor.execute(query)
-    #     full_query = query.as_string(cursor)
-    #     print(full_query)
-    #     geojson_result = query_to_geojson(cursor, query)
-    #     return geojson_result
-    # except:
-    #     print(f"Error executing query")
-    #     connection.rollback()
-
+def get_village_from_distance(distance="", facility_type="", facility_name=""):
+    query = None 
     query = sql.SQL("""
         SELECT village.*,hospital.*
         FROM village

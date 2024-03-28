@@ -45,9 +45,11 @@ def pull_static_data(table: str, village_id=""):
         return geojson_data
 
 @app.get("/api/village/")
-def pull_village_data(village_id="", year="", start_year="", end_year=""):
+def pull_village_data(village_id="", year="", start_year="", end_year="", distance="", facility_type="", facility_name=""):
     if year != "" or (start_year != "" and end_year != ""):
         geojson_data = postgreSQL.get_village_project_by_year(year, start_year, end_year)
+    elif distance != "" and facility_type != "" and facility_name != "":
+        geojson_data = postgreSQL.get_village_from_distance(distance, facility_type, facility_name)
     else:
         geojson_data = postgreSQL.get_village(village_id)
     return geojson_data
@@ -63,6 +65,7 @@ def pull_project_data(village_id="", start_year="", end_year=""):
 #     return geojson_data
 
 # 4 types of project data: WASH, Irrigation, Further Education Scholarships, Dormitory Meals, School Buses
+
 @app.get("/api/project_type/")
 def pull_project_type_data(project_type=""):
     geojson_data = postgreSQL.get_project_type(project_type)

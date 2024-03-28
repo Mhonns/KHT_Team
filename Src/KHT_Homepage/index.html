@@ -251,7 +251,7 @@
 
     async function fetchData() {
         try {
-            const response = await fetch('https://172.105.120.121/api/get/?table=village', { signal: fetchDataController.signal });
+            const response = await fetch('https://172.105.120.121:443/api/village', { signal: fetchDataController.signal });
             const data = await response.json();
             console.log('Data from API:', data);
             console.log("Village Name:", data.features[0].properties.village_name);
@@ -333,7 +333,7 @@
                         localStorage.setItem('id', id);
                         async function fetchData(id) {
                             try {
-                                const response = await fetch("http://kht-data.uk.to/api/project/?village_id=" + id);
+                                const response = await fetch("https:172.105.120.121:443/api/project/?village_id=" + id);
                                 const data = await response.json();
                                 console.log(data);
 
@@ -620,7 +620,11 @@
     //     }*/
     // }).addTo(map)
 
+    
+                        
 
+
+                       
     // Create a layer group for markers
     var markersLayerGroup = L.layerGroup([VillageData]);
 
@@ -697,7 +701,14 @@
             
             <input type="radio" id="radio3" name="radio" value="radio3">
             <label for="radio3">Project Type</label>
-            <input type="text" size="10" style="margin-left: 20px;" id="input4"><br style="margin-bottom: 20px;">
+            <select id="input4" style="margin-left: 20px; margin-bottom: 20px;">
+            <option value=" ">Select a project type</option>
+            <option value="WASH">WASH</option>
+            <option value="Further Education Scholarship">Further Education Scholarship</option>
+            <option value="Irrigation">Irrigation</option>
+            <option value="Dormitory Meals">Dormitory Meals</option>
+            <option value="School Buses">School Buses</option>
+            </select>><br style="margin-bottom: 20px;">
             
             <button id="searchButton" style="margin-left: 80px;">Search</button>
             <button id="cancelButton" style="margin-left: 100px;">Cancel</button>
@@ -720,10 +731,24 @@
 
         // Attach event listener to the search button
         div.querySelector('#searchButton').addEventListener('click', function () {
-            function clearApiData() {
-                data = null;
-            }
+            // function clearApiData() {
+            //     markersLayerGroup  = null;
+            //     VillageData = null;
+            //     response = null;
+            //     data = null;
+            //     id = null;
+            // }
+            //markersLayerGroup.removeFrom(map);
+            //get rid of the fetch data when click on searchButton
+            fetchDataController.abort();
+            div.querySelector('#searchButton').removeEventListener('click', fetchData);
             
+            // Remove the VillageData layer from the map
+            map.removeLayer(VillageData);
+
+            // Clear the markersLayerGroup from the map
+            markersLayerGroup.clearLayers();
+            //clearApiData();
             // Check which radio button is selected
             var selectedRadioButton = document.querySelector('input[name="radio"]:checked');
             if (selectedRadioButton) {
@@ -737,6 +762,7 @@
                 // Select the search button
                 let searchButton = document.getElementById('searchButton'); // replace 'searchButton' with the actual ID of your search button
 
+                var request = new XMLHttpRequest();
                 switch (radioButtonId) {
                     case 'radio1':
                         inputId1 = 'input1';
@@ -754,12 +780,118 @@
                         console.log('Input value 2:', inputValue2);
                         break;
                     case 'radio3':
-                            document.getElementById('searchButton').addEventListener('click', function() {
-                            fetch('kht-data.uk.to/api/get_village_project_by_year/?start_year=2021&end_year=2027')
+                        // check the input for project type
+                        if (document.getElementById('input4').value == 'WASH') {
+                            
+                            fetch("https://172.105.120.121/api/project_type/?project_type=WASH")
                             .then(response => response.json())
-                            .then(data => console.log(data))
-                            .catch(error => console.error('Error:', error));
-                        });
+                            .then(data => {
+                                return L.geoJSON(data, {
+                                    pointToLayer: function (feature, latlng) {
+                                        return L.circleMarker(latlng, {
+                                            radius: 8,
+                                            fillColor: 'green',
+                                            color: 'white',
+                                            weight: 2,
+                                            opacity: 1,
+                                            fillOpacity: 0.7
+                                        });
+                                    },
+                                    onEachFeature: function (feature, layer) {
+                                        layer.bindPopup(feature.properties.project_name_en);
+                                    }
+                                }).addTo(map);
+                            })
+                            
+                            console.log('Fetch WASH');
+                        }
+                        if (document.getElementById('input4').value == 'Further Education Scholarship') {
+                            fetch("https://172.105.120.121:443/api/project_type/?project_type=Further%20Education%20Scholarships")
+                            .then(response => response.json())
+                            .then(data => {
+                                return L.geoJSON(data, {
+                                    pointToLayer: function (feature, latlng) {
+                                        return L.circleMarker(latlng, {
+                                            radius: 8,
+                                            fillColor: 'green',
+                                            color: 'white',
+                                            weight: 2,
+                                            opacity: 1,
+                                            fillOpacity: 0.7
+                                        });
+                                    },
+                                    onEachFeature: function (feature, layer) {
+                                        layer.bindPopup(feature.properties.project_name_en);
+                                    }
+                                }).addTo(map);
+                            })
+                        }
+                        if (document.getElementById('input4').value == 'Irrigation') {
+                            fetch("https://172.105.120.121:443/api/project_type/?project_type=Irrigation")
+                            .then(response => response.json())
+                            .then(data => {
+                                return L.geoJSON(data, {
+                                    pointToLayer: function (feature, latlng) {
+                                        return L.circleMarker(latlng, {
+                                            radius: 8,
+                                            fillColor: 'green',
+                                            color: 'white',
+                                            weight: 2,
+                                            opacity: 1,
+                                            fillOpacity: 0.7
+                                        });
+                                    },
+                                    onEachFeature: function (feature, layer) {
+                                        layer.bindPopup(feature.properties.project_name_en);
+                                    }
+                                }).addTo(map);
+                            })
+                        }
+
+                        if (document.getElementById('input4').value == 'Dormitory Meals') {
+                            fetch("https://172.105.120.121:443/api/project_type/?project_type=Dormitory%20Meals")
+                            .then(response => response.json())
+                            .then(data => {
+                                return L.geoJSON(data, {
+                                    pointToLayer: function (feature, latlng) {
+                                        return L.circleMarker(latlng, {
+                                            radius: 8,
+                                            fillColor: 'green',
+                                            color: 'white',
+                                            weight: 2,
+                                            opacity: 1,
+                                            fillOpacity: 0.7
+                                        });
+                                    },
+                                    onEachFeature: function (feature, layer) {
+                                        layer.bindPopup(feature.properties.project_name_en);
+                                    }
+                                }).addTo(map);
+                            })
+                        }
+
+                        if (document.getElementById('input4').value == 'School Buses') {
+                            fetch("https://172.105.120.121:443/api/project_type/?project_type=School%20Buses")
+                            .then(response => response.json())
+                            .then(data => {
+                                return L.geoJSON(data, {
+                                    pointToLayer: function (feature, latlng) {
+                                        return L.circleMarker(latlng, {
+                                            radius: 8,
+                                            fillColor: 'green',
+                                            color: 'white',
+                                            weight: 2,
+                                            opacity: 1,
+                                            fillOpacity: 0.7
+                                        });
+                                    },
+                                    onEachFeature: function (feature, layer) {
+                                        layer.bindPopup(feature.properties.project_name_en);
+                                    }
+                                }).addTo(map);
+                            })
+                        }
+
                         inputId1 = 'input4';
                         inputValue1 = document.getElementById(inputId1).value;
                         console.log('Selected radio button:', radioButtonId);
